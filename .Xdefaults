@@ -1,0 +1,46 @@
+! ~/.Xdefaults | Curtis Free (http://curtisfree.com)
+
+! bg/fg
+*background: white
+*foreground: black
+
+! colors
+!! Taken from GNOME Terminal "Linux console" theme.
+*color0:  #000000
+*color8:  #555555
+*color1:  #AA0000
+*color9:  #FF5555
+*color2:  #00AA00
+*color10: #55FF55
+*color3:  #AA5500
+*color11: #FFFF55
+*color4:  #0000AA
+*color12: #5555FF
+*color5:  #AA00AA
+*color13: #FF55FF
+*color6:  #00AAAA
+*color14: #55FFFF
+*color7:  #AAAAAA
+*color15: #FFFFFF
+
+! Xft
+Xft*dpi:       96
+Xft*antialias: true
+Xft*hinting:   true
+Xft*hintstyle: hintfull
+Xft*rgba:      rgb
+
+! xterm
+xterm*faceName:     Bitstream Vera Sans Mono
+xterm*faceSize:     9
+xterm*scrollBar:    false
+xterm*charClass:    33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:38
+xterm*backarrowKey: false
+
+! urxvt
+urxvt*font:            xft:Bitstream Vera Sans Mono:size=9
+urxvt*scrollBar:       false
+urxvt*perl-ext-common: default,matcher
+urxvt*urlLauncher:     firefox
+urxvt.matcher.button:  1
+

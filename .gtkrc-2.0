@@ -1,0 +1,41 @@
+# ~/.gtkrc-2.0 | Curtis Free (http://curtisfree.com)
+
+# base theme
+include "/usr/share/themes/ClearlooksClassic/gtk-2.0/gtkrc"
+#include "/usr/share/themes/Rezlooks-graphite/gtk-2.0/gtkrc"
+
+# color overrides
+gtk_color_scheme = "selected_bg_color:#3465A4"
+style "colors" {
+  bg[SELECTED]   = @selected_bg_color
+  base[ACTIVE]   = @selected_bg_color
+  base[SELECTED] = @selected_bg_color
+}
+class "*" style "colors"
+
+# fonts
+style "Sans" {
+    font_name = "Sans 9"
+}
+widget_class "*" style "Sans"
+gtk-font-name = "Sans 9"
+
+# sounds
+gtk-enable-event-sounds = 0
+
+# icons
+gtk-icon-theme-name = "Tango"
+
+# fonts
+# see http://bbs.archlinux.org/viewtopic.php?pid=693878#p693878
+#     http://library.gnome.org/devel/gtk/2.17/GtkSettings.html
+# should match settings in ~/.Xdefaults
+gtk-xft-dpi       = 96
+gtk-xft-antialias = 1
+gtk-xft-hinting   = 1
+gtk-xft-hintstyle = hintfull
+gtk-xft-rgba      = rgb
+
+# toolbars
+gtk-toolbar-style = GTK_TOOLBAR_BOTH_HORIZ
+gtk-toolbar-icon-size = GTK_ICON_SIZE_SMALL_TOOLBAR

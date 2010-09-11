@@ -1,0 +1,143 @@
+" ~/.vimperatorrc | vi: set ft=vim: | Curtis Free (http://curtisfree.com)
+
+" These settings prevent Vimperator from overwriting my preferred Firefox settings.
+set showtabline=2
+set! browser.startup.page=1
+
+" Miscellaneous
+set history=50
+"" see http://code.google.com/p/vimperator-labs/issues/detail?id=311
+set popups=tab,resized
+"" vertical bar CANNOT be used here
+set urlseparator=;
+
+" Awesome Bar
+"" See http://www.developernotes.com/post/Vimperator-Tip.aspx.
+"set wildoptions=auto " slow/buggy in Vimperator 2.0+
+set cpt=l
+
+" Find
+"" perform incremental searching
+set incsearch
+"" highlight search results
+set hlsearch
+"" typically (see below) ignore case
+set ignorecase
+"" only consider case if an upper case char is used
+set smartcase
+
+" Maps
+"" Note: Since about Vimperator 2.2, one must use S-char (shift+char) instead of CHAR (uppercase).
+""" Stop
+map <Esc> <C-c>
+""" Site Opening
+map  <C-l> o
+imap <C-l> <Esc>o
+map  <C-S-l> t
+imap <C-S-l> <Esc>t
+map  <C-e> O
+imap <C-e> <Esc>O
+""" Navigation
+map < H
+map > L
+""" Searching (Google)
+map  <C-k> ogoogle<Space>
+imap <C-k> <Esc>ogoogle<Space>
+map  <C-S-k> tgoogle<Space>
+imap <C-S-k> <Esc>tgoogle<Space>
+""" Firefox Dialogs
+"""" Downloads
+noremap  <C-j> <C-t>:downloads<CR>
+inoremap <C-j> <Esc><C-t>:downloads<CR>
+cnoremap <C-j> <C-t>:downloads<CR>
+""" Tabs
+"""" Modified Firefox Hotkey(s)
+noremap  <C-t> <C-t>o
+inoremap <C-t> <C-t>o
+"""" GNU Screen-like Tabs
+""""" NOTE: These interfere with Vimperator's default <C-a> functionality.
+"""""       See `:h <C-a>`.
+"map <C-a>c <C-t>
+"map <C-a>n <C-Tab>
+"map <C-a>p <S-C-Tab>
+"map <C-a>k d
+"""" (Custom) Vim-like Tabs
+""""" See http://dailyvim.blogspot.com/2008/11/tabs.html.
+map ,to <C-t>
+map ,tf t
+map ,tc d
+map ,tn <C-Tab>
+map ,tp <S-C-Tab>
+""" Mode Overrides
+"""" Insert Mode
+imap <C-t> <Esc><C-t>
+imap <C-w> <Esc><C-w>
+"""" Command Mode
+cmap <C-k> <Esc><C-k>
+cmap <C-l> <Esc><C-l>
+cmap <C-t> <Esc><C-t>
+
+" Style
+"" See http://bbs.archlinux.org/viewtopic.php?id=69123
+"" See http://github.com/VoQn/vimperator-colorscheme/raw/e13afec1be5ec1c9de775d0e2a464862f8d3a453/colors/default.vimp
+hi CompItem  font-size: 12px;
+hi CompTitle color: magenta; font-weight: bold; font-size: 12px;
+
+" Commands
+"" Show Error Console
+""" NOTE: Requires Web Developer toolbar.
+command! error js webdeveloper_openErrorConsole();
+"" Show User Agent
+command! useragent set! general.useragent.extra.firefox?
+"" Show Web Developer Toolbar
+""" NOTE: Requires Web Developer toolbar.
+command! webdev js webdeveloper_toggleToolbar();
+
+" Passthroughs
+"" See http://cinderwick.ca/files/configs/vimperatorrc.
+""" Google Reader
+""" Google Docs
+autocmd LocationChange .* js modes.passAllKeys = /google\.com\/reader|docs\.google\.com/.test(buffer.URL)
+
+" Auto Commands
+"" Facebook
+""" Focus email field on main page.
+""" See http://www.daniweb.com/forums/thread47199.html.
+autocmd LocationChange www.facebook.com js setTimeout("window.getBrowser().contentDocument.getElementById('email').focus()", 500)
+
+" Custom JS Functions
+"" Element Toggle
+""" See http://vimperator.org/trac/ticket/2.
+:js <<EOJS
+  toggle_element = function(name) {
+    document.getElementById(name).collapsed ^= 1;
+  }
+EOJS
+"" Bookmark on Delicious
+""" JS derived from http://delicious.com/help/bookmarklets.
+""" For reference, see https://developer.mozilla.org/en/XUL/browser.
+map D :js add_to_delicious()<CR>
+:js <<EOJS
+  add_to_delicious = function() {
+    var delicious_url = 'http://delicious.com/save'
+                      + '?url=' + encodeURIComponent(window.getBrowser().currentURI.spec)
+                      + '&title=' + encodeURIComponent(window.getBrowser().contentTitle)
+                      + '&v=5&noui=1&jump=doclose'
+                      + '&share=no'; // default share setting
+    window.open(delicious_url, 'deliciousuiv5', 'width=550,height=550');
+  }
+EOJS
+"" Amazon Universal Wishlist
+""" JS derived from http://www.amazon.com/wishlist/get-button (also see Delicious credits above).
+"""" NOTE: If not already logged into Amazon.com, this will not always work ('&' isn't handled
+""""       by Amazon when passing through login).
+command! amzwishlist js add_to_amazon_wishlist();
+:js <<EOJS
+  add_to_amazon_wishlist = function() {
+    var amazon_wishlist_url = 'http://www.amazon.com/wishlist/add'
+                            + '?u=' + encodeURIComponent(window.getBrowser().currentURI.spec)
+                            + '&t=' + encodeURIComponent(window.getBrowser().contentDocument.title);
+    window.open(amazon_wishlist_url, 'amzwishlist', 'width=900,height=553');
+  }
+EOJS
+

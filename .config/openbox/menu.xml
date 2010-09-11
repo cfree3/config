@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ~/.config/openbox/menu.xml | Curtis Free (http://curtisfree.com) -->
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+  <!-- Accessories -->
+  <menu id="apps-accessories-menu" label="Accessories">
+     <item label="Archive Manager">
+      <action name="Execute">
+        <command>file-roller</command>
+      </action>
+    </item>
+   <item label="Calculator">
+      <action name="Execute">
+        <command>gcalctool</command>
+      </action>
+    </item>
+    <item label="Character Map">
+      <action name="Execute">
+        <command>gucharmap</command>
+      </action>
+    </item>
+    <item label="Find Files">
+      <action name="Execute">
+        <command>pcmanfm --find-files</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Documents -->
+  <menu id="apps-documents-menu" label="Documents">
+    <item label="Adobe Reader">
+      <action name="Execute">
+        <command>acroread</command>
+      </action>
+    </item>
+    <item label="Evince">
+      <action name="Execute">
+        <command>evince</command>
+      </action>
+    </item>
+    <item label="zathura">
+      <action name="Execute">
+        <command>zathura</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Editors -->
+  <menu id="apps-editors-menu" label="Editors">
+    <item label="gVim">
+      <action name="Execute">
+        <command>gvim</command>
+      </action>
+    </item>
+    <item label="medit">
+      <action name="Execute">
+        <command>medit</command>
+      </action>
+    </item>
+    <item label="Vim">
+      <action name="Execute">
+        <command>xterm -e "vim || vi"</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Terminals -->
+  <menu id="apps-terminals-menu" label="Terminals">
+    <item label="urxvt">
+      <action name="Execute">
+        <command>urxvt</command>
+      </action>
+    </item>
+    <item label="urxvt-tabbed">
+      <action name="Execute">
+        <command>urxvt-tabbed</command>
+      </action>
+    </item>
+    <item label="xterm">
+      <action name="Execute">
+        <command>xterm</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Games -->
+  <menu id="apps-games-menu" label="Games">
+    <item label="PySol">
+      <action name="Execute">
+        <command>pysol</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Internet -->
+  <menu id="apps-internet-menu" label="Internet">
+    <item label="Chromium">
+      <action name="Execute">
+        <command>chromium</command>
+      </action>
+    </item>
+    <item label="Deluge">
+      <action name="Execute">
+        <command>deluge</command>
+      </action>
+    </item>
+    <item label="Firefox">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </item>
+    <item label="Links">
+      <action name="Execute">
+        <command>xterm -e links</command>
+      </action>
+    </item>
+    <item label="Pidgin">
+      <action name="Execute">
+        <command>pidgin</command>
+      </action>
+    </item>
+    <item label="Wireshark">
+      <action name="Execute">
+        <command>gksudo wireshark</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Office -->
+  <menu id="apps-office-menu" label="Office">
+    <item label="OpenOffice.org">
+      <action name="Execute">
+        <command>soffice</command>
+      </action>
+    </item>
+    <separator/>
+    <item label="Base">
+      <action name="Execute">
+        <command>soffice -base</command>
+      </action>
+    </item>
+    <item label="Calc">
+      <action name="Execute">
+        <command>soffice -calc</command>
+      </action>
+    </item>
+    <item label="Draw">
+      <action name="Execute">
+        <command>soffice -draw</command>
+      </action>
+    </item>
+    <item label="Impress">
+      <action name="Execute">
+        <command>soffice -impress</command>
+      </action>
+    </item>
+    <item label="Math">
+      <action name="Execute">
+        <command>soffice -math</command>
+      </action>
+    </item>
+    <item label="Writer">
+      <action name="Execute">
+        <command>soffice -write</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Multimedia -->
+  <menu id="apps-multimedia-menu" label="Multimedia">
+    <item label="Hulu Desktop">
+      <action name="Execute">
+        <execute>huludesktop-bin</execute>
+      </action>
+    </item>
+    <item label="Sound Juicer">
+      <action name="Execute">
+        <execute>sound-juicer</execute>
+      </action>
+    </item>
+    <item label="Totem">
+      <action name="Execute">
+        <command>totem</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- File Managers -->
+  <menu id="apps-fileman-menu" label="File Managers">
+    <item label="PCMan File Manager">
+      <action name="Execute">
+        <command>pcmanfm</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Graphics -->
+  <menu id="apps-graphics-menu" label="Graphics">
+    <item label="Dia">
+      <action name="Execute">
+        <command>dia</command>
+      </action>
+    </item>
+    <item label="GPicView">
+      <action name="Execute">
+        <execute>gpicview</execute>
+      </action>
+    </item>
+    <item label="GIMP">
+      <action name="Execute">
+        <command>gimp</command>
+      </action>
+    </item>
+    <item label="Inkscape">
+      <action name="Execute">
+        <command>inkscape</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Programming -->
+  <menu id="apps-programming-menu" label="Programming">
+    <item label="Bluefish">
+      <action name="execute">
+        <command>bluefish</command>
+      </action>
+    </item>
+    <item label="DDD">
+      <action name="execute">
+        <command>ddd</command>
+      </action>
+    </item>
+    <item label="Eclipse">
+      <action name="execute">
+        <command>eclipse</command>
+      </action>
+    </item>
+    <item label="IDLE">
+      <action name="execute">
+        <command>idle</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Virtualization -->
+  <menu id="virtualization-menu" label="Virtualization">
+    <item label="VirtualBox">
+      <action name="Execute">
+        <command>VirtualBox</command>
+      </action>
+    </item>
+    <separator/>
+    <item label="WinXP">
+      <action name="Execute">
+        <command>VBoxManage startvm WinXP</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- System -->
+  <menu id="system-menu" label="System">
+    <item label="CUPS">
+      <action name="Execute">
+        <command>xdg-open http://localhost:631/</command>
+      </action>
+    </item>
+    <item label="htop">
+      <action name="execute">
+        <execute>xterm -e htop</execute>
+      </action>
+    </item>
+    <item label="System Monitor">
+      <action name="Execute">
+        <command>gnome-system-monitor</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Openbox -->
+  <menu id="openbox-menu" label="Openbox">
+    <item label="Reconfigure">
+      <action name="Reconfigure"/>
+    </item>
+    <item label="New Wallpaper">
+      <action name="Execute">
+        <command>~/scripts/wm/randesk.py</command>
+      </action>
+    </item>
+    <item label="Restart Pypanel">
+      <action name="Execute">
+        <command>killall pypanel ; pypanel</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- Root Menu -->
+  <menu id="root-menu" label="Openbox 3">
+    <separator label="cfree3"/>
+    <menu id="apps-accessories-menu"/>
+    <menu id="apps-documents-menu"/>
+    <menu id="apps-editors-menu"/>
+    <menu id="apps-filemanagers-menu"/>
+    <menu id="apps-games-menu"/>
+    <menu id="apps-graphics-menu"/>
+    <menu id="apps-internet-menu"/>
+    <menu id="apps-multimedia-menu"/>
+    <menu id="apps-office-menu"/>
+    <menu id="apps-programming-menu"/>
+    <menu id="apps-terminals-menu"/>
+    <separator/>
+    <menu id="virtualization-menu"/>
+    <separator/>
+    <menu id="system-menu"/>
+    <menu id="openbox-menu"/>
+    <separator/>
+    <item label="Run...">
+      <action name="execute">
+        <execute>gmrun</execute>
+      </action>
+    </item>
+    <separator/>
+    <item label="Session">
+      <action name="execute">
+        <execute>/home/cfree3/scripts/wm/sessionDialog.py</execute>
+      </action>
+    </item>
+  </menu>
+
+</openbox_menu>

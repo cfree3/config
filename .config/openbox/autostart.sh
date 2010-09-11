@@ -1,0 +1,46 @@
+#!/bin/sh
+# ~/.config/openbox/autostart.sh | Curtis Free (http://curtisfree.com)
+
+# Export(s)
+export OOO_FORCE_DESKTOP=gnome
+
+# X.Org Settings
+# See http://bbs.archlinux.org/viewtopic.php?pid=517550#p517550.
+xset r rate 200 30 # Key repeat delay/speed.
+
+# Pre-start Application(s)
+## Screensaver (Optional)
+#(type gnome-screensaver >/dev/null 2>&1 && gnome-screensaver) &
+
+# ~/.gtkrc-2.0 "hack"
+if [ -f ~/.gtkrc-2.0.openbox ]; then
+    mv ~/.gtkrc-2.0.openbox ~/.gtkrc-2.0
+fi
+
+# Filesystem Setup
+## Firefox Cache
+### See http://wiki.archlinux.org/index.php/Speed-up_Firefox_using_tmpfs.
+install -dm700 /dev/shm/firefox-cache
+
+# Post-start Application(s)
+
+## Wallpaper (Choice)
+### Random
+~/scripts/wm/randesk.py
+### Static/Previous
+#(sleep 1 && type nitrogen &>/dev/null && nitrogen --restore) &
+
+## Panel
+(sleep 1 && type pypanel &>/dev/null && pypanel) &
+
+## Compositing
+### Arguments to xcompmgr taken from ArchWiki.
+(sleep 2 && type xcompmgr &>/dev/null && xcompmgr -c -t-5 -l-5 -r4.2 -o.55) &
+
+## System Monitor (Optional)
+(type conky &>/dev/null && conky -q) &
+
+## Cursor Hiding (Optional)
+### See http://wiki.archlinux.org/index.php/Unclutter.
+(type unclutter &>/dev/null && unclutter -idle 3) &
+
