@@ -1,5 +1,6 @@
 # ~/.pypanelrc | Curtis Free (http://curtisfree.com)
 # This config makes PyPanel look much like a typical top GNOME Panel.
+# NOTE: This is not an original work: it is a modification of the default config.
 
 #------------------------------------------------------------------------------
 #                         PyPanel v2.4 Configuration
