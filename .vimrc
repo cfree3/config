@@ -115,7 +115,7 @@ if has("gui_running")
   map  <S-Insert> <MiddleMouse>
   imap <S-Insert> <MiddleMouse>
   vmap <S-Insert> <MiddleMouse>
-  " 'select all' (bothersome if accustomed to GNU screen)
+  " 'select all' (bothersome if accustomed to GNU Screen)
   "map  <C-a> ggVG
   "imap <C-a> <Esc>ggVG
   "vmap <C-a> <Esc>ggVG
