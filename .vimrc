@@ -115,10 +115,10 @@ if has("gui_running")
   map  <S-Insert> <MiddleMouse>
   imap <S-Insert> <MiddleMouse>
   vmap <S-Insert> <MiddleMouse>
-  " 'select all'
-  map  <C-a> ggVG
-  imap <C-a> <Esc>ggVG
-  vmap <C-a> <Esc>ggVG
+  " 'select all' (bothersome if accustomed to GNU screen)
+  "map  <C-a> ggVG
+  "imap <C-a> <Esc>ggVG
+  "vmap <C-a> <Esc>ggVG
   " tab switching (as with other GTK+ apps)
   map  <C-Tab>   :tabn<CR>
   map  <S-C-Tab> :tabp<CR>
