@@ -128,8 +128,8 @@ if has("gui_running")
   vmap <S-C-Tab> <Esc>:tabp<CR>
   " font
   set guifont=Monospace\ 9
-  " no toolbar
-  set guioptions-=T
+  " various options
+  set guioptions=aceirh
   " hide the mouse when typing
   set mousehide
   " colorscheme
