@@ -1,5 +1,9 @@
 # ~/.zshrc | Curtis Free (http://curtisfree.com)
 
+# Disable <C-s> terminal stop.
+# See http://www.catonmat.net/blog/vim-plugins-surround-vim.
+stty stop ''
+
 # Silent command execution.
 ## See http://bbs.archlinux.org/viewtopic.php?pid=553911#p553911.
 silent () { $@ &>/dev/null; }
