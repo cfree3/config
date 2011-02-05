@@ -52,6 +52,10 @@ set spelllang=en_us
 ab _cf Curtis Free (http://curtisfree.com)
 
 " Maps
+"" overrides
+""" :q often mistyped as q:
+map  q: <C-g>
+vmap q: <C-g>
 "" line numbers
 map  <F2> :setlocal number!<CR>
 imap <F2> <C-o>:setlocal number!<CR>
