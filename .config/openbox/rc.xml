@@ -242,6 +242,12 @@
         <execute>totem</execute>
       </action>
     </keybind>
+    <!-- System -->
+    <keybind key="XF86PowerOff">
+      <action name="Execute">
+        <execute>/home/cfree3/scripts/wm/sessionDialog.py</execute>
+      </action>
+    </keybind>
   </keyboard>
 
   <!-- Mouse Controls -->
