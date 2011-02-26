@@ -33,12 +33,16 @@ install -dm700 /dev/shm/firefox-cache
 ## Panel
 (sleep 1 && type pypanel &>/dev/null && pypanel) &
 
-## Compositing
+## Compositing (Optional)
 ### Arguments to xcompmgr taken from ArchWiki.
-(sleep 2 && type xcompmgr &>/dev/null && xcompmgr -c -t-5 -l-5 -r4.2 -o.55) &
+#(sleep 2 && type xcompmgr &>/dev/null && xcompmgr -c -t-5 -l-5 -r4.2 -o.55) &
 
 ## System Monitor (Optional)
 (type conky &>/dev/null && conky -q) &
+
+## Tiling (Optional)
+### PyTyle Wiki suggests sleep time of 5.
+(sleep 5 && type pytyle &>/dev/null && pytyle) &
 
 ## Cursor Hiding (Optional)
 ### See http://wiki.archlinux.org/index.php/Unclutter.
