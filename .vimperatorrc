@@ -1,7 +1,6 @@
 " ~/.vimperatorrc | vi: set ft=vim: | Curtis Free (http://curtisfree.com)
 
 " These settings prevent Vimperator from overwriting my preferred Firefox settings.
-set showtabline=2
 set! browser.startup.page=1
 
 " Miscellaneous
