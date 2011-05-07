@@ -5,8 +5,6 @@ set! browser.startup.page=1
 
 " Miscellaneous
 set history=50
-"" see http://code.google.com/p/vimperator-labs/issues/detail?id=311
-set popups=tab,resized
 "" vertical bar CANNOT be used here
 set urlseparator=;
 
@@ -14,6 +12,12 @@ set urlseparator=;
 "" See http://www.developernotes.com/post/Vimperator-Tip.aspx.
 "set wildoptions=auto " slow/buggy in Vimperator 2.0+
 set cpt=l
+
+" Display
+"" show only the tab bar
+set gui=tabs
+"" see http://code.google.com/p/vimperator-labs/issues/detail?id=311
+set popups=tab,resized
 
 " Find
 "" perform incremental searching
@@ -94,8 +98,7 @@ command! webdev js webdeveloper_toggleToolbar();
 
 " Passthroughs
 "" See http://cinderwick.ca/files/configs/vimperatorrc.
-""" Google Reader
-""" Google Docs
+""" Google Reader/Docs
 autocmd LocationChange .* js modes.passAllKeys = /google\.com\/reader|docs\.google\.com/.test(buffer.URL)
 
 " Auto Commands
