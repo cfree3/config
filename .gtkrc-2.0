@@ -1,7 +1,7 @@
 # ~/.gtkrc-2.0 | Curtis Free (http://curtisfree.com)
 
 # base theme
-include "/home/cfree3/.themes/Clearlooks-Quicksilver/gtk-2.0/gtkrc"
+include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
 
 # color overrides
 gtk_color_scheme = "selected_bg_color:#3465A4"
