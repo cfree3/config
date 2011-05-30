@@ -159,6 +159,10 @@ endfunction
 "" See http://writequit.org/blog/?p=195.
 command! SUw %!sudo tee >/dev/null %
 
+" Options/Params
+"" assume BASH for shell scripts (see sh.vim; "$(...)" won't be flagged as error)
+let is_bash=1
+
 " Filetypes
 if has("autocmd")
   filetype plugin indent on " automatic per-language indentation
