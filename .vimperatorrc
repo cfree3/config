@@ -9,9 +9,9 @@ set history=50
 set urlseparator=;
 
 " Awesome Bar
-"" See http://www.developernotes.com/post/Vimperator-Tip.aspx.
-"set wildoptions=auto " slow/buggy in Vimperator 2.0+
-set cpt=l
+"" See http://developernotes.com/archive/2008/09/22/vimperator-tip-awesome-bar.aspx.
+"" Additional 's' option gives initial suggestion of search engine.
+set cpt=ls
 
 " Display
 "" show only the tab bar
