@@ -25,6 +25,7 @@ own_window_hints sticky,skip_taskbar,skip_pager
 use_spacer left #none
 
 # Display Conky in the upper-right corner of the screen.
+# Spacing for use with a 24px top panel.
 alignment top_right
 gap_x 6             # 6px from the side of the screen.
 gap_y 30            # 34px from the top of the screen.
