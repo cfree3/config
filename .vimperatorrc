@@ -10,8 +10,10 @@ set urlseparator=;
 
 " Awesome Bar
 "" See http://developernotes.com/archive/2008/09/22/vimperator-tip-awesome-bar.aspx.
-"" Additional 's' option gives initial suggestion of search engine.
-set cpt=ls
+"" Additional 's' option gives initial suggestion of search engine but (mistakenly?)
+"" enables suggestions (which should only occur given 'S'). Useful, but I'll favor
+"" privacy/security and just use 'l' here.
+set complete=l
 
 " Display
 "" show only the tab bar
