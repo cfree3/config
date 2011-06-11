@@ -55,7 +55,7 @@ TRAY_I_WIDTH    = 16            # System tray icon width  (usually 16 or 24)
 #------------------------------------------------------------------------------
 # Panel Clock Format: 'man strftime' for detailed formatting options and help
 #------------------------------------------------------------------------------
-CLOCK_FORMAT    = "%l:%M %p"    # Ex: 2004-09-25 17:45
+CLOCK_FORMAT    = "%b %e %l:%M %p"    # Ex: 2004-09-25 17:45
 
 #------------------------------------------------------------------------------
 # Clock Delay: Seconds between each clock update during periods of inactivity
