@@ -103,12 +103,6 @@ command! webdev js webdeveloper_toggleToolbar();
 """ Google Reader/Docs
 autocmd LocationChange .* js modes.passAllKeys = /google\.com\/reader|docs\.google\.com/.test(buffer.URL)
 
-" Auto Commands
-"" Facebook
-""" Focus email field on main page.
-""" See http://www.daniweb.com/forums/thread47199.html.
-autocmd LocationChange www.facebook.com js setTimeout("window.getBrowser().contentDocument.getElementById('email').focus()", 500)
-
 " Custom JS Functions
 "" Element Toggle
 """ See http://vimperator.org/trac/ticket/2.
