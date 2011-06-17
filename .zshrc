@@ -91,6 +91,13 @@ bindkey "^i"     expand-or-complete-prefix
 bindkey -M vicmd "\e[1~" beginning-of-line
 bindkey -M vicmd "\e[4~" end-of-line
 
+# Enable command line editing (<C-t>).
+## See http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh.
+## This `bindkey` should be done after those above.
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^t' edit-command-line
+
 # Colors.
 eval `dircolors`
 
