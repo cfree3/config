@@ -71,11 +71,6 @@
         <command>urxvt</command>
       </action>
     </item>
-    <item label="urxvt-tabbed">
-      <action name="Execute">
-        <command>urxvt-tabbed</command>
-      </action>
-    </item>
     <item label="xterm">
       <action name="Execute">
         <command>xterm</command>
