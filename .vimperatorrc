@@ -97,6 +97,8 @@ command! useragent set! general.useragent.extra.firefox?
 "" Show Web Developer Toolbar
 """ NOTE: Requires Web Developer toolbar.
 command! webdev js webdeveloper_toggleToolbar();
+"" Open Localhost
+command! localhost open http://localhost
 
 " Passthroughs
 "" See http://cinderwick.ca/files/configs/vimperatorrc.
