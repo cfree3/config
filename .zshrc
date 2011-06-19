@@ -1,14 +1,11 @@
 # ~/.zshrc | Curtis Free (http://curtisfree.com)
 
-# Disable <C-s> terminal stop.
-# See http://www.catonmat.net/blog/vim-plugins-surround-vim.
+# Disable <C-s> terminal stop [1].
 stty stop ''
 
-# Silent command execution.
-## See http://bbs.archlinux.org/viewtopic.php?pid=553911#p553911.
+# Silent command execution [2].
 silent () { $@ &>/dev/null; }
-# (Silent) command existence checking.
-## Idea taken from http://cinderwick.ca/files/configs/bashrc.
+# (Silent) command existence checking [3].
 exists () { silent type $@; }
 
 # Standard exports.
@@ -40,10 +37,9 @@ case "$TERM" in
 esac
 
 # Shell options.
-# Partial reference: http://unix.stackexchange.com/questions/6/what-are-your-favorite-command-line-features-or-tricks.
 setopt   appendhistory        # Append (don't overwrite) history.
 setopt   autocd               # cd when only dir given.
-setopt   autopushd            # Automatically push dirs on stack.
+setopt   autopushd            # Automatically push dirs on stack [4].
 unsetopt beep                 # Don't beep.
 unsetopt bg_nice              # Don't run bg jobs at lower priority.
 setopt   check_jobs           # Warn about running jobs before exit.
@@ -93,8 +89,7 @@ bindkey "^i"     expand-or-complete-prefix
 bindkey -M vicmd "\e[1~" beginning-of-line
 bindkey -M vicmd "\e[4~" end-of-line
 
-# Enable command line editing (<C-t>).
-## See http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh.
+# Enable command line editing (<C-t>) [5].
 ## This `bindkey` should be done after those above.
 autoload edit-command-line
 zle -N edit-command-line
@@ -127,7 +122,7 @@ alias mv='nocorrect mv -i'
 alias pftp='ftp -p'
 alias recent='ls -ldAt `ls -At | head`'      # Inspired or taken from elsewhere.
 alias rm='rm -i'
-alias sps='ps aux | grep -v grep | grep'     # See http://cinderwick.ca/files/configs/bashrc.
+alias sps='ps aux | grep -v grep | grep'     # [6]
 alias su='su -'
 alias todo='$EDITOR ~/.todo'
 alias vmstat='vmstat -S M'
@@ -156,7 +151,7 @@ if [[ $TERM =~ screen(.linux)? ]]; then
     alias s='screen'
 fi
 
-# Utility environment variables.
+# Utility environment variables [4].
 export GREP_OPTIONS="--color=auto"
 
 # Functions.
@@ -170,8 +165,7 @@ cnt   () { ls $@ | wc -l; }
 ff    () { find . -name "*$@*" -exec ls -ldh --color=auto {} +; }
 ## List details on an item in the PATH.
 lw    () { ll `which $1`; }
-## Make a new directory and change into it.
-## See http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480.
+## Make a new directory and change into it [7].
 mkcd  () { mkdir -p $1 && cd $1; } && alias mkcd='nocorrect mkcd'
 ## Send a file to the "trash" without actually deleting it.
 trash () { [ -f ~/TRASH ] || mkdir ~/TRASH; mv $@ ~/TRASH; }
@@ -185,4 +179,13 @@ unset LC_COLLATE # Prevent "C" sorting.
 
 # PATH modifications.
 [ -d ~/bin ] && export PATH=$PATH:$HOME/bin
+
+# References
+# [1] http://www.catonmat.net/blog/vim-plugins-surround-vim
+# [2] http://bbs.archlinux.org/viewtopic.php?pid=553911#p553911
+# [3] http://cinderwick.ca/files/configs/bashrc
+# [4] http://unix.stackexchange.com/questions/6/what-are-your-favorite-command-line-features-or-tricks
+# [5] http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh
+# [6] http://cinderwick.ca/files/configs/bashrc
+# [7] http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480
 

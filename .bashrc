@@ -1,14 +1,11 @@
 # ~/.bashrc | Curtis Free (http://curtisfree.com)
 
-# Disable <C-s> terminal stop.
-# See http://www.catonmat.net/blog/vim-plugins-surround-vim.
+# Disable <C-s> terminal stop [1].
 stty stop ''
 
-# Silent command execution.
-## See http://bbs.archlinux.org/viewtopic.php?pid=553911#p553911.
+# Silent command execution [2].
 silent () { $@ &>/dev/null; }
-# (Silent) command existence checking.
-## Idea taken from http://cinderwick.ca/files/configs/bashrc.
+# (Silent) command existence checking [3].
 exists () { silent type $@; }
 
 # Standard exports.
@@ -43,16 +40,14 @@ case "$TERM" in
 esac
 
 # Shell options.
-# Partial reference: http://unix.stackexchange.com/questions/6/what-are-your-favorite-command-line-features-or-tricks.
 set -o noclobber      # Do not overwrite existing files (w/ redirection).
 shopt -s cdspell      # Correct misspelled directories (w/ cd).
-shopt -s hostcomplete # Complete hostnames.
+shopt -s hostcomplete # Complete hostnames [4].
 
 # Set Emacs-style input mode (alternative given in comment).
 set -o emacs # vi
 
-# Binds.
-# Partial reference: http://unix.stackexchange.com/questions/6/what-are-your-favorite-command-line-features-or-tricks.
+# Binds [4].
 bind '"\e[A"':history-search-backward
 bind '"\e[B"':history-search-forward
 
@@ -78,7 +73,7 @@ alias mv='mv -i'
 alias pftp='ftp -p'
 alias recent='ls -ldAt `ls -At | head`'      # Inspired or taken from elsewhere.
 alias rm='rm -i'
-alias sps='ps aux | grep -v grep | grep'     # From http://cinderwick.ca/files/configs/bashrc.
+alias sps='ps aux | grep -v grep | grep'     # [5]
 alias su='su -'
 alias todo='$EDITOR ~/.todo'
 alias vmstat='vmstat -S M'
@@ -102,7 +97,7 @@ if [[ $TERM =~ screen(.linux)? ]]; then
     alias s='screen'
 fi
 
-# Utility environment variables.
+# Utility environment variables [4].
 export GREP_OPTIONS="--color=auto"
 
 # Functions.
@@ -116,8 +111,7 @@ cnt    () { ls $@ | wc -l; }
 ff     () { find . -name "*$@*" -exec ls -ldh --color=auto {} +; }
 ## List details on an item in the PATH.
 lw     () { ll `which $1`; }
-## Make a new directory and change into it.
-## See http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480.
+## Make a new directory and change into it [6].
 mkcd   () { mkdir -p $1 && cd $1; } # Taken from Arch Linux Forums.
 ## Send a file to the "trash" without actually deleting it.
 trash  () { [ -f ~/TRASH ] || mkdir ~/TRASH; mv $@ ~/TRASH; }
@@ -131,4 +125,12 @@ unset LC_COLLATE # Prevent "C" sorting.
 
 # PATH modifications.
 [ -d ~/bin ] && export PATH=$PATH:$HOME/bin
+
+# References
+# [1] http://www.catonmat.net/blog/vim-plugins-surround-vim
+# [2] http://bbs.archlinux.org/viewtopic.php?pid=553911#p553911
+# [3] http://cinderwick.ca/files/configs/bashrc
+# [4] http://unix.stackexchange.com/questions/6/what-are-your-favorite-command-line-features-or-tricks
+# [5] http://cinderwick.ca/files/configs/bashrc
+# [6] http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480
 
