@@ -51,6 +51,11 @@ shopt -s hostcomplete # Complete hostnames.
 # Set Emacs-style input mode (alternative given in comment).
 set -o emacs # vi
 
+# Binds.
+# Partial reference: http://unix.stackexchange.com/questions/6/what-are-your-favorite-command-line-features-or-tricks.
+bind '"\e[A"':history-search-backward
+bind '"\e[B"':history-search-forward
+
 # Colors.
 eval `dircolors`
 
@@ -60,12 +65,9 @@ alias cups='$BROWSER http://localhost:631 &'
 alias daemons='ls /var/run/daemons'          # Inspired or taken from elsewhere.
 alias df='df -h'
 alias du='du -h'
-alias egrep='egrep --color=auto'
 alias es='echo $?'
 alias fenv='env | grep'
-alias fgrep='fgrep --color=auto'
 alias free='free -m'
-alias grep='grep --color=auto'
 alias killall='killall -i'
 alias la='ls -a'
 alias ll='ls -l'
@@ -99,6 +101,9 @@ fi
 if [[ $TERM =~ screen(.linux)? ]]; then
     alias s='screen'
 fi
+
+# Utility environment variables.
+export GREP_OPTIONS="--color=auto"
 
 # Functions.
 ## Simple file backup.
