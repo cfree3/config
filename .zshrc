@@ -58,32 +58,16 @@ setopt   notify               # Immediately notify for bg processes.
 # Set Emacs-style input mode (alternative given in comment).
 bindkey -e # -v
 
-# Keybindings (most taken from ArchWiki).
-## Standard.
-bindkey "\e[1~"  beginning-of-line
-bindkey "\e[4~"  end-of-line
-bindkey "\e[5~"  beginning-of-history
-bindkey "\e[6~"  end-of-history
-bindkey "\e[3~"  delete-char
-bindkey "\e[2~"  quoted-insert
-bindkey "\e[5C"  forward-word
-bindkey "\eOc"   emacs-forward-word
-bindkey "\e[5D"  backward-word
-bindkey "\eOd"   emacs-backward-word
-bindkey "\e\e[C" forward-word
-bindkey "\e\e[D" backward-word
-bindkey "^H"     backward-delete-word
-bindkey "^?"     backward-delete-char
-## rxvt.
-bindkey "\e[8~"  end-of-line
-bindkey "\e[7~"  beginning-of-line
-## Non-RH/Debian xterm.
-bindkey "\eOH"   beginning-of-line
-bindkey "\eOF"   end-of-line
-## FreeBSD console.
-bindkey "\e[H"   beginning-of-line
-bindkey "\e[F"   end-of-line
-## Middle-of-line completion.
+# Keybindings.
+## Adjust readline config [8].
+READLINE_CONFIG=/etc/inputrc
+if [ -f ${READLINE_CONFIG} ]; then
+    eval "$(sed -n 's/^/bindkey /; s/: / /p' ${READLINE_CONFIG})"
+else
+    echo "[WARNING] No readline config found; keybindings might not work."
+fi
+unset READLINE_CONFIG
+## Middle-of-line completion [8].
 bindkey "^i"     expand-or-complete-prefix
 ## Vim command-mode fixes.
 bindkey -M vicmd "\e[1~" beginning-of-line
@@ -188,4 +172,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [5] http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh
 # [6] http://cinderwick.ca/files/configs/bashrc
 # [7] http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480
+# [8] https://wiki.archlinux.org/index.php/Zsh
 
