@@ -43,8 +43,10 @@ case "$TERM" in
 esac
 
 # Shell options.
-set -o noclobber # Do not overwrite existing files (w/ redirection).
-shopt -s cdspell # Correct misspelled directories (w/ cd).
+# Partial reference: http://unix.stackexchange.com/questions/6/what-are-your-favorite-command-line-features-or-tricks.
+set -o noclobber      # Do not overwrite existing files (w/ redirection).
+shopt -s cdspell      # Correct misspelled directories (w/ cd).
+shopt -s hostcomplete # Complete hostnames.
 
 # Set Emacs-style input mode (alternative given in comment).
 set -o emacs # vi
