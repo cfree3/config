@@ -69,6 +69,11 @@ fi
 unset READLINE_CONFIG
 ## Middle-of-line completion [8].
 bindkey "^i"     expand-or-complete-prefix
+## Bindings not in standard readline config [8].
+bindkey "\eOc"   emacs-forward-word
+bindkey "\eOd"   emacs-backward-word
+bindkey "^?"     backward-delete-char
+bindkey "^H"     backward-delete-word
 ## Vim command-mode fixes.
 bindkey -M vicmd "\e[1~" beginning-of-line
 bindkey -M vicmd "\e[4~" end-of-line
