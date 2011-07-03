@@ -105,7 +105,7 @@ command! localhost open http://localhost
 """ Google Reader/Docs
 autocmd LocationChange .* js modes.passAllKeys = /google\.com\/reader|docs\.google\.com/.test(buffer.URL)
 
-" Custom JS Functions
+" JS Functions
 "" Element Toggle
 """ See http://vimperator.org/trac/ticket/2.
 :js <<EOJS
@@ -140,4 +140,28 @@ command! amzwishlist js add_to_amazon_wishlist();
     window.open(amazon_wishlist_url, 'amzwishlist', 'width=900,height=553');
   }
 EOJS
+
+" Customizations
+"" Colored URL Indicators
+""" From http://code.google.com/p/vimperator-labs/issues/attachmentText?id=542&aid=5420003000&name=sslstatus.js.
+""" Colors changed around; these coincidentally correspond to the colors used by Firefox.
+" NOTE: Commented out because this noticeably impacts performance.
+":js <<EOJS
+"Cu.import("resource://gre/modules/XPCOMUtils.jsm", modules);
+"const progressListener = {
+"  QueryInterface: XPCOMUtils.generateQI([Ci.nsISupportsWeakReference, Ci.nsIWebProgressListener]),
+"  onSecurityChange: function onSecurityChange(webProgress, request, state) {
+"    if (state & Ci.nsIWebProgressListener.STATE_IS_INSECURE) {
+"      highlight.set("StatusLine", "");
+"    } else if (state & Ci.nsIWebProgressListener.STATE_IS_BROKEN) {
+"      highlight.set("StatusLine", "color: darkred");
+"    } else if (state & Ci.nsIWebProgressListener.STATE_IDENTITY_EV_TOPLEVEL) {
+"      highlight.set("StatusLine", "color: darkgreen");
+"    } else if (state & Ci.nsIWebProgressListener.STATE_SECURE_HIGH) {
+"      highlight.set("StatusLine", "color: darkblue");
+"    }
+"  }
+"};
+"config.browser.addProgressListener(progressListener, Ci.nsIWebProgress.NOTIFY_SECURITY);
+"EOJS
 
