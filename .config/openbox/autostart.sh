@@ -42,7 +42,7 @@ install -dm700 /dev/shm/firefox-cache
 
 ## Tiling (Optional)
 ### PyTyle Wiki suggests sleep time of 5.
-(sleep 5 && type pytyle &>/dev/null && pytyle) &
+#(sleep 5 && type pytyle &>/dev/null && pytyle) &
 
 ## Cursor Hiding (Optional)
 ### See http://wiki.archlinux.org/index.php/Unclutter.
