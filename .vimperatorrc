@@ -102,8 +102,8 @@ command! localhost open http://localhost
 
 " Passthroughs
 "" See http://cinderwick.ca/files/configs/vimperatorrc.
-""" Google Reader/Docs
-autocmd LocationChange .* js modes.passAllKeys = /google\.com\/reader|docs\.google\.com/.test(buffer.URL)
+""" Google Reader/Google Docs/Twitter
+autocmd LocationChange .* js modes.passAllKeys = /google\.com\/reader|docs\.google\.com|twitter\.com/.test(buffer.URL)
 
 " JS Functions
 "" Element Toggle
