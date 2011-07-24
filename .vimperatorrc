@@ -99,6 +99,8 @@ command! useragent set! general.useragent.extra.firefox?
 command! webdev js webdeveloper_toggleToolbar();
 "" Open Localhost
 command! localhost open http://localhost
+"" App Tabs
+command! app set !apptab
 
 " Passthroughs
 "" See http://cinderwick.ca/files/configs/vimperatorrc.
