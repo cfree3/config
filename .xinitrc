@@ -10,11 +10,10 @@
 #    http://wiki.archlinux.org/index.php/Accents_on_US_keyboards
 
 AGENT=ssh-agent
-CKIT=ck-launch-session
 DBUS='dbus-launch --auto-syntax --exit-with-session'
 DEFAULT_SESSION=openbox-session
 
-do_session() { exec $AGENT $CKIT $DBUS $1; }
+do_session() { exec $AGENT $DBUS $1; }
 
 # Pre-WM Startup
 ## Keymaps
