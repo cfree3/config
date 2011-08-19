@@ -1,5 +1,5 @@
 #!/bin/sh
-# ~/.config/openbox/autostart.sh | Curtis Free (http://curtisfree.com)
+# ~/.config/openbox/autostart | Curtis Free (http://curtisfree.com)
 
 # Export(s)
 export OOO_FORCE_DESKTOP=gnome
