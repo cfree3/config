@@ -90,6 +90,15 @@ vmap <Up> g<Up>
 map  <Down> g<Down>
 imap <Down> <C-o>g<Down>
 vmap <Down> g<Down>
+"" easy page up/down
+""" page up
+map  <C-k> <C-u>
+imap <C-k> <C-u>
+vmap <C-k> <C-u>
+""" page down
+map  <C-j> <C-d>
+imap <C-j> <C-d>
+vmap <C-j> <C-d>
 "" tab movement
 """ next
 map <C-l> :tabnext<CR>
