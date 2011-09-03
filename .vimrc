@@ -208,3 +208,10 @@ if &term =~ "screen"
   set ttymouse=xterm2
 endif
 
+" Local Customizations
+"" See http://tech.groups.yahoo.com/group/vim/message/56224.
+let local_vimrc=expand("~/.vimrc-local")
+if filereadable(local_vimrc)
+  execute "source ".local_vimrc
+endif
+
