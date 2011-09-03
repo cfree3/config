@@ -195,6 +195,10 @@
         <desktop>yes</desktop>
       </action>
     </keybind>
+    <!-- Window Sizing -->
+    <keybind key="C-F12">
+      <action name="ToggleMaximizeFull"/>
+    </keybind>
     <!-- Volume Conrols -->
     <keybind key="XF86AudioMute">
       <action name="Execute">
