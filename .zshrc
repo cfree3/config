@@ -26,15 +26,8 @@ export HISTFILE=~/.zsh_history # Save history to ~/.zsh_history.
 autoload -Uz compinit; compinit
 
 # Set the standard prompt.
-# This is a ZSH (%) version of the default Ubuntu BASH prompt; if the
-# git-info script is present, use a Git-enabled variation [9].
-if exists git-info; then
-    autoload -U colors; colors
-    setopt prompt_subst
-    PROMPT='%n@%m:%~%{$fg[green]%}$(git-info)%{$reset_color%}%# '
-else
-    PROMPT='%n@%m:%~%# '
-fi
+# This is a ZSH (%) version of the default Ubuntu BASH prompt.
+PROMPT='%n@%m:%~%# '
 
 # If using xterm, rxvt, or screen, set the window title to user@directory.
 # Inspired by default Ubuntu .bashrc.
@@ -64,6 +57,7 @@ unsetopt list_types           # Don't show filetype classifiers when completing 
 setopt   multios              # Perform implicit tree and cat on multiple redirections.
 setopt   no_hup               # Don't send HUP to jobs on exit.
 setopt   notify               # Immediately notify for bg processes.
+unsetopt prompt_subst         # Don't perform regular shell substitution in prompt.
 
 # Set Emacs-style input mode (alternative given in comment).
 bindkey -e # -v
@@ -172,6 +166,14 @@ trash () { [ -f ~/TRASH ] || mkdir ~/TRASH; mv $@ ~/TRASH; }
 tunnel() { ssh -ND 8080 $1; }
 ## View a file in the PATH.
 vw    () { view `which $1`; }
+
+# Command Prompt
+## Changes the prompt to include the output of a particular command [9].
+## Calling with no argument essentially resets.
+function cmdprompt() {
+    autoload -U colors; colors; setopt prompt_subst
+    PROMPT="%n@%m:%~%{\$fg[green]%}\$(${1})%{\$reset_color%}%# "
+}
 
 # Variable modifications.
 unset LC_COLLATE # Prevent "C" sorting.

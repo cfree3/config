@@ -29,13 +29,8 @@ unset IGNOREEOF # Set to 10 to match ZSH's ignore_eof option.
 [ -f /etc/bash_completion ] && . /etc/bash_completion
 
 # Set the standard prompt.
-# This is a ZSH (%) version of the default Ubuntu BASH prompt; if the
-# git-info script is present, use a Git-enabled variation [7].
-if exists git-info; then
-    PS1='\u@\h:\w\[\033[32m\]$(git-info)\[\033[0m\]\$ '
-else
-    PS1='\u@\h:\w\$ '
-fi
+# This is a ZSH (%) version of the default Ubuntu BASH prompt.
+PS1='\u@\h:\w\$ '
 
 # If using xterm, rxvt, or screen, set the window title to user@directory.
 # Taken from default Ubuntu .bashrc.
@@ -127,6 +122,13 @@ trash  () { [ -f ~/TRASH ] || mkdir ~/TRASH; mv $@ ~/TRASH; }
 tunnel() { ssh -ND 8080 $1; }
 ## View a file in the PATH.
 vw     () { view `which $1`; }
+
+# Command Prompt
+## Changes the prompt to include the output of a particular command [7].
+## Calling with no argument essentially resets.
+function cmdprompt() {
+    PS1="\u@\h:\w\[\033[32m\]$(${1})\[\033[0m\]\\$ "
+}
 
 # Variable modifications.
 unset LC_COLLATE # Prevent "C" sorting.
