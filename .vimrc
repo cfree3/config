@@ -28,10 +28,12 @@ set directory=. " (only) store swap files along with actual files
 
 " Undo
 " see http://amix.dk/blog/post/19548
-set undolevels=1000 " remember 1000 undo levels
-set noundofile      " don't persist undo information
-set undoreload=100  " if we _do_ persist (manual set), only remember 100 undo levels
-set undodir=.       " (only) store undo files along with actual files
+if (version >= 730)
+  set undolevels=1000 " remember 1000 undo levels
+  set noundofile      " don't persist undo information
+  set undoreload=100  " if we _do_ persist (manual set), only remember 100 undo levels
+  set undodir=.       " (only) store undo files along with actual files
+endif
 
 " Searching
 set incsearch  " perform incremental searching
