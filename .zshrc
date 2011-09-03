@@ -54,6 +54,7 @@ unsetopt list_types           # Don't show filetype classifiers when completing 
 setopt   multios              # Perform implicit tree and cat on multiple redirections.
 setopt   no_hup               # Don't send HUP to jobs on exit.
 setopt   notify               # Immediately notify for bg processes.
+unsetopt prompt_subst         # Don't perform regular shell substitution in prompt.
 
 # Set Emacs-style input mode (alternative given in comment).
 bindkey -e # -v
