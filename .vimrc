@@ -2,6 +2,9 @@
 
 " Miscellaneous
 set nocompatible
+set noerrorbells      " no error bells (still bells for many things)
+set visualbell        " we'll at least avoid an audible bell
+set vb t_vb=          " despite those settings, we'll ensure no bells (ever)
 set title             " set window/terminal title
 set ruler             " always display location info
 set showcmd           " show partial cmds in last line
@@ -9,7 +12,7 @@ set cmdheight=1       " give only one command line
 set history=50        " remember 50 commands
 set virtualedit=block " allow virtual editing in visual block mode
 set pastetoggle=<F8>  " toggle paste (see http://bbs.archlinux.org/viewtopic.php?pid=425987#p425987)
-set scrolloff=1       " pad while scrolling by two lines
+set scrolloff=2       " provide a "buffer" of two lines below/above cursor
 let mapleader=","     " use comma as the <leader> character
 syntax enable         " use syntax highlighting
 highlight clear       " clear any special highlighting
@@ -148,14 +151,28 @@ if has("gui_running")
   set guioptions=aceirh
   " hide the mouse when typing
   set mousehide
-  " colorscheme
-  "colorscheme slate
+  " highlight current row
+  set cursorline
 " Console Specifics
 else
   " no mouse use
   set mouse=
   " use only 8 colors
   set t_Co=8
+endif
+
+" MacVim
+"" See http://serverfault.com/questions/70196/how-to-tell-if-im-in-macvim-in-vimrc.
+if has("gui_macvim")
+  " font for Mac
+  set guifont=Menlo\ Regular:h12
+  " colorscheme
+  "" http://stackoverflow.com/questions/5698284/in-my-vimrc-how-can-i-check-for-the-existence-of-a-color-scheme/5702498
+  try
+    colorscheme mustang
+  catch
+    colorscheme slate
+  endtry
 endif
 
 " Commands/Functions
@@ -193,6 +210,7 @@ if has("autocmd")
     autocmd FileType st             setlocal noexpandtab
     autocmd FileType sql,plsql      setlocal             tabstop=2 shiftwidth=2
     autocmd FileType sudoers        setlocal noexpandtab
+    autocmd FileType tex,plaintex   setlocal noexpandtab tabstop=2 shiftwidth=2
     autocmd FileType verilog        setlocal noexpandtab
     autocmd FileType vim            setlocal             tabstop=2 shiftwidth=2
   augroup end
