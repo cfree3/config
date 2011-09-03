@@ -47,7 +47,7 @@ unsetopt beep                 # Don't beep.
 unsetopt bg_nice              # Don't run bg jobs at lower priority.
 setopt   check_jobs           # Warn about running jobs before exit.
 setopt   complete_in_word     # Complete in the middle of words.
-setopt   correct_all          # Correct cmds and args.
+unsetopt correct_all          # Do NOT correct cmds and args.
 setopt   hash_list_all        # Hash command path before correcting commands.
 setopt   hist_ignore_dups     # Ignore duplicate cmds in history.
 setopt   hist_reduce_blanks   # Remove extra blanks from cmds in history.
@@ -139,6 +139,15 @@ elif exists vi; then
     alias vi='vi -p'
     alias vim='vi'
     (! exists view) && alias view='vi -R'
+fi
+if exists mvim; then
+    alias mvim='mvim -p'
+    alias gvim='mvim'
+    exists mview && alias gview='mview'
+elif exists gvim; then
+    alias gvim='gvim -p'
+    alias mvim='gvim'
+    exists gview && alias mview='gview'
 fi
 
 # Screen alias(es).
