@@ -132,9 +132,11 @@ alias -s xhtml=$BROWSER
 
 # Vim alias(es).
 if exists vim; then
+    alias vim='vim -p'
     alias vi='vim'
     (! exists view) && alias view='vim -R'
 elif exists vi; then
+    alias vi='vi -p'
     alias vim='vi'
     (! exists view) && alias view='vi -R'
 fi

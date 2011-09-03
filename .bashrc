@@ -15,6 +15,7 @@ exists () { silent type $@; }
 export BROWSER=firefox
 EDITOR=vim && exists $EDITOR || EDITOR=vi; export EDITOR
 PAGER=less && exists $PAGER || PAGER=more; export PAGER
+VISUAL=$EDITOR; export VISUAL # We'll use the same editor.
 
 # History settings.
 export HISTCONTROL=ignoredups                             # Don't store repeat commands.
@@ -88,9 +89,11 @@ alias sudo='sudo ' # Note the trailing space.
 
 # Vim alias(es).
 if exists vim; then
+    alias vim='vim -p'
     alias vi='vim'
     (! exists view) && alias view='vim -R'
 elif exists vi; then
+    alias vi='vi -p'
     alias vim='vi'
     (! exists view) && alias view='vi -R'
 fi
