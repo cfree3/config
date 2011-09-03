@@ -9,6 +9,7 @@ set cmdheight=1       " give only one command line
 set history=50        " remember 50 commands
 set virtualedit=block " allow virtual editing in visual block mode
 set pastetoggle=<F8>  " toggle paste (see http://bbs.archlinux.org/viewtopic.php?pid=425987#p425987)
+set scrolloff=1       " pad while scrolling by two lines
 let mapleader=","     " use comma as the <leader> character
 syntax enable         " use syntax highlighting
 highlight clear       " clear any special highlighting
