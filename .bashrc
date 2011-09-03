@@ -3,6 +3,9 @@
 # Disable <C-s> terminal stop [1].
 stty stop ''
 
+# Set up PATH.
+[ -d ~/bin ] && export PATH=$PATH:$HOME/bin
+
 # Silent command execution [2].
 silent () { $@ &>/dev/null; }
 # (Silent) command existence checking [3].
@@ -26,8 +29,13 @@ unset IGNOREEOF # Set to 10 to match ZSH's ignore_eof option.
 [ -f /etc/bash_completion ] && . /etc/bash_completion
 
 # Set the standard prompt.
-# This is the default Ubuntu prompt.
-PS1='\u@\h:\w\$ '
+# This is a ZSH (%) version of the default Ubuntu BASH prompt; if the
+# git-info script is present, use a Git-enabled variation [7].
+if exists git-info; then
+    PS1='\u@\h:\w\[\033[32m\]$(git-info)\[\033[0m\]\$ '
+else
+    PS1='\u@\h:\w\$ '
+fi
 
 # If using xterm, rxvt, or screen, set the window title to user@directory.
 # Taken from default Ubuntu .bashrc.
@@ -51,7 +59,7 @@ set -o emacs # vi
 bind '"\e[A"':history-search-backward
 bind '"\e[B"':history-search-forward
 
-# Colors.
+# Colors for various utilities.
 eval `dircolors`
 
 # Aliases.
@@ -123,9 +131,6 @@ vw     () { view `which $1`; }
 # Variable modifications.
 unset LC_COLLATE # Prevent "C" sorting.
 
-# PATH modifications.
-[ -d ~/bin ] && export PATH=$PATH:$HOME/bin
-
 # References
 # [1] http://www.catonmat.net/blog/vim-plugins-surround-vim
 # [2] http://bbs.archlinux.org/viewtopic.php?pid=553911#p553911
@@ -133,4 +138,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [4] http://unix.stackexchange.com/questions/6/what-are-your-favorite-command-line-features-or-tricks
 # [5] http://cinderwick.ca/files/configs/bashrc
 # [6] http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480
+# [7] http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 

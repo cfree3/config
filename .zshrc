@@ -3,6 +3,9 @@
 # Disable <C-s> terminal stop [1].
 stty stop ''
 
+# Set up PATH.
+[ -d ~/bin ] && export PATH=$PATH:$HOME/bin
+
 # Silent command execution [2].
 silent () { $@ &>/dev/null; }
 # (Silent) command existence checking [3].
@@ -23,8 +26,15 @@ export HISTFILE=~/.zsh_history # Save history to ~/.zsh_history.
 autoload -Uz compinit; compinit
 
 # Set the standard prompt.
-# This is a ZSH (%) version of the default Ubuntu BASH prompt.
-PROMPT='%n@%m:%~%# '
+# This is a ZSH (%) version of the default Ubuntu BASH prompt; if the
+# git-info script is present, use a Git-enabled variation [9].
+if exists git-info; then
+    autoload -U colors; colors
+    setopt prompt_subst
+    PROMPT='%n@%m:%~%{$fg[green]%}$(git-info)%{$reset_color%}%# '
+else
+    PROMPT='%n@%m:%~%# '
+fi
 
 # If using xterm, rxvt, or screen, set the window title to user@directory.
 # Inspired by default Ubuntu .bashrc.
@@ -54,7 +64,6 @@ unsetopt list_types           # Don't show filetype classifiers when completing 
 setopt   multios              # Perform implicit tree and cat on multiple redirections.
 setopt   no_hup               # Don't send HUP to jobs on exit.
 setopt   notify               # Immediately notify for bg processes.
-unsetopt prompt_subst         # Don't perform regular shell substitution in prompt.
 
 # Set Emacs-style input mode (alternative given in comment).
 bindkey -e # -v
@@ -85,7 +94,7 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^t' edit-command-line
 
-# Colors.
+# Colors for various utilities.
 eval `dircolors`
 
 # Style settings.
@@ -167,9 +176,6 @@ vw    () { view `which $1`; }
 # Variable modifications.
 unset LC_COLLATE # Prevent "C" sorting.
 
-# PATH modifications.
-[ -d ~/bin ] && export PATH=$PATH:$HOME/bin
-
 # References
 # [1] http://www.catonmat.net/blog/vim-plugins-surround-vim
 # [2] http://bbs.archlinux.org/viewtopic.php?pid=553911#p553911
@@ -179,4 +185,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [6] http://cinderwick.ca/files/configs/bashrc
 # [7] http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480
 # [8] https://wiki.archlinux.org/index.php/Zsh
+# [9] http://stackoverflow.com/questions/689765/how-can-i-change-the-color-of-my-prompt-in-zsh-different-from-normal-text
 
