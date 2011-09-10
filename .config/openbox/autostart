@@ -48,3 +48,7 @@ install -dm700 /dev/shm/firefox-cache
 ### See http://wiki.archlinux.org/index.php/Unclutter.
 (type unclutter &>/dev/null && unclutter -idle 3) &
 
+## Clipboard Sync
+### See http://superuser.com/questions/68170/how-can-i-merge-the-gnome-clipboard-and-the-x-selection.
+(type autocutsel &>/dev/null && autocutsel -fork && autocutsel -fork -s PRIMARY)
+
