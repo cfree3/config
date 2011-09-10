@@ -43,9 +43,11 @@ esac
 setopt   appendhistory        # Append (don't overwrite) history.
 setopt   autocd               # cd when only dir given.
 setopt   autopushd            # Automatically push dirs on stack [4].
+unsetopt bang_hist            # Don't do !<cmd> expansion [8].
 unsetopt beep                 # Don't beep.
 unsetopt bg_nice              # Don't run bg jobs at lower priority.
 setopt   check_jobs           # Warn about running jobs before exit.
+unsetopt clobber              # Don't clobber files with > (use >!) [8].
 setopt   complete_in_word     # Complete in the middle of words.
 unsetopt correct_all          # Do NOT correct cmds and args.
 setopt   hash_list_all        # Hash command path before correcting commands.
@@ -96,8 +98,13 @@ bindkey '^t' edit-command-line
 eval `dircolors`
 
 # Style settings.
+## Use colors when showing filename suggestions.
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+## Use a menu interface for completions [8].
 zstyle ':completion:*' menu select # [8]
+## Complete PIDs [8].
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
 
 # Aliases.
 alias cp='nocorrect cp -i'
