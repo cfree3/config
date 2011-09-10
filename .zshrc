@@ -97,6 +97,7 @@ eval `dircolors`
 
 # Style settings.
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select # [8]
 
 # Aliases.
 alias cp='nocorrect cp -i'
