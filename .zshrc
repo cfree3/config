@@ -77,7 +77,11 @@ bindkey "^i"     expand-or-complete-prefix
 bindkey "\eOc"   emacs-forward-word
 bindkey "\eOd"   emacs-backward-word
 bindkey "^?"     backward-delete-char
-bindkey "^H"     backward-delete-word
+## Easy word movement (inspired by [8]).
+bindkey "^H"     emacs-backward-word
+bindkey "^L"     emacs-forward-word
+## Alternate clear screen (due to previous changes).
+bindkey "^G"     clear-screen
 ## Vim command-mode fixes.
 bindkey -M vicmd "\e[1~" beginning-of-line
 bindkey -M vicmd "\e[4~" end-of-line
