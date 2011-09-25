@@ -196,8 +196,10 @@ let is_bash=1
 if has("autocmd")
   filetype plugin indent on " automatic per-language indentation
   " filetype detection
+  "" see http://beerpla.net/2008/04/02/how-to-add-a-vim-file-extension-to-syntax-highlighting/
   augroup filenames
     autocmd BufRead,BufNewFile *.go setlocal filetype=go
+    autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
   augroup end
   " specific filetype overrides
   augroup filetypes
