@@ -99,6 +99,8 @@ command! useragent set! general.useragent.extra.firefox?
 command! webdev js webdeveloper_toggleToolbar();
 "" Open Localhost
 command! localhost open http://localhost
+"" Open Jekyll WEBrick
+command! jekyll open http://0.0.0.0:4000
 "" App Tabs
 command! app set apptab!
 
