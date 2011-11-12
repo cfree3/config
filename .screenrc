@@ -10,7 +10,7 @@ vbell off
 defscrollback 1000
 
 # Display the selected window and a (right-aligned) window list.
-caption always "[%n]%=[ %w ]"
+caption always "[%n][%t]%=[ %w ]"
 
 # Update terminal titlebar.
 termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
