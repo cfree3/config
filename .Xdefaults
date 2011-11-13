@@ -31,16 +31,18 @@ Xft*hintstyle: hintfull
 Xft*rgba:      rgb
 
 ! xterm
-xterm*faceName:     DejaVu Sans Mono
-xterm*faceSize:     9
+xterm*geometry:        100x30
+xterm*font:         -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 xterm*scrollBar:    false
 xterm*charClass:    33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:38
 xterm*backarrowKey: false
 
 ! urxvt
-urxvt*font:            xft:DejaVu Sans Mono:size=9
+urxvt*geometry:        100x30
+urxvt*font:            -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*, \
+                       xft:DejaVu Sans Mono:size=9
 urxvt*scrollBar:       false
 urxvt*perl-ext-common: default,matcher
 urxvt*urlLauncher:     firefox
-urxvt.matcher.button:  1
+urxvt*matcher.button:  1
 

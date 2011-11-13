@@ -5,26 +5,31 @@
 #  Arch Linux Forums (http://bbs.archlinux.org), including (but not limited to):
 #    http://bbs.archlinux.org/viewtopic.php?id=63610
 #    http://bbs.archlinux.org/viewtopic.php?id=84132
-#  ArchWiki (http;//wiki.archlinux.org), including (but not limited to):
-#    http://wiki.archlinux.org/index.php/SLIM
-#    http://wiki.archlinux.org/index.php/Accents_on_US_keyboards
+#  ArchWiki (https://wiki.archlinux.org), including (but not limited to):
+#    https://wiki.archlinux.org/index.php/SLIM
+#    https://wiki.archlinux.org/index.php/Accents_on_US_keyboards
+#    https://wiki.archlinux.org/index.php/Fonts
 
 AGENT=ssh-agent
 DBUS='dbus-launch --auto-syntax --exit-with-session'
-DEFAULT_SESSION=openbox-session
+FONTS_LOCAL=/usr/share/fonts/local
+SESSION_DEFAULT=openbox-session
 
-do_session() { exec $AGENT $DBUS $1; }
+do_session() { exec ${AGENT} ${DBUS} $1; }
 
 # Pre-WM Startup
+## Fonts
+xset +fp ${FONTS_LOCAL}
+xset fp rehash
 ## Keymaps
-[ -f $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
+[ -f ${HOME}/.Xmodmap ] && xmodmap ${HOME}/.Xmodmap
 
 # WM/DE
-case $1 in
+case ${1} in
     gnome)         do_session gnome-session;;
     openbox)       do_session openbox-session;;
     openbox-gnome) do_session openbox-gnome-session;;
     xterm)         do_session xterm;;
-    *)             do_session $DEFAULT_SESSION;;
+    *)             do_session ${SESSION_DEFAULT};;
 esac
 

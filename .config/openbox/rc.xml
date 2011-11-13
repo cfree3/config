@@ -244,7 +244,7 @@
     </keybind>
     <keybind key="A-F12">
       <action name="Execute">
-        <execute>urxvt -e screen</execute>
+        <execute>urxvtc -e screen</execute>
       </action>
     </keybind>
     <keybind key="C-A-l">

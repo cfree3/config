@@ -9,8 +9,9 @@ export OOO_FORCE_DESKTOP=gnome
 xset r rate 200 30 # Key repeat delay/speed.
 
 # Pre-start Application(s)
-## Screensaver (Optional)
-#(type gnome-screensaver >/dev/null 2>&1 && gnome-screensaver) &
+
+# Terminal Daemon
+urxvtd -q -o -f
 
 # ~/.gtkrc-2.0 "hack"
 if [ -f ~/.gtkrc-2.0.openbox ]; then
@@ -24,25 +25,14 @@ install -dm700 /dev/shm/firefox-cache
 
 # Post-start Application(s)
 
-## Wallpaper (Choice)
-### Random
+## Wallpaper
 ~/scripts/wm/randesk.py
-### Static/Previous
-#(sleep 1 && type nitrogen &>/dev/null && nitrogen --restore) &
 
 ## Panel
 (sleep 1 && type pypanel &>/dev/null && pypanel) &
 
-## Compositing (Optional)
-### Arguments to xcompmgr taken from ArchWiki.
-#(sleep 2 && type xcompmgr &>/dev/null && xcompmgr -c -t-5 -l-5 -r4.2 -o.55) &
-
 ## System Monitor (Optional)
 (type conky &>/dev/null && conky -q) &
-
-## Tiling (Optional)
-### PyTyle Wiki suggests sleep time of 5.
-#(sleep 5 && type pytyle &>/dev/null && pytyle) &
 
 ## Cursor Hiding (Optional)
 ### See http://wiki.archlinux.org/index.php/Unclutter.

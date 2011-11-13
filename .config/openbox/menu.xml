@@ -68,7 +68,7 @@
   <menu id="apps-terminals-menu" label="Terminals">
     <item label="urxvt">
       <action name="Execute">
-        <command>urxvt</command>
+        <command>urxvtc</command>
       </action>
     </item>
     <item label="xterm">
