@@ -191,16 +191,19 @@
     <!-- Window Navigation -->
     <keybind key="A-Tab">
       <action name="NextWindow">
+        <allDesktops>yes</allDesktops>
         <dialog>list</dialog>
       </action>
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow">
+        <allDesktops>yes</allDesktops>
         <dialog>list</dialog>
       </action>
     </keybind>
     <keybind key="C-A-Tab">
       <action name="NextWindow">
+        <allDesktops>yes</allDesktops>
         <panels>yes</panels>
         <desktop>yes</desktop>
         <dialog>list</dialog>
