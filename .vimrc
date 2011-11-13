@@ -146,9 +146,9 @@ if has("gui_running")
   vmap <C-Tab>   <Esc>:tabn<CR>
   vmap <S-C-Tab> <Esc>:tabp<CR>
   " font
-  set guifont=Monospace\ 9
+  set guifont=Terminus\ 9
   " various options
-  set guioptions=aceirh
+  set guioptions=acih
   " hide the mouse when typing
   set mousehide
   " highlight current row
