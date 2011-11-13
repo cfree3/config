@@ -4,12 +4,6 @@
 # Export(s)
 export OOO_FORCE_DESKTOP=gnome
 
-# X.Org Settings
-# See http://bbs.archlinux.org/viewtopic.php?pid=517550#p517550.
-xset r rate 200 30 # Key repeat delay/speed.
-
-# Pre-start Application(s)
-
 # Terminal Daemon
 urxvtd -q -o -f
 
