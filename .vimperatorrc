@@ -133,7 +133,7 @@ EOJS
 command! amzwishlist js add_to_amazon_wishlist();
 :js <<EOJS
   add_to_amazon_wishlist = function() {
-    var amazon_wishlist_url = 'http://www.amazon.com/wishlist/add'
+    var amazon_wishlist_url = 'https://www.amazon.com/wishlist/add'
                             + '?u=' + encodeURIComponent(window.getBrowser().currentURI.spec)
                             + '&t=' + encodeURIComponent(window.getBrowser().contentDocument.title);
     window.open(amazon_wishlist_url, 'amzwishlist', 'width=900,height=553');
