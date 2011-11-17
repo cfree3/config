@@ -79,7 +79,7 @@ HIDDEN_SIZE     = 2
 # Ex: "-schumacher-clean-medium-r-normal-*-12-*-*-*-*-*-*-*"
 #     "aquafont-8"
 #------------------------------------------------------------------------------
-FONT            = "bitstream vera sans-9"
+FONT            = "dejavu sans-9"
 
 #------------------------------------------------------------------------------
 # Show All Applications: Show apps from all desktops or just the current
