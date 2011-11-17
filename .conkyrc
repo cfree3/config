@@ -10,8 +10,7 @@ double_buffer yes
 own_window yes
 
 # Use the specified fonts and font color/style.
-use_xft yes
-xftfont Bitstream Vera Sans Mono:size=9
+font -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 default_color EEEEEC #black
 draw_shades no
 
