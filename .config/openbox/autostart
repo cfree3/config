@@ -23,7 +23,7 @@ install -dm700 /dev/shm/firefox-cache
 ~/scripts/wm/randesk.py
 
 ## Panel
-(sleep 1 && type pypanel &>/dev/null && pypanel) &
+(sleep 1 && type tint2 &>/dev/null && tint2) &
 
 ## System Monitor (Optional)
 (type conky &>/dev/null && conky -q) &
