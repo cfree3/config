@@ -470,6 +470,7 @@
       <focus>yes</focus>
       <layer>above</layer>
       <skip_pager>yes</skip_pager>
+      <skip_taskbar>yes</skip_taskbar>
     </application>
     <application class="Pidgin">
       <desktop>all</desktop>
