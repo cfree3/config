@@ -29,11 +29,15 @@ autoload -Uz compinit; compinit
 # This is a ZSH (%) version of the default Ubuntu BASH prompt.
 PROMPT='%n@%m:%~%# '
 
-# If using xterm, rxvt, or screen, set the window title to user@directory.
-# Inspired by default Ubuntu .bashrc.
+# If using xterm, rxvt, or screen, set the window title to user@directory; in
+# tmux, change default path.
+# Inspired by default Ubuntu .bashrc and [10].
 case "$TERM" in
     xterm*|rxvt*|screen)
-        precmd () { echo -ne "\033]0;$(print -P '%n@%m: %~')\007"; }
+        precmd () {
+            echo -ne "\033]0;$(print -P '%n@%m: %~')\007"
+            [ -n "$TMUX" ] && $(tmux set default-path $(pwd))
+        }
         ;;
     *)
         ;;
@@ -158,7 +162,8 @@ elif exists gvim; then
 fi
 
 # Screen alias(es).
-if [[ $TERM =~ screen(.linux)? ]]; then
+## Be sure not to set this if actually using tmux.
+if [ -z "$TMUX" ] && [[ $TERM =~ screen(.linux)? ]]; then
     alias s='screen'
 fi
 
@@ -206,4 +211,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [7] http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480
 # [8] https://wiki.archlinux.org/index.php/Zsh
 # [9] http://stackoverflow.com/questions/689765/how-can-i-change-the-color-of-my-prompt-in-zsh-different-from-normal-text
+# [10] https://wiki.archlinux.org/index.php/Tmux#Fast_method
 

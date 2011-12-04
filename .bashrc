@@ -33,11 +33,15 @@ unset IGNOREEOF # Set to 10 to match ZSH's ignore_eof option.
 # This is a ZSH (%) version of the default Ubuntu BASH prompt.
 PS1='\u@\h:\w\$ '
 
-# If using xterm, rxvt, or screen, set the window title to user@directory.
-# Taken from default Ubuntu .bashrc.
+# If using xterm, rxvt, or screen, set the window title to user@directory; in
+# tmux, change default path.
+# Taken from default Ubuntu .bashrc and inspired by [8].
 case "$TERM" in
     xterm*|rxvt*|screen)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+        PROMPT_COMMAND='
+            echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
+            [ -n "$TMUX" ] && $(tmux set default-path $(pwd))
+        '
         ;;
     *)
         ;;
@@ -99,7 +103,8 @@ elif exists vi; then
 fi
 
 # Screen alias(es).
-if [[ $TERM =~ screen(.linux)? ]]; then
+## Be sure not to set this if actually using tmux.
+if [ -z "$TMUX" ] && [[ $TERM =~ screen(.linux)? ]]; then
     alias s='screen'
 fi
 
@@ -144,4 +149,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [5] http://cinderwick.ca/files/configs/bashrc
 # [6] http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480
 # [7] http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
+# [8] https://wiki.archlinux.org/index.php/Tmux#Fast_method
 

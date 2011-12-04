@@ -247,7 +247,7 @@
     </keybind>
     <keybind key="A-F12">
       <action name="Execute">
-        <execute>urxvtc -e screen</execute>
+        <execute>urxvtc -e tmux</execute>
       </action>
     </keybind>
     <keybind key="C-A-l">
