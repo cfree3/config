@@ -32,14 +32,15 @@ Xft*rgba:      rgb
 
 ! xterm
 xterm*geometry:     100x30
-xterm*font:         -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xterm*font:         -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*
 xterm*scrollBar:    false
 xterm*charClass:    33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:38
 xterm*backarrowKey: false
 
 ! urxvt
 urxvt*geometry:        100x30
-urxvt*font:            -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*, \
+urxvt*font:            -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*, \
+                       -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*, \
                        xft:DejaVu Sans Mono:size=9,               \
                        -*-tamsyn-medium-r-*-*-14-*-*-*-*-*-*-*
 urxvt*scrollBar:       false

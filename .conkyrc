@@ -10,7 +10,7 @@ double_buffer yes
 own_window yes
 
 # Use the specified fonts and font color/style.
-font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+font -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*
 default_color EEEEEC #black
 draw_shades no
 
