@@ -209,9 +209,14 @@
         <dialog>list</dialog>
       </action>
     </keybind>
-    <!-- Window Sizing -->
-    <keybind key="C-F12">
-      <action name="ToggleMaximizeFull"/>
+    <!-- Window Size/Minimize -->
+    <keybind key="C-A-m">
+      <action name="ToggleMaximize">
+        <direction>both</direction>
+      </action>
+    </keybind>
+    <keybind key="C-A-h">
+      <action name="Iconify"/>
     </keybind>
     <!-- Volume Conrols -->
     <keybind key="XF86AudioMute">
