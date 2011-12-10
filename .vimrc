@@ -228,6 +228,10 @@ if &term =~ "screen"
   set ttymouse=xterm2
 endif
 
+" Pathogen (https://github.com/tpope/vim-pathogen)
+"" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
+silent! call pathogen#infect()
+
 " Local Customizations
 "" See http://tech.groups.yahoo.com/group/vim/message/56224.
 let local_vimrc=expand("~/.vimrc-local")
