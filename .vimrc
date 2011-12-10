@@ -146,7 +146,7 @@ if has("gui_running")
   vmap <C-Tab>   <Esc>:tabn<CR>
   vmap <S-C-Tab> <Esc>:tabp<CR>
   " font
-  set guifont=Terminus\ 9
+  set guifont=Termsyn\ 10,Terminus\ 9,DejaVu\ Sans\ Mono\ 9
   " various options
   set guioptions=acih
   " hide the mouse when typing
