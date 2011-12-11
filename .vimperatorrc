@@ -18,6 +18,8 @@ set complete=l
 " Display
 "" show only the tab bar
 set gui=tabs
+"" show numbers on each tab
+set tabnumbers
 "" see http://code.google.com/p/vimperator-labs/issues/detail?id=311
 set popups=tab,resized
 
