@@ -80,9 +80,12 @@ unset READLINE_CONFIG
 ## Middle-of-line completion [8].
 bindkey "^i"     expand-or-complete-prefix
 ## Bindings not in standard readline config [8].
+bindkey "^?"     backward-delete-char
 bindkey "\eOc"   emacs-forward-word
 bindkey "\eOd"   emacs-backward-word
-bindkey "^?"     backward-delete-char
+### tmux issues OC and OD instead
+bindkey "\eOC"   emacs-forward-word
+bindkey "\eOD"   emacs-backward-word
 ## Vim command-mode fixes.
 bindkey -M vicmd "\e[1~" beginning-of-line
 bindkey -M vicmd "\e[4~" end-of-line
