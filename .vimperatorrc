@@ -1,4 +1,4 @@
-" ~/.vimperatorrc | vi: set ft=vim: | Curtis Free (http://curtisfree.com)
+" ~/.vimperatorrc | vi: set ft=vimperator: | Curtis Free (http://curtisfree.com)
 
 " These settings prevent Vimperator from overwriting my preferred Firefox settings.
 set! browser.startup.page=1
