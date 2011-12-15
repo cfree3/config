@@ -15,6 +15,15 @@ set urlseparator=;
 "" privacy/security and just use 'l' here.
 set complete=l
 
+" Scrolling
+"" Vimperator does not give the user direct control over scroll distance. Vimium (for
+"" Chromium/Google Chrome) uses a nice 60px by default; 2<dir> is much smaller, but it
+"" feels better in Vimperator.
+nnoremap j 2j
+nnoremap k 2k
+nnoremap h 2h
+nnoremap l 2l
+
 " Display
 "" show only the tab bar
 set gui=tabs
