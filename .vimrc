@@ -126,18 +126,17 @@ map <leader>tm :tabmove<Space>
 map <leader>tn :tabnext<CR>
 map <leader>tp :tabprevious<CR>
 
+" Interface
+set mouse=a      " allow mouse use
+set wildmenu     " display menu that cycles through command-lne completions
+set laststatus=2 " always show the status bar
+
 " GUI Specifics
 if has("gui_running")
-  " allow mouse use
-  set mouse=a
   " terminal-like pasting
   map  <S-Insert> <MiddleMouse>
   imap <S-Insert> <MiddleMouse>
   vmap <S-Insert> <MiddleMouse>
-  " 'select all' (bothersome if accustomed to GNU Screen)
-  "map  <C-a> ggVG
-  "imap <C-a> <Esc>ggVG
-  "vmap <C-a> <Esc>ggVG
   " tab switching (as with other GTK+ apps)
   map  <C-Tab>   :tabn<CR>
   map  <S-C-Tab> :tabp<CR>
@@ -147,7 +146,7 @@ if has("gui_running")
   vmap <S-C-Tab> <Esc>:tabp<CR>
   " font
   set guifont=Termsyn\ 10,Terminus\ 9,DejaVu\ Sans\ Mono\ 9
-  " various options
+  " display options
   set guioptions=acih
   " hide the mouse when typing
   set mousehide
@@ -155,8 +154,6 @@ if has("gui_running")
   set cursorline
 " Console Specifics
 else
-  " no mouse use
-  set mouse=
   " use only 8 colors
   set t_Co=8
 endif
