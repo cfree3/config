@@ -31,6 +31,12 @@ set findcase=smart
 
 " Maps
 "" Note: Since about Vimperator 2.2 (pre-Pentadactyl), one must use S-char (shift+char) instead of CHAR (uppercase).
+""" Passthrough
+"""" Next
+map i <C-v>
+"""" Continuous
+map i <C-v>
+map I <C-z>
 """ Stop
 map <Esc> <C-c>
 """ Site Opening
