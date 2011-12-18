@@ -4,9 +4,12 @@
 set! browser.startup.page=1
 
 " Miscellaneous
+"" Remember 50 commands.
 set history=50
-"" vertical bar CANNOT be used here
-set urlseparator=;
+"" Allow focus changes.
+""" See https://code.google.com/p/dactyl/issues/detail?id=241.
+""" Seems problematic with Google+ but works elsewhere.
+set strictfocus=*:laissez-faire
 
 " Awesome Bar
 "" See http://developernotes.com/archive/2008/09/22/vimperator-tip-awesome-bar.aspx.
