@@ -71,7 +71,7 @@ systray_icon_size = 16
 systray_icon_asb = 100 0 0
 
 # Clock
-time1_format = %b %e %l:%M %p
+time1_format = %a %b %e %l:%M %p
 time1_font = dejavu sans 9
 clock_font_color = #000000 100
 clock_padding = 7 1
