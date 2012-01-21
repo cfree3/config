@@ -27,7 +27,7 @@ use_spacer left #none
 # Spacing for use with a 24px top panel.
 alignment top_right
 gap_x 6             # 6px from the side of the screen.
-gap_y 30            # 34px from the top of the screen.
+gap_y 30            # 30px from the top of the screen.
 
 # Update every second.
 update_interval 1
