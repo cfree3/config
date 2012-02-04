@@ -47,7 +47,7 @@ esac
 setopt   appendhistory        # Append (don't overwrite) history.
 setopt   autocd               # cd when only dir given.
 setopt   autopushd            # Automatically push dirs on stack [4].
-unsetopt bang_hist            # Don't do !<cmd> expansion [8].
+setopt   bang_hist            # Perform !<cmd> expansion [8].
 unsetopt beep                 # Don't beep.
 unsetopt bg_nice              # Don't run bg jobs at lower priority.
 setopt   check_jobs           # Warn about running jobs before exit.
@@ -57,6 +57,7 @@ unsetopt correct_all          # Do NOT correct cmds and args.
 setopt   hash_list_all        # Hash command path before correcting commands.
 setopt   hist_ignore_dups     # Ignore duplicate cmds in history.
 setopt   hist_reduce_blanks   # Remove extra blanks from cmds in history.
+setopt   hist_verify          # Bring history expansions to the command line (don't execute).
 unsetopt ignore_eof           # Exit on EOF (Ctrl+D). (10 EOFs still exit with this set.)
 setopt   interactive_comments # Allow comments in interactive shells.
 unsetopt list_types           # Don't show filetype classifiers when completing filenames.
@@ -215,4 +216,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [8] https://wiki.archlinux.org/index.php/Zsh
 # [9] http://stackoverflow.com/questions/689765/how-can-i-change-the-color-of-my-prompt-in-zsh-different-from-normal-text
 # [10] https://wiki.archlinux.org/index.php/Tmux#Fast_method
+# [11] http://www.acm.uiuc.edu/workshops/zsh/history/hist_expn.html
 
