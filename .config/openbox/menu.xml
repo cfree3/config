@@ -123,40 +123,40 @@
 
   <!-- Office -->
   <menu id="apps-office-menu" label="Office">
-    <item label="OpenOffice.org">
+    <item label="LibreOffice">
       <action name="Execute">
-        <command>soffice</command>
+        <command>libreoffice</command>
       </action>
     </item>
     <separator/>
     <item label="Base">
       <action name="Execute">
-        <command>soffice -base</command>
+        <command>libreoffice --base</command>
       </action>
     </item>
     <item label="Calc">
       <action name="Execute">
-        <command>soffice -calc</command>
+        <command>libreoffice --calc</command>
       </action>
     </item>
     <item label="Draw">
       <action name="Execute">
-        <command>soffice -draw</command>
+        <command>libreoffice --draw</command>
       </action>
     </item>
     <item label="Impress">
       <action name="Execute">
-        <command>soffice -impress</command>
+        <command>libreoffice --impress</command>
       </action>
     </item>
     <item label="Math">
       <action name="Execute">
-        <command>soffice -math</command>
+        <command>libreoffice --math</command>
       </action>
     </item>
     <item label="Writer">
       <action name="Execute">
-        <command>soffice -write</command>
+        <command>libreoffice --writer</command>
       </action>
     </item>
   </menu>
