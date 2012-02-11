@@ -45,6 +45,6 @@ urxvt*font:            -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*, \
                        -*-tamsyn-medium-r-*-*-14-*-*-*-*-*-*-*
 urxvt*scrollBar:       false
 urxvt*perl-ext-common: default,matcher
-urxvt*urlLauncher:     firefox
+urxvt*urlLauncher:     google-chrome
 urxvt*matcher.button:  1
 
