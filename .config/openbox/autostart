@@ -12,11 +12,6 @@ if [ -f ~/.gtkrc-2.0.openbox ]; then
     mv ~/.gtkrc-2.0.openbox ~/.gtkrc-2.0
 fi
 
-# Filesystem Setup
-## Firefox Cache
-### See http://wiki.archlinux.org/index.php/Speed-up_Firefox_using_tmpfs.
-install -dm700 /dev/shm/firefox-cache
-
 # Post-start Application(s)
 
 ## Wallpaper

@@ -247,7 +247,7 @@
     </keybind>
     <keybind key="A-F11">
       <action name="Execute">
-        <execute>firefox</execute>
+        <execute>google-chrome</execute>
       </action>
     </keybind>
     <keybind key="A-F12">

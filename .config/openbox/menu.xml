@@ -89,11 +89,6 @@
 
   <!-- Internet -->
   <menu id="apps-internet-menu" label="Internet">
-    <item label="Chromium">
-      <action name="Execute">
-        <command>chromium</command>
-      </action>
-    </item>
     <item label="Deluge">
       <action name="Execute">
         <command>deluge</command>
@@ -104,9 +99,19 @@
         <command>firefox</command>
       </action>
     </item>
+    <item label="Google Chrome">
+      <action name="Execute">
+        <command>google-chrome</command>
+      </action>
+    </item>
     <item label="Links">
       <action name="Execute">
         <command>xterm -e links</command>
+      </action>
+    </item>
+    <item label="Midori">
+      <action name="Execute">
+        <command>midori</command>
       </action>
     </item>
     <item label="Pidgin">
