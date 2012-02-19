@@ -257,7 +257,7 @@
     </keybind>
     <keybind key="C-A-l">
       <action name="Execute">
-        <execute>slock</execute>
+        <execute>xautolock -locknow</execute>
       </action>
     </keybind>
     <keybind key="XF86AudioMedia">

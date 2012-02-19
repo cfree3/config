@@ -29,5 +29,8 @@ fi
 
 ## Clipboard Sync
 ### See http://superuser.com/questions/68170/how-can-i-merge-the-gnome-clipboard-and-the-x-selection.
-(type autocutsel &>/dev/null && autocutsel -fork && autocutsel -fork -s PRIMARY)
+(type autocutsel &>/dev/null && autocutsel -fork && autocutsel -fork -s PRIMARY) &
+
+## Screensaver
+(type slock &>/dev/null && type xautolock &>/dev/null && xautolock -time 15 -locker slock) &
 
