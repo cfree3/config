@@ -71,6 +71,7 @@ setopt   hist_reduce_blanks   # Remove extra blanks from cmds in history.
 setopt   hist_verify          # Bring history expansions to the command line (don't execute).
 unsetopt ignore_eof           # Exit on EOF (Ctrl+D). (10 EOFs still exit with this set.)
 setopt   interactive_comments # Allow comments in interactive shells.
+setopt   list_packed          # Use variable-width columns in completion menus [14].
 unsetopt list_types           # Don't show filetype classifiers when completing filenames.
 setopt   multios              # Perform implicit tree and cat on multiple redirections.
 setopt   no_hup               # Don't send HUP to jobs on exit.
@@ -230,4 +231,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [11] http://www.acm.uiuc.edu/workshops/zsh/history/hist_expn.html
 # [12] http://stackoverflow.com/questions/1128496/to-get-a-prompt-which-indicates-git-branch-in-zsh
 # [13] http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
+# [14] http://aperiodic.net/phil/configs/zshrc
 
