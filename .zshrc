@@ -37,7 +37,10 @@ zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '-'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' disable-patterns "${HOME}"
-RPROMPT='${vcs_info_msg_0_}'
+
+# The right-side prompt should show the time and VCS info; "white" text (still
+# visible on white background) makes the prompt less obtrusive.
+RPROMPT='%F{white}[%D{%r}]${vcs_info_msg_0_}%f'
 
 # If using xterm, rxvt, or screen, set the window title to user@directory; in
 # tmux, change default path; determine VCS information [12,13].
