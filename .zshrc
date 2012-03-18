@@ -29,14 +29,25 @@ autoload -Uz compinit; compinit
 # This is a ZSH (%) version of the default Ubuntu BASH prompt.
 PROMPT='%n@%m:%~%# '
 
+# Configure support for VCS info [12,13].
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' formats '[%b]%c%u'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' unstagedstr '-'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' disable-patterns "${HOME}"
+RPROMPT='${vcs_info_msg_0_}'
+
 # If using xterm, rxvt, or screen, set the window title to user@directory; in
-# tmux, change default path.
+# tmux, change default path; determine VCS information [12,13].
 # Inspired by default Ubuntu .bashrc and [10].
 case "$TERM" in
     xterm*|rxvt*|screen)
         precmd () {
             echo -ne "\033]0;$(print -P '%n@%m: %~')\007"
             [ -n "$TMUX" ] && $(tmux set default-path $(pwd))
+            vcs_info &>/dev/null # errors if going from VCS dir back to ~
         }
         ;;
     *)
@@ -64,7 +75,7 @@ unsetopt list_types           # Don't show filetype classifiers when completing 
 setopt   multios              # Perform implicit tree and cat on multiple redirections.
 setopt   no_hup               # Don't send HUP to jobs on exit.
 setopt   notify               # Immediately notify for bg processes.
-unsetopt prompt_subst         # Don't perform regular shell substitution in prompt.
+setopt prompt_subst           # Perform regular shell substitution in prompt.
 
 # Set Emacs-style input mode (alternative given in comment).
 bindkey -e # -v
@@ -217,4 +228,6 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [9] http://stackoverflow.com/questions/689765/how-can-i-change-the-color-of-my-prompt-in-zsh-different-from-normal-text
 # [10] https://wiki.archlinux.org/index.php/Tmux#Fast_method
 # [11] http://www.acm.uiuc.edu/workshops/zsh/history/hist_expn.html
+# [12] http://stackoverflow.com/questions/1128496/to-get-a-prompt-which-indicates-git-branch-in-zsh
+# [13] http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
 
