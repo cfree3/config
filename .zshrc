@@ -57,6 +57,9 @@ case "$TERM" in
         ;;
 esac
 
+# Case-insensitive completion [15].
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # Shell options.
 setopt   appendhistory        # Append (don't overwrite) history.
 setopt   autocd               # cd when only dir given.
@@ -79,7 +82,7 @@ unsetopt list_types           # Don't show filetype classifiers when completing 
 setopt   multios              # Perform implicit tree and cat on multiple redirections.
 setopt   no_hup               # Don't send HUP to jobs on exit.
 setopt   notify               # Immediately notify for bg processes.
-setopt prompt_subst           # Perform regular shell substitution in prompt.
+setopt   prompt_subst         # Perform regular shell substitution in prompt.
 
 # Set Emacs-style input mode (alternative given in comment).
 bindkey -e # -v
@@ -235,4 +238,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [12] http://stackoverflow.com/questions/1128496/to-get-a-prompt-which-indicates-git-branch-in-zsh
 # [13] http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
 # [14] http://aperiodic.net/phil/configs/zshrc
+# [15] http://hintsforums.macworld.com/showthread.php?t=6493
 
