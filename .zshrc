@@ -22,8 +22,8 @@ export HISTSIZE=100            # Store 100 cmds from current session.
 export SAVEHIST=50             # Keep a record of only 50 commands.
 export HISTFILE=~/.zsh_history # Save history to ~/.zsh_history.
 
-# Set up completion.
-autoload -Uz compinit; compinit
+# Set up completion [16].
+autoload -Uz compinit && compinit
 
 # Set the standard prompt.
 # This is a ZSH (%) version of the default Ubuntu BASH prompt.
@@ -206,7 +206,7 @@ lw    () { ll `which $1`; }
 ## Make a new directory and change into it [7].
 mkcd  () { mkdir -p $1 && cd $1; } && alias mkcd='nocorrect mkcd'
 ## Send a file to the "trash" without actually deleting it.
-trash () { [ -f ~/TRASH ] || mkdir ~/TRASH; mv $@ ~/TRASH; }
+trash () { ([ -f ~/TRASH ] || mkdir ~/TRASH) && mv $@ ~/TRASH; }
 ## Open a simple SSH tunnel.
 tunnel() { ssh -ND 8080 $1; }
 ## View a file in the PATH.
@@ -216,7 +216,7 @@ vw    () { view `which $1`; }
 ## Changes the prompt to include the output of a particular command [9].
 ## Calling with no argument essentially resets.
 function cmdprompt() {
-    autoload -U colors; colors; setopt prompt_subst
+    autoload -U colors && colors
     PROMPT="%n@%m:%~%{\$fg[green]%}\$(${1})%{\$reset_color%}%# "
 }
 
@@ -239,4 +239,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [13] http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
 # [14] http://aperiodic.net/phil/configs/zshrc
 # [15] http://hintsforums.macworld.com/showthread.php?t=6493
+# [16] http://nuclearsquid.com/writings/git-tricks-tips-workflows/
 

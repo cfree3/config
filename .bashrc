@@ -125,7 +125,7 @@ lw     () { ll `which $1`; }
 ## Make a new directory and change into it [6].
 mkcd   () { mkdir -p $1 && cd $1; } # Taken from Arch Linux Forums.
 ## Send a file to the "trash" without actually deleting it.
-trash  () { [ -f ~/TRASH ] || mkdir ~/TRASH; mv $@ ~/TRASH; }
+trash  () { ([ -f ~/TRASH ] || mkdir ~/TRASH) && mv $@ ~/TRASH; }
 ## Open a simple SSH tunnel.
 tunnel() { ssh -ND 8080 $1; }
 ## View a file in the PATH.
