@@ -2,30 +2,6 @@
 <!-- ~/.config/openbox/menu.xml | Curtis Free (http://curtisfree.com) -->
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
-  <!-- Accessories -->
-  <menu id="apps-accessories-menu" label="Accessories">
-     <item label="Archive Manager">
-      <action name="Execute">
-        <command>file-roller</command>
-      </action>
-    </item>
-   <item label="Calculator">
-      <action name="Execute">
-        <command>gcalctool</command>
-      </action>
-    </item>
-    <item label="Character Map">
-      <action name="Execute">
-        <command>gucharmap</command>
-      </action>
-    </item>
-    <item label="Find Files">
-      <action name="Execute">
-        <command>pcmanfm --find-files</command>
-      </action>
-    </item>
-  </menu>
-
   <!-- Documents -->
   <menu id="apps-documents-menu" label="Documents">
     <item label="Adobe Reader">
@@ -36,11 +12,6 @@
     <item label="Evince">
       <action name="Execute">
         <command>evince</command>
-      </action>
-    </item>
-    <item label="zathura">
-      <action name="Execute">
-        <command>zathura</command>
       </action>
     </item>
   </menu>
@@ -55,11 +26,6 @@
     <item label="medit">
       <action name="Execute">
         <command>medit</command>
-      </action>
-    </item>
-    <item label="Vim">
-      <action name="Execute">
-        <command>xterm -e "vim || vi"</command>
       </action>
     </item>
   </menu>
@@ -94,6 +60,11 @@
         <command>deluge</command>
       </action>
     </item>
+    <item label="Dropbox">
+      <action name="execute">
+        <execute>dropboxd</execute>
+      </action>
+    </item>
     <item label="Firefox">
       <action name="Execute">
         <command>firefox</command>
@@ -102,11 +73,6 @@
     <item label="Google Chrome">
       <action name="Execute">
         <command>google-chrome</command>
-      </action>
-    </item>
-    <item label="Links">
-      <action name="Execute">
-        <command>xterm -e links</command>
       </action>
     </item>
     <item label="Midori">
@@ -168,11 +134,6 @@
 
   <!-- Multimedia -->
   <menu id="apps-multimedia-menu" label="Multimedia">
-    <item label="Hulu Desktop">
-      <action name="Execute">
-        <execute>huludesktop-bin</execute>
-      </action>
-    </item>
     <item label="Sound Juicer">
       <action name="Execute">
         <execute>sound-juicer</execute>
@@ -220,19 +181,9 @@
 
   <!-- Programming -->
   <menu id="apps-programming-menu" label="Programming">
-    <item label="Bluefish">
-      <action name="execute">
-        <command>bluefish</command>
-      </action>
-    </item>
     <item label="DDD">
       <action name="execute">
         <command>ddd</command>
-      </action>
-    </item>
-    <item label="Eclipse">
-      <action name="execute">
-        <command>eclipse</command>
       </action>
     </item>
     <item label="IDLE">
@@ -242,36 +193,11 @@
     </item>
   </menu>
 
-  <!-- Virtualization -->
-  <menu id="virtualization-menu" label="Virtualization">
-    <item label="VirtualBox">
-      <action name="Execute">
-        <command>VirtualBox</command>
-      </action>
-    </item>
-    <separator/>
-    <item label="WinXP">
-      <action name="Execute">
-        <command>VBoxManage startvm WinXP</command>
-      </action>
-    </item>
-  </menu>
-
   <!-- System -->
   <menu id="system-menu" label="System">
     <item label="CUPS">
       <action name="Execute">
         <command>xdg-open http://localhost:631/</command>
-      </action>
-    </item>
-    <item label="htop">
-      <action name="execute">
-        <execute>xterm -e htop</execute>
-      </action>
-    </item>
-    <item label="System Monitor">
-      <action name="Execute">
-        <command>gnome-system-monitor</command>
       </action>
     </item>
   </menu>
@@ -286,17 +212,11 @@
         <command>~/scripts/wm/randesk.py</command>
       </action>
     </item>
-    <item label="Restart Pypanel">
-      <action name="Execute">
-        <command>killall pypanel ; pypanel</command>
-      </action>
-    </item>
   </menu>
 
   <!-- Root Menu -->
   <menu id="root-menu" label="Openbox 3">
     <separator label="cfree3"/>
-    <menu id="apps-accessories-menu"/>
     <menu id="apps-documents-menu"/>
     <menu id="apps-editors-menu"/>
     <menu id="apps-filemanagers-menu"/>
@@ -307,8 +227,6 @@
     <menu id="apps-office-menu"/>
     <menu id="apps-programming-menu"/>
     <menu id="apps-terminals-menu"/>
-    <separator/>
-    <menu id="virtualization-menu"/>
     <separator/>
     <menu id="system-menu"/>
     <menu id="openbox-menu"/>
