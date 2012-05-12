@@ -57,6 +57,13 @@ set spelllang=en_us
 " Abbreviations
 ab _cf Curtis Free (http://curtisfree.com)
 
+" Tags
+"" See http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks.
+set tags=./tags;${HOME}
+nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+imap <C-\> <C-o>:tab split<CR><C-o>:exec("tag ".expand("<cword>"))<CR>
+vmap <C-\> <Esc>:tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
 " Maps
 "" overrides
 """ :q often mistyped as q:
