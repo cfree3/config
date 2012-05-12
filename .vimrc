@@ -69,31 +69,6 @@ vmap <C-\> <Esc>:tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 """ :q often mistyped as q:
 map  q: <C-g>
 vmap q: <C-g>
-"" line numbers
-map  <F2> :setlocal number!<CR>
-imap <F2> <C-o>:setlocal number!<CR>
-vmap <F2> <Esc>:setlocal number!<CR>
-"" highlight matches
-map  <F3> :setlocal hlsearch!<CR>
-imap <F3> <C-o>:setlocal hlsearch!<CR>
-vmap <F3> <Esc>:setlocal hlsearch!<CR>
-"" cursor col/line
-map  <F4> :setlocal cursorcolumn! cursorline!<CR>
-imap <F4> <C-o>:setlocal cursorcolumn! cursorline!<CR>
-vmap <F4> <Esc>:setlocal cursorcolumn! cursorline!<CR>
-"" spell checking
-"" see http://cinderwick.ca/files/configs/vimrc
-map  <F5> :setlocal spell!<CR>
-imap <F5> <C-o>:setlocal spell!<CR>
-vmap <F5> <Esc>:setlocal spell!<CR>
-"" find/highlight current word
-map  <F6> :set hlsearch<CR>:let @/="<C-r><C-w>"<CR>
-imap <F6> <C-o>:set hlsearch<CR><C-o>:let @/="<C-r><C-w>"<CR>
-vmap <F6> <Esc>:set hlsearch<CR>:let @/="<C-r><C-w>"<CR>
-"" show some non-printable characters
-map  <F7> :setlocal list!<CR>
-imap <F7> <C-o>:setlocal list!<CR>
-vmap <F7> <Esc>:setlocal list!<CR>
 "" graphical line movement when using arrow keys
 """ up
 map  <Up> g<Up>
@@ -121,17 +96,6 @@ vmap <C-l> :tabnext<CR>
 map <C-h> :tabprevious<CR>
 imap <C-h> <C-o>:tabprevious<CR>
 vmap <C-h> :tabprevious<CR>
-"" alternate tab movement
-"map < :tabp<CR>
-"map > :tabn<CR>
-"" easy tab manipulation
-"" see http://dailyvim.blogspot.com/2008/11/tabs.html
-map <leader>to :tabnew<CR>
-map <leader>tf :tabnew<Space>
-map <leader>tc :tabclose<CR>
-map <leader>tm :tabmove<Space>
-map <leader>tn :tabnext<CR>
-map <leader>tp :tabprevious<CR>
 
 " Interface
 set mouse=a      " allow mouse use
