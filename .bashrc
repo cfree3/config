@@ -3,13 +3,15 @@
 # Disable <C-s> terminal stop [1].
 stty stop ''
 
-# Set up PATH.
-[ -d ~/bin ] && export PATH=$PATH:$HOME/bin
-
 # Silent command execution [2].
 silent () { $@ &>/dev/null; }
 # (Silent) command existence checking [3].
 exists () { silent type $@; }
+
+# Set up PATH [9].
+[ -d ~/bin ] && PATH=$PATH:$HOME/bin
+exists ruby && PATH=${PATH}:$(ruby -rubygems -e 'puts Gem.user_dir')/bin
+export PATH
 
 # Standard exports.
 export BROWSER=firefox
@@ -150,4 +152,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [6] http://bbs.archlinux.org/viewtopic.php?pid=402480#p402480
 # [7] http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 # [8] https://wiki.archlinux.org/index.php/Tmux#Fast_method
+# [9] https://mailman.archlinux.org/pipermail/arch-dev-public/2012-February/022528.html
 

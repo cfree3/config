@@ -3,13 +3,15 @@
 # Disable <C-s> terminal stop [1].
 stty stop ''
 
-# Set up PATH.
-[ -d ~/bin ] && export PATH=$PATH:$HOME/bin
-
 # Silent command execution [2].
 silent () { $@ &>/dev/null; }
 # (Silent) command existence checking [3].
 exists () { silent type $@; }
+
+# Set up PATH [17].
+[ -d ~/bin ] && PATH=${PATH}:${HOME}/bin
+exists ruby && PATH=${PATH}:$(ruby -rubygems -e 'puts Gem.user_dir')/bin
+export PATH
 
 # Standard exports.
 export BROWSER=firefox
@@ -240,4 +242,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 # [14] http://aperiodic.net/phil/configs/zshrc
 # [15] http://hintsforums.macworld.com/showthread.php?t=6493
 # [16] http://nuclearsquid.com/writings/git-tricks-tips-workflows/
+# [17] https://mailman.archlinux.org/pipermail/arch-dev-public/2012-February/022528.html
 
