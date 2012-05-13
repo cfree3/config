@@ -155,6 +155,9 @@ endfunction
 "" Hit "L" at the prompt.
 "" See http://writequit.org/blog/?p=195.
 command! SUw %!sudo tee >/dev/null %
+"" J
+"" Quickly/easily recompile a Jekyll blog whose root is Vim's current dir.
+command! J !jekyll
 
 " Options/Params
 "" assume BASH for shell scripts (see sh.vim; "$(...)" won't be flagged as error)
