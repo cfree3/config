@@ -45,7 +45,7 @@ Date: ${time}
 
 Power: ${battery} ${battery_bar}
 
-Volume: ${exec amixer get Master | grep % | sed -r "s/^.* (.).*:.*\[(.*)%\].*\[(o.*)\].*$/[\1][\2%][\3]/g" | paste -s -d\ }
+Volume: ${exec amixer get PCM | grep % | sed -r "s/^.* (.).*:.*\[(.*)%\].*\[(o.*)\].*$/[\1][\2%][\3]/g" | paste -s -d\ }
 
 CPU: ${cpu cpu1}% ${cpubar cpu1}
      ${cpu cpu2}% ${cpubar cpu2}
