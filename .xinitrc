@@ -23,7 +23,7 @@ do_session() { exec ${AGENT} ${DBUS} $1; }
 xset +fp ${FONTS_LOCAL}
 xset fp rehash
 ## Key Repeat
-xset r rate 200 30
+xset r rate 190 30
 ## Keymaps
 [ -f ${HOME}/.Xmodmap ] && xmodmap ${HOME}/.Xmodmap
 
