@@ -18,8 +18,8 @@ syntax enable         " use syntax highlighting
 highlight clear       " clear any special highlighting
 
 " Editing
-set backspace=indent,eol,start     " backspace over everything
-set listchars=eol:$,trail:_,tab:>- " 'list' mode chars
+set backspace=indent,eol,start " backspace over everything
+set listchars=trail:_,tab:>-   " 'list' mode chars
 
 " File Backup
 "" :help backup-table
@@ -27,7 +27,7 @@ set nobackup
 set writebackup
 
 " Swap
-set directory=. " (only) store swap files along with actual files
+set directory=.,/tmp " prefer storing swap files along with actual files
 
 " Undo
 " see http://amix.dk/blog/post/19548
@@ -116,31 +116,38 @@ if has("gui_running")
   vmap <C-Tab>   <Esc>:tabn<CR>
   vmap <S-C-Tab> <Esc>:tabp<CR>
   " font
-  set guifont=Termsyn\ 11,Terminus\ 9,DejaVu\ Sans\ Mono\ 9
-  " display options
-  set guioptions=acih
+  silent! set guifont=Monospace
+  " various options
+  set guioptions=aceirh
   " hide the mouse when typing
   set mousehide
-  " highlight current row
-  set cursorline
+  " highlight current row and column
+  set cursorline cursorcolumn
 " Console Specifics
 else
-  " use only 8 colors
-  set t_Co=8
+  " use 256 colors
+  set t_Co=256
 endif
 
 " MacVim
 "" See http://serverfault.com/questions/70196/how-to-tell-if-im-in-macvim-in-vimrc.
 if has("gui_macvim")
   " font for Mac
-  set guifont=Menlo\ Regular:h12
+  "set guifont=Menlo\ Regular:h12
+  silent! set guifont=Source\ Code\ Pro:h13
+  " transparency
+  set transparency=2
   " colorscheme
   "" http://stackoverflow.com/questions/5698284/in-my-vimrc-how-can-i-check-for-the-existence-of-a-color-scheme/5702498
-  try
-    colorscheme mustang
-  catch
-    colorscheme slate
-  endtry
+  "if has("gui_running")
+    "try
+      "colorscheme mustang
+    "catch
+      "colorscheme slate
+    "endtry
+   "endif
+  silent! colorscheme solarized
+  set background=light
 endif
 
 " Commands/Functions
@@ -158,6 +165,9 @@ command! SUw %!sudo tee >/dev/null %
 "" J
 "" Quickly/easily recompile a Jekyll blog whose root is Vim's current dir.
 command! J !jekyll
+"" CleanDOS
+"" Fix DOS line endings.
+command! CleanDOS %s//\r/g
 
 " Options/Params
 "" assume BASH for shell scripts (see sh.vim; "$(...)" won't be flagged as error)
@@ -180,10 +190,11 @@ if has("autocmd")
     autocmd FileType asm            setlocal noexpandtab tabstop=8 shiftwidth=8
     autocmd FileType html,xhtml,xml setlocal             tabstop=2 shiftwidth=2
     autocmd FileType make           setlocal noexpandtab
+    autocmd FileType markdown       setlocal                                    colorcolumn=101
     autocmd FileType st             setlocal noexpandtab
     autocmd FileType sql,plsql      setlocal             tabstop=2 shiftwidth=2
     autocmd FileType sudoers        setlocal noexpandtab
-    autocmd FileType tex,plaintex   setlocal noexpandtab tabstop=2 shiftwidth=2
+    autocmd FileType tex,plaintex   setlocal noexpandtab tabstop=2 shiftwidth=2 colorcolumn=101 textwidth=101 spell inde=
     autocmd FileType verilog        setlocal noexpandtab
     autocmd FileType vim            setlocal             tabstop=2 shiftwidth=2
   augroup end
