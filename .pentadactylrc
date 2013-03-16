@@ -1,4 +1,4 @@
-" ~/.pentadactyl | vi: set ft=vimperator: | Curtis Free (http://curtisfree.com)
+" ~/.pentadactyl | vi: set ft=vim: | Curtis Free (http://curtisfree.com)
 
 " These settings prevent Pentadactyl from overwriting my preferred Firefox settings.
 set! browser.startup.page=1
@@ -85,8 +85,13 @@ cmap <C-t> <Esc><C-v><C-t>
 " Style
 "" See http://bbs.archlinux.org/viewtopic.php?id=69123
 "" See http://github.com/VoQn/vimperator-colorscheme/raw/e13afec1be5ec1c9de775d0e2a464862f8d3a453/colors/default.vimp
-hi CompItem  font-size: 12px;
-hi CompTitle color: magenta; font-weight: bold; font-size: 12px;
+"" Default monospace font can be set for FontFixed, but a more general solution is to change Firefox's default monospace font.
+hi CmdLine    -append font-size: 9pt !important;
+hi CompItem   -append font-size: 9pt !important;
+hi CompTitle  -append font-size: 9pt !important;
+hi FontFixed  -append font-size: 9pt !important;
+hi Hint       -append font-size: 9pt !important;
+hi StatusLine -append font-size: 9pt !important;
 
 " Commands
 "" Show Error Console
