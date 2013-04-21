@@ -104,6 +104,19 @@ elif exists vi; then
     (! exists view) && alias view='vi -R'
 fi
 
+# Copy/paste alias(es).
+## To copy:
+##   echo ${SOURCE} | yank
+## To paste:
+##   put | ${SINK}
+if exists xclip; then
+    alias yank='xclip'
+    alias put='xclip'
+elif exists pbcopy && exists pbpaste; then
+    alias yank='pbcopy'
+    alias put='pbpaste'
+fi
+
 # Screen alias(es).
 ## Be sure not to set this if actually using tmux.
 if [ -z "$TMUX" ] && [[ $TERM =~ screen(.linux)? ]]; then
