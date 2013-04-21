@@ -117,8 +117,8 @@ if has("gui_running")
   vmap <S-C-Tab> <Esc>:tabp<CR>
   " font
   silent! set guifont=Monospace
-  " various options
-  set guioptions=aceirh
+  " GUI config (note: don't automatically put visual selection in clipboard)
+  set guioptions=ceirh
   " hide the mouse when typing
   set mousehide
   " highlight current row and column
@@ -129,25 +129,36 @@ else
   set t_Co=256
 endif
 
+" Specific Terminals
+"" screen
+if &term =~ "screen"
+  " terminal title adjustments
+  set t_ts=]2;
+  set t_fs=
+  " needed for mouse
+  set ttymouse=xterm2
+" xterm (or iTerm2, etc.)
+"" See http://stackoverflow.com/questions/2105880/how-can-i-get-the-file-i-have-open-in-vim-to-display-in-my-iterm-tab.
+elseif &term =~ "xterm"
+  " terminal title adjustments
+  set t_ts=]1;
+  set t_fs=
+endif
+
 " MacVim
 "" See http://serverfault.com/questions/70196/how-to-tell-if-im-in-macvim-in-vimrc.
 if has("gui_macvim")
-  " font for Mac
-  "set guifont=Menlo\ Regular:h12
+  " font for OS X
   silent! set guifont=Source\ Code\ Pro:h13
   " transparency
   set transparency=2
-  " colorscheme
-  "" http://stackoverflow.com/questions/5698284/in-my-vimrc-how-can-i-check-for-the-existence-of-a-color-scheme/5702498
-  "if has("gui_running")
-    "try
-      "colorscheme mustang
-    "catch
-      "colorscheme slate
-    "endtry
-   "endif
-  silent! colorscheme solarized
-  set background=light
+  " on OS X, buffer `*` is the way to go (`+` does not work)
+  set clipboard=unnamed
+
+" Non-MacVim
+else
+  " copy everywhere (`*` and `+`)
+  set clipboard=unnamed,unnamedplus
 endif
 
 " Commands/Functions
@@ -198,16 +209,6 @@ if has("autocmd")
     autocmd FileType verilog        setlocal noexpandtab
     autocmd FileType vim            setlocal             tabstop=2 shiftwidth=2
   augroup end
-endif
-
-" Specific Terminals
-"" screen
-if &term =~ "screen"
-  " terminal title adjustments
-  set t_ts=]2;
-  set t_fs=
-  " needed for mouse
-  set ttymouse=xterm2
 endif
 
 " Pathogen (https://github.com/tpope/vim-pathogen)
