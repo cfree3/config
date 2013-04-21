@@ -199,6 +199,7 @@ if has("autocmd")
     autocmd FileType *              setlocal expandtab   tabstop=4 shiftwidth=4
     " filetypes
     autocmd FileType asm            setlocal noexpandtab tabstop=8 shiftwidth=8
+    autocmd FileType gitcommit      setlocal                                                                  spell
     autocmd FileType html,xhtml,xml setlocal             tabstop=2 shiftwidth=2
     autocmd FileType make           setlocal noexpandtab
     autocmd FileType markdown       setlocal                                    colorcolumn=101
