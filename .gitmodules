@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/tbone"]
 	path = .vim/bundle/tbone
 	url = git://github.com/tpope/vim-tbone.git
+[submodule ".vim/bundle/mustang2"]
+	path = .vim/bundle/mustang2
+	url = https://github.com/vim-scripts/Mustang2.git
