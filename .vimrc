@@ -102,6 +102,15 @@ set mouse=a      " allow mouse use
 set wildmenu     " display menu that cycles through command-lne completions
 set laststatus=2 " always show the status bar
 
+" Line Numbering
+if (version >= 740)
+  set number relativenumber
+endif
+
+" Pathogen (https://github.com/tpope/vim-pathogen)
+"" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
+silent! call pathogen#infect()
+
 " GUI Specifics
 if has("gui_running")
   " terminal-like pasting
@@ -121,8 +130,11 @@ if has("gui_running")
   set guioptions=ceirh
   " hide the mouse when typing
   set mousehide
-  " highlight current row and column
-  set cursorline cursorcolumn
+  " highlight current row (but no cursorcolumn)
+  set cursorline
+  " colorscheme (in opposite order of preference; ensure Pathogen infected first)
+  silent! colorscheme solarized
+  silent! colorscheme Mustang
 " Console Specifics
 else
   " use 256 colors
@@ -151,7 +163,7 @@ if has("gui_macvim")
   " font for OS X
   silent! set guifont=Source\ Code\ Pro:h13
   " transparency
-  set transparency=2
+  set transparency=5
   " on OS X, buffer `*` is the way to go (`+` does not work)
   set clipboard=unnamed
 
@@ -211,10 +223,6 @@ if has("autocmd")
     autocmd FileType vim            setlocal             tabstop=2 shiftwidth=2
   augroup end
 endif
-
-" Pathogen (https://github.com/tpope/vim-pathogen)
-"" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
-silent! call pathogen#infect()
 
 " Local Customizations
 "" See http://tech.groups.yahoo.com/group/vim/message/56224.
