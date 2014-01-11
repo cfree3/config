@@ -39,10 +39,10 @@ if (version >= 730)
 endif
 
 " Searching
-set incsearch  " perform incremental searching
-set hlsearch   " highlight search results
-set ignorecase " typically (see below) ignore case
-set smartcase  " only consider case if an upper case char is used
+set incsearch   " perform incremental searching
+set hlsearch    " highlight search results
+set ignorecase  " typically (see below) ignore case
+set nosmartcase " never consider case (messes me up)
 
 " Tabs/Indentation
 set expandtab     " insert tabs as spaces
