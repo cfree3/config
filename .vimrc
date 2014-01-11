@@ -111,6 +111,12 @@ endif
 "" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
 silent! call pathogen#infect()
 
+" Color Scheme
+"" In opposite order of preference so that the last successful call "wins."
+"" Ensure Pathogen infected first if any bundles provide these schemes.
+silent! colorscheme solarized
+silent! colorscheme Mustang
+
 " GUI Specifics
 if has("gui_running")
   " terminal-like pasting
@@ -132,9 +138,6 @@ if has("gui_running")
   set mousehide
   " highlight current row (but no cursorcolumn)
   set cursorline
-  " colorscheme (in opposite order of preference; ensure Pathogen infected first)
-  silent! colorscheme solarized
-  silent! colorscheme Mustang
 " Console Specifics
 else
   " use 256 colors
