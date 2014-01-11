@@ -32,9 +32,9 @@ export EDITOR
 ## VISUAL
 if exists mvim || [ "${DISPLAY}" ]; then
     if exists mvim; then
-        VISUAL='mvim -p'
+        VISUAL='mvim -fp'
     elif exists gvim; then
-        VISUAL='gvim -p'
+        VISUAL='gvim -fp'
     fi
 else
     VISUAL=${EDITOR}
