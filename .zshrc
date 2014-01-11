@@ -171,7 +171,7 @@ bindkey "^i" expand-or-complete-prefix
 ### tmux issues OC and OD instead.
 bindkey "\eOC" emacs-forward-word
 bindkey "\eOD" emacs-backward-word
-### iTerm2 word movement with alt/option.
+### iTerm2 word movement with Alt/Option.
 bindkey "\e[1;9C" forward-word
 bindkey "\e[1;9D" backward-word
 ## Vim command-mode fixes.
