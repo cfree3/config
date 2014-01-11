@@ -156,7 +156,6 @@ alias cups='${BROWSER} http://localhost:631 &'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -al'
-alias lz='ls -alZ'
 alias mv='mv -i'
 alias pftp='ftp -p'
 alias rm='rm -i'
@@ -174,6 +173,11 @@ alias -s xhtml=${BROWSER}
 
 # Enable aliases when using sudo (won't work if an alias uses `nocorrect`).
 alias sudo='sudo ' # Note the trailing space.
+
+# SELinux helpers.
+if exists /sbin/getenforce; then
+    alias lz='ls -alZ'
+fi
 
 # Vim alias(es).
 if [ "${EDITOR}" ]; then
