@@ -154,7 +154,7 @@ exists dircolors && eval `dircolors`
 ## Use colors when showing filename suggestions.
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 ## Use a menu interface for completions [8].
-zstyle ':completion:*' menu select # [8]
+zstyle ':completion:*' menu select
 ## Complete PIDs [8].
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*' force-list always
