@@ -137,6 +137,9 @@ bindkey "\e\e[D" backward-word
 ### iTerm2
 bindkey "\e[1;9C" forward-word
 bindkey "\e[1;9D" backward-word
+### Terminal (Mac OS X)
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
 
 # Enable command line editing (<C-t>) [5].
 ## This `bindkey` should be done after those above.
