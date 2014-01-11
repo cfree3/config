@@ -223,7 +223,7 @@ alias -s tex=${EDITOR}
 alias -s txt=${EDITOR}
 alias -s xhtml=${BROWSER}
 
-# Enable aliases when using sudo (NOTE: has problems with aliases that use nocorrect).
+# Enable aliases when using sudo (won't work if an alias uses `nocorrect`).
 alias sudo='sudo ' # Note the trailing space.
 
 # Vim alias(es).
