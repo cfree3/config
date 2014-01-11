@@ -121,13 +121,19 @@ setopt   prompt_subst         # Perform regular shell substitution in prompt.
 bindkey -e # -v
 
 # Custom keybindings.
-## Word movement with Alt/Option.
+## Word movement (Option or Control) + Left/Right.
 ### tmux
 bindkey "\e\e[C" forward-word
 bindkey "\e\e[D" backward-word
-### iTerm2
+### iTerm2 (Option = "+Esc", Delete = ^?)
+#### "xterm Defaults" or "xterm with Numeric Keypad"
 bindkey "\e[1;9C" forward-word
 bindkey "\e[1;9D" backward-word
+bindkey "\eOC" forward-word
+bindkey "\eOD" backward-word
+#### "Terminal.app compatibility"
+bindkey "\e[5C" forward-word
+bindkey "\e[5D" backward-word
 ### Terminal (Mac OS X)
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
