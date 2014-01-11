@@ -100,7 +100,10 @@ vmap <C-h> :tabprevious<CR>
 " Interface
 set mouse=a      " allow mouse use
 set wildmenu     " display menu that cycles through command-lne completions
-set laststatus=2 " always show the status bar
+"" Status Line
+""" See http://curtisfree.com/blog/2012/04/22/adding_total_line_count_to_vim_statusline.
+set laststatus=2                                    " always show the status bar
+set statusline=%<%f\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P " include total line count
 
 " Line Numbering
 if (version >= 740)
