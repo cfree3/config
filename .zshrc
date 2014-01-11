@@ -129,54 +129,14 @@ setopt   prompt_subst         # Perform regular shell substitution in prompt.
 # Set Emacs-style input mode (alternative given in comment).
 bindkey -e # -v
 
-# Keybindings.
-## Prefer readline config [8].
-READLINE_CONFIG=/etc/inputrc
-if [ -f ${READLINE_CONFIG} ]; then
-    eval "$(sed -n 's/^/bindkey /; s/: / /p' ${READLINE_CONFIG})"
-## Fallback [8].
-else
-    ## Standard.
-    bindkey "\e[1~"  beginning-of-line
-    bindkey "\e[4~"  end-of-line
-    bindkey "\e[5~"  beginning-of-history
-    bindkey "\e[6~"  end-of-history
-    bindkey "\e[3~"  delete-char
-    bindkey "\e[2~"  quoted-insert
-    bindkey "\e[5C"  forward-word
-    bindkey "\e[5D"  backward-word
-    bindkey "\e\e[C" forward-word
-    bindkey "\e\e[D" backward-word
-    bindkey "^H"     backward-delete-word
-    bindkey "^?"     backward-delete-char
-    ## rxvt.
-    bindkey "\e[8~"  end-of-line
-    bindkey "\e[7~"  beginning-of-line
-    ## Non-RH/Debian xterm.
-    bindkey "\eOH"   beginning-of-line
-    bindkey "\eOF"   end-of-line
-    ## FreeBSD console.
-    bindkey "\e[H"   beginning-of-line
-    bindkey "\e[F"   end-of-line
-    ## Middle-of-line completion.
-    bindkey "^i"     expand-or-complete-prefix
-fi
-unset READLINE_CONFIG
-## Bindings not in standard readline config [8].
-bindkey "^?"   backward-delete-char
-bindkey "\eOc" emacs-forward-word
-bindkey "\eOd" emacs-backward-word
-## Middle-of-line completion [8].
-bindkey "^i" expand-or-complete-prefix
-### tmux issues OC and OD instead.
-bindkey "\eOC" emacs-forward-word
-bindkey "\eOD" emacs-backward-word
-### iTerm2 word movement with Alt/Option.
+# Custom keybindings.
+## Word movement with Alt/Option.
+### tmux
+bindkey "\e\e[C" forward-word
+bindkey "\e\e[D" backward-word
+### iTerm2
 bindkey "\e[1;9C" forward-word
 bindkey "\e[1;9D" backward-word
-## Vim command-mode fixes.
-bindkey -M vicmd "\e[1~" beginning-of-line
-bindkey -M vicmd "\e[4~" end-of-line
 
 # Enable command line editing (<C-t>) [5].
 ## This `bindkey` should be done after those above.
