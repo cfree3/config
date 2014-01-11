@@ -8,7 +8,12 @@ silent () { ${@} &>/dev/null; }
 # (Silent) command existence checking [3].
 exists () { silent type ${@}; }
 
-# Set up PATH [17,18].
+# Initial PATH setup (from Mac OS X's /zshenv) [20].
+if [ -x /usr/libexec/path_helper ]; then
+    eval $(/usr/libexec/path_helper -s)
+fi
+
+# Additional PATH setup [17,18].
 [ -d /Homebrew/bin ] && export PATH=${PATH}:/Homebrew/bin
 [ -d /Applications/Xcode.app/Contents/Developer/usr/bin ] && export PATH=${PATH}:/Applications/Xcode.app/Contents/Developer/usr/bin
 exists gem && export PATH=${PATH}:$(gem environment | grep "\- EXECUTABLE DIRECTORY" | sed "s/.*: //")
@@ -324,4 +329,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 ## [17] https://mailman.archlinux.org/pipermail/arch-dev-public/2012-February/022528.html
 ## [18] http://stackoverflow.com/questions/5056163/what-is-the-default-search-path-for-ruby-gems-i-e-the-default-gem-home
 ## [19] http://superuser.com/a/299431
+## [20] https://github.com/Homebrew/homebrew/issues/25407
 
