@@ -7,9 +7,6 @@ config defaultToCurrentScreen true
 # undo
 bind z:ctrl,alt undo
 
-# pick a window
-bind esc:cmd hint
-
 # left and right halves
 bind h:ctrl,alt push left  bar-resize:screenSizeX/2
 bind l:ctrl,alt push right bar-resize:screenSizeX/2
