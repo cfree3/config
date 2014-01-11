@@ -261,6 +261,14 @@ if [ -z "$TMUX" ] && [[ $TERM =~ screen(.linux)? ]]; then
     alias s='screen'
 fi
 
+# tmux helper for Mac OS X [21].
+function tmux() {
+  if exists reattach-to-user-namespace; then
+      command tmux set-option -g default-command "reattach-to-user-namespace -l zsh" &>/dev/null
+  fi
+  command tmux ${@}
+}
+
 # Utility settings [4].
 ## grep
 export GREP_OPTIONS="--color=auto"
@@ -330,4 +338,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 ## [18] http://stackoverflow.com/questions/5056163/what-is-the-default-search-path-for-ruby-gems-i-e-the-default-gem-home
 ## [19] http://superuser.com/a/299431
 ## [20] https://github.com/Homebrew/homebrew/issues/25407
+## [21] https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/README.md
 
