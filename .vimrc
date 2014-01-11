@@ -219,6 +219,10 @@ if has("autocmd")
     autocmd FileType verilog        setlocal noexpandtab
     autocmd FileType vim            setlocal             tabstop=2 shiftwidth=2
   augroup end
+  " custom types
+  augroup custom
+    autocmd BufRead,BufNewFile *.notes setlocal filetype=markdown shiftwidth=2 colorcolumn=101 textwidth=100
+  augroup end
 endif
 
 " Local Customizations
