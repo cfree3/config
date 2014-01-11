@@ -88,7 +88,7 @@ RPROMPT='%F{black}[%D{%r}]${vcs_info_msg_0_}%f'
 # tmux, change default path; determine VCS information [12,13].
 # Inspired by default Ubuntu .bashrc and [10].
 case "$TERM" in
-    xterm*|rxvt*|screen)
+    xterm*|rxvt*|screen*) # includes things like `screen-256color`
         precmd () {
             echo -ne "\033]0;$(print -P '%n@%m: %~')\007"
             [ -n "$TMUX" ] && $(tmux set default-path $(pwd))
