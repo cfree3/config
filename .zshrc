@@ -84,14 +84,14 @@ zstyle ':vcs_info:*' disable-patterns "${HOME}"
 # visible on dark background) makes the prompt less obtrusive.
 RPROMPT='%F{black}[%D{%r}]${vcs_info_msg_0_}%f'
 
-# If using xterm, rxvt, or screen, set the window title to user@directory; in
+# If using xterm, rxvt, or screen/tmux, set the window title to user@directory; in
 # tmux, change default path; determine VCS information [12,13].
 # Inspired by default Ubuntu .bashrc and [10].
 case "$TERM" in
     xterm*|rxvt*|screen*) # includes things like `screen-256color`
         precmd () {
             echo -ne "\033]0;$(print -P '%n@%m: %~')\007"
-            [ -n "$TMUX" ] && $(tmux set default-path $(pwd))
+            [ -n "$TMUX" ] && $(tmux set default-path "$(pwd)")
             vcs_info &>/dev/null # errors if going from VCS dir back to ~
         }
         ;;
