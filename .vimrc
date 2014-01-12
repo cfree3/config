@@ -217,11 +217,11 @@ if has("autocmd")
     autocmd FileType gitcommit      setlocal                                                                  spell
     autocmd FileType html,xhtml,xml setlocal             tabstop=2 shiftwidth=2
     autocmd FileType make           setlocal noexpandtab
-    autocmd FileType markdown       setlocal                                    colorcolumn=101
+    autocmd FileType markdown       setlocal                                    colorcolumn=101 textwidth=100
     autocmd FileType st             setlocal noexpandtab
     autocmd FileType sql,plsql      setlocal             tabstop=2 shiftwidth=2
     autocmd FileType sudoers        setlocal noexpandtab
-    autocmd FileType tex,plaintex   setlocal noexpandtab tabstop=2 shiftwidth=2 colorcolumn=101 textwidth=101 spell inde=
+    autocmd FileType tex,plaintex   setlocal noexpandtab tabstop=2 shiftwidth=2 colorcolumn=101 textwidth=100 spell inde=
     autocmd FileType verilog        setlocal noexpandtab
     autocmd FileType vim            setlocal             tabstop=2 shiftwidth=2
   augroup end
