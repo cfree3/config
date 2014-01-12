@@ -231,6 +231,10 @@ if has("autocmd")
   augroup end
 endif
 
+" Plugin Settings
+"" vim-nerdtree-tabs
+let g:nerdtree_tabs_open_on_gui_startup=0
+
 " Local Customizations
 "" See http://tech.groups.yahoo.com/group/vim/message/56224.
 let local_vimrc=expand("~/.vimrc-local")
