@@ -30,7 +30,16 @@ elif exists vim; then
 fi
 export EDITOR
 ## VISUAL
-export VISUAL=${EDITOR}
+if exists mvim || [ "${DISPLAY}" ]; then
+    if exists mvim; then
+        VISUAL='mvim -fp'
+    elif exists gvim; then
+        VISUAL='gvim -fp'
+    fi
+else
+    VISUAL=${EDITOR}
+fi
+export VISUAL
 ## PAGER
 if exists less; then
     PAGER='less'
