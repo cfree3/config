@@ -14,7 +14,6 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 # Additional PATH setup [17,18].
-[ -d /Homebrew/bin ] && export PATH=${PATH}:/Homebrew/bin
 [ -d /Applications/Xcode.app/Contents/Developer/usr/bin ] && export PATH=${PATH}:/Applications/Xcode.app/Contents/Developer/usr/bin
 exists gem && export PATH=${PATH}:$(gem environment | grep "\- EXECUTABLE DIRECTORY" | sed "s/.*: //")
 [ -d ~/bin ] && export PATH=${PATH}:~/bin
