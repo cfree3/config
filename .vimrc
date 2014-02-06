@@ -31,7 +31,7 @@ set directory=.,/tmp " prefer storing swap files along with actual files
 
 " Undo
 " see http://amix.dk/blog/post/19548
-if (version >= 730)
+if (version >= 703)
   set undolevels=1000 " remember 1000 undo levels
   set noundofile      " don't persist undo information
   set undoreload=100  " if we _do_ persist (manual set), only remember 100 undo levels
@@ -106,7 +106,7 @@ set laststatus=2                                    " always show the status bar
 set statusline=%<%f\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P " include total line count
 
 " Line Numbering
-if (version >= 740)
+if (version >= 704)
   set number relativenumber
 endif
 
