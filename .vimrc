@@ -136,7 +136,7 @@ if has("gui_running")
   " font
   silent! set guifont=Monospace
   " GUI config (note: don't automatically put visual selection in clipboard)
-  set guioptions=ceirh
+  set guioptions=ceih
   " hide the mouse when typing
   set mousehide
   " highlight current row (but no cursorcolumn)
