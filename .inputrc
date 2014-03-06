@@ -1,0 +1,13 @@
+# ~/.inputrc | Curtis Free (cf@curtisfree.com)
+# Controls apps such as `rlwrap` which make use of readline. This configuration
+# supplements the system-wide config (usually `/etc/inputrc`) to fix problems.
+
+# tmux
+## Word movement
+### Option + Left/Right
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+### Control + Left/Right
+"\eOC": forward-word
+"\eOD": backward-word
+
