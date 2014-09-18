@@ -20,7 +20,8 @@ highlight clear       " clear any special highlighting
 
 " Editing
 set backspace=indent,eol,start " backspace over everything
-set listchars=trail:_,tab:>-   " 'list' mode chars
+set list                       " show tabs and trailing spaces (in conjuction with `listchars`)
+set listchars=trail:·,tab:»\   " 'list' mode chars
 
 " File Backup
 "" :help backup-table
