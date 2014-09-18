@@ -147,9 +147,12 @@ bindkey "\e[1;5D" backward-word
 
 # Enable command line editing (<C-t>) [5].
 ## This `bindkey` should be done after those above.
-autoload edit-command-line
+autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^t' edit-command-line
+
+# Treat "words" like BASH [22].
+autoload -Uz select-word-style && select-word-style bash
 
 # Colors for various utilities.
 exists dircolors && eval `dircolors`
@@ -306,4 +309,5 @@ unset LC_COLLATE # Prevent "C" sorting.
 ## [19] http://superuser.com/a/299431
 ## [20] https://github.com/Homebrew/homebrew/issues/25407
 ## [21] https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/README.md
+## [22] http://stackoverflow.com/a/1438523
 
