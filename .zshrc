@@ -13,9 +13,7 @@ if [ -x /usr/libexec/path_helper ]; then
     eval $(/usr/libexec/path_helper -s)
 fi
 
-# Additional PATH setup [17,18].
-[ -d /Applications/Xcode.app/Contents/Developer/usr/bin ] && export PATH=${PATH}:/Applications/Xcode.app/Contents/Developer/usr/bin
-exists gem && export PATH=${PATH}:$(gem environment | grep "\- EXECUTABLE DIRECTORY" | sed "s/.*: //")
+# Additional PATH setup [17,18,23].
 [ -d ~/bin ] && export PATH=${PATH}:~/bin
 
 # Standard exports.
@@ -310,4 +308,4 @@ unset LC_COLLATE # Prevent "C" sorting.
 ## [20] https://github.com/Homebrew/homebrew/issues/25407
 ## [21] https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/README.md
 ## [22] http://stackoverflow.com/a/1438523
-
+## [23] https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Gems,-Eggs-and-Perl-Modules.md
