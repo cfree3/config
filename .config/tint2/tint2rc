@@ -94,4 +94,3 @@ mouse_scroll_down = none
 # Autohide
 autohide = 0
 strut_policy = follow_size
-

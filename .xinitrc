@@ -35,4 +35,3 @@ case ${1} in
     xterm)         do_session xterm;;
     *)             do_session ${SESSION_DEFAULT};;
 esac
-

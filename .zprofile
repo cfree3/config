@@ -8,4 +8,3 @@ if ! pgrep xinit &>/dev/null && [[ -z "$DISPLAY" ]] && [ $(tty) = /dev/tty1 ]; t
     (nohup xinit &)
     logout
 fi
-

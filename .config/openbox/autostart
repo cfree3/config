@@ -33,4 +33,3 @@ fi
 
 ## Screensaver
 (type slock &>/dev/null && type xautolock &>/dev/null && xautolock -time 15 -locker slock) &
-

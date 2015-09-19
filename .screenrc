@@ -14,4 +14,3 @@ caption always "[%n][%t]%=[ %w ]"
 
 # Update terminal titlebar.
 termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
-

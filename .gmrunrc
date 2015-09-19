@@ -22,4 +22,3 @@ TabTimeout = 0
 
 # Open URLs in Firefox.
 URL_http = firefox %u
-

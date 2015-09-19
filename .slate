@@ -26,4 +26,3 @@ bind g:ctrl,alt grid
 
 # full-size
 bind f:ctrl,alt move screenOriginX;screenOriginY screenSizeX;screenSizeY
-

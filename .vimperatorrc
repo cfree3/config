@@ -161,4 +161,3 @@ command! amzwishlist js add_to_amazon_wishlist();
     display();
   }
 EOJS
-

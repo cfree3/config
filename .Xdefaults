@@ -47,4 +47,3 @@ urxvt*scrollBar:       false
 urxvt*perl-ext-common: default,matcher
 urxvt*urlLauncher:     google-chrome
 urxvt*matcher.button:  1
-

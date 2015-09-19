@@ -243,4 +243,3 @@ let local_vimrc=expand("~/.vimrc-local")
 if filereadable(local_vimrc)
   execute "source ".local_vimrc
 endif
-
