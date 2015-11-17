@@ -5,24 +5,28 @@
 config defaultToCurrentScreen true
 
 # undo
-bind z:ctrl,alt undo
+bind z:ctrl;alt undo
 
 # left and right halves
-bind h:ctrl,alt push left  bar-resize:screenSizeX/2
-bind l:ctrl,alt push right bar-resize:screenSizeX/2
+bind h:ctrl;alt push left  bar-resize:screenSizeX/2
+bind l:ctrl;alt push right bar-resize:screenSizeX/2
 
 # 50% top/bottom
-bind k:ctrl,alt     corner top-left     resize:screenSizeX/2;screenSizeY/2
-bind k:ctrl,alt,cmd corner top-right    resize:screenSizeX/2;screenSizeY/2
-bind j:ctrl,alt     corner bottom-left  resize:screenSizeX/2;screenSizeY/2
-bind j:ctrl,alt,cmd corner bottom-right resize:screenSizeX/2;screenSizeY/2
+#bind k:ctrl,alt     corner top-left     resize:screenSizeX/2;screenSizeY/2
+#bind k:ctrl,alt,cmd corner top-right    resize:screenSizeX/2;screenSizeY/2
+#bind j:ctrl,alt     corner bottom-left  resize:screenSizeX/2;screenSizeY/2
+#bind j:ctrl,alt,cmd corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 # move between monitors
-bind h:ctrl,alt,cmd throw left
-bind l:ctrl,alt,cmd throw right
+bind h:ctrl;alt;cmd throw left  resize
+bind j:ctrl;alt;cmd throw down  resize
+bind k:ctrl;alt;cmd throw up    resize
+bind l:ctrl;alt;cmd throw right resize
 
 # show grid for resizing
-bind g:ctrl,alt grid
+#bind g:ctrl;alt grid
+
+bind esc:cmd hint
 
 # full-size
 bind f:ctrl,alt move screenOriginX;screenOriginY screenSizeX;screenSizeY

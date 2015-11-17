@@ -65,21 +65,18 @@ export HISTFILE=~/.zsh_history # Save history to ~/.zsh_history.
 autoload -Uz compinit && compinit
 
 # Set the standard prompt.
-# This is a ZSH (%) version of the default Ubuntu BASH prompt.
-PROMPT='%F{yellow}%n@%m:%~%#%f '
+# This is a ZSH (%) version of the default RHEL BASH prompt.
+PROMPT='%F{blue}[%n@%m %1~]%F{green}%#%f '
 
 # Configure support for VCS info [12,13].
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats '[%b]%c%u'
-zstyle ':vcs_info:*' stagedstr '+'
-zstyle ':vcs_info:*' unstagedstr '-'
-zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats '[%b]'
 zstyle ':vcs_info:*' disable-patterns "${HOME}"
 
 # The right-side prompt should show the time and VCS info; "black" text (still
 # visible on dark background) makes the prompt less obtrusive.
-RPROMPT='%F{black}[%D{%r}]${vcs_info_msg_0_}%f'
+RPROMPT='%F{yellow}[%D{%r}]${vcs_info_msg_0_}%f'
 
 # If using xterm, rxvt, or screen/tmux, set the window title to user@directory;
 # determine VCS information [12,13].
@@ -124,6 +121,14 @@ setopt   prompt_subst         # Perform regular shell substitution in prompt.
 
 # Set Emacs-style input mode (alternative given in comment).
 bindkey -e # -v
+
+# Standard keybindings that don't work out of the box.
+## Delete key.
+bindkey "\e[3~" delete-char
+## Home key.
+bindkey "\e[1~" beginning-of-line
+## End key.
+bindkey "\e[4~" end-of-line
 
 # Custom keybindings.
 ## Word movement (Option or Control) + Left/Right.
@@ -284,6 +289,9 @@ function cmdprompt() {
 
 # Variable modifications.
 unset LC_COLLATE # Prevent "C" sorting.
+
+# Allow system-specific config/overrides.
+[ -f ${HOME}/.zshrc.local ] && source ${HOME}/.zshrc.local
 
 # References
 ##  [1] http://www.catonmat.net/blog/vim-plugins-surround-vim

@@ -97,6 +97,10 @@ command! jekyll open http://0.0.0.0:4000
 "" App Tabs
 command! app pin!
 
+"" Pass Through
+""" See `:help autocmd-examples`.
+autocmd LocationChange docs.google.com,mail.google.com :normal! <C-z>
+
 " JavaScript
 "" Window
 :js var win = window.content.wrappedJSObject;

@@ -14,6 +14,7 @@ set virtualedit=block " allow virtual editing in visual block mode
 set pastetoggle=<F8>  " toggle paste (see http://bbs.archlinux.org/viewtopic.php?pid=425987#p425987)
 set scrolloff=2       " provide a "buffer" of two lines below/above cursor
 set tabpagemax=1000   " allow up to 1k tabs (http://www.linux.com/archive/feed/59533)
+set foldmethod=marker " fold on `{{{` `}}}`
 let mapleader=","     " use comma as the <leader> character
 syntax enable         " use syntax highlighting
 highlight clear       " clear any special highlighting
@@ -21,7 +22,7 @@ highlight clear       " clear any special highlighting
 " Editing
 set backspace=indent,eol,start " backspace over everything
 set list                       " show tabs and trailing spaces (in conjuction with `listchars`)
-set listchars=trail:·,tab:»\   " 'list' mode chars
+set listchars=trail:·,tab:»·   " 'list' mode chars (http://stackoverflow.com/q/18321538)
 
 " File Backup
 "" :help backup-table
@@ -49,6 +50,7 @@ set nosmartcase " never consider case (messes me up)
 " Tabs/Indentation
 set expandtab     " insert tabs as spaces
 set tabstop=4     " use 4 spaces for tabs
+set softtabstop=4 " act as though tab-spaces are tabs
 set shiftwidth=4  " use 4 spaces when indenting
 set autoindent    " automatically indent lines
 set nosmartindent " don't use "smart" indenting
@@ -213,23 +215,23 @@ if has("autocmd")
   " specific filetype overrides
   augroup filetypes
     " reset if ft changes
-    autocmd FileType *              setlocal expandtab   tabstop=4 shiftwidth=4
+    autocmd FileType *              setlocal expandtab   tabstop=4 softtabstop=4 shiftwidth=4
     " filetypes
-    autocmd FileType asm            setlocal noexpandtab tabstop=8 shiftwidth=8
+    autocmd FileType asm            setlocal noexpandtab tabstop=8 softtabstop=4 shiftwidth=8
     autocmd FileType gitcommit      setlocal                                                                  spell
-    autocmd FileType html,xhtml,xml setlocal             tabstop=2 shiftwidth=2
+    autocmd FileType html,xhtml,xml setlocal             tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType make           setlocal noexpandtab
     autocmd FileType markdown       setlocal                                    colorcolumn=101 textwidth=100
     autocmd FileType st             setlocal noexpandtab
-    autocmd FileType sql,plsql      setlocal             tabstop=2 shiftwidth=2
+    autocmd FileType sql,plsql      setlocal             tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType sudoers        setlocal noexpandtab
-    autocmd FileType tex,plaintex   setlocal noexpandtab tabstop=2 shiftwidth=2 colorcolumn=101 textwidth=100 spell inde=
+    autocmd FileType tex,plaintex   setlocal noexpandtab tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=101 textwidth=100 spell inde=
     autocmd FileType verilog        setlocal noexpandtab
-    autocmd FileType vim            setlocal             tabstop=2 shiftwidth=2
+    autocmd FileType vim            setlocal             tabstop=2 softtabstop=2 shiftwidth=2
   augroup end
   " custom types
   augroup custom
-    autocmd BufRead,BufNewFile *.notes setlocal filetype=markdown shiftwidth=2 colorcolumn=101 textwidth=100
+    autocmd BufRead,BufNewFile *.notes setlocal filetype=markdown tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=101 textwidth=100
   augroup end
 endif
 
