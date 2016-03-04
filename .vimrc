@@ -13,6 +13,8 @@ set history=50        " remember 50 commands
 set virtualedit=block " allow virtual editing in visual block mode
 set pastetoggle=<F8>  " toggle paste (see http://bbs.archlinux.org/viewtopic.php?pid=425987#p425987)
 set scrolloff=2       " provide a "buffer" of two lines below/above cursor
+set splitright        " open new vsplits to the right (http://stackoverflow.com/a/7912621)
+set splitbelow        " open new splits below (http://stackoverflow.com/a/7912621)
 set tabpagemax=1000   " allow up to 1k tabs (http://www.linux.com/archive/feed/59533)
 set foldmethod=marker " fold on `{{{` `}}}`
 let mapleader=","     " use comma as the <leader> character
