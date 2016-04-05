@@ -22,8 +22,6 @@ if exists mvim; then
     EDITOR='mvim -vp'
 elif exists vim; then
     EDITOR='vim -p'
-elif exists vim; then
-    EDITOR='vim'
 fi
 export EDITOR
 ## VISUAL
