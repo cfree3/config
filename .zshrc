@@ -255,8 +255,6 @@ bak   () { cp -ip ${1} ${1}.bak; } && alias bak='nocorrect bak'
 beep  () { echo -ne '\a'; }
 ## Directory contents count (accepts ls flags/args).
 cnt   () { ls ${@} | wc -l; }
-## Resolve IPs [19].
-ip    () { dscacheutil -q host -a name ${1}; }
 ## Finds files by name based on the given search pattern.
 ff    () { find . -name "*${@}*" -exec ls -ldh {} +; }
 ## List details on an item in the PATH.
@@ -269,6 +267,10 @@ trash () { [ -f ~/.Trash ] || mkdir ~/.Trash; mv ${@} ~/.Trash; }
 tunnel() { ssh -ND 8080 ${1}; }
 ## View a file in the PATH.
 vw    () { view `which ${1}`; }
+
+# Special functions.
+## Resolve IPs [19].
+exists dscacheutil && ip() { dscacheutil -q host -a name ${1}; }
 
 # Set terminal title.
 ## http://superuser.com/questions/292652/change-iterm2-window-and-tab-titles-in-zsh
