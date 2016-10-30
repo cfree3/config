@@ -282,6 +282,14 @@ function cmdprompt() {
 # Variable modifications.
 unset LC_COLLATE # Prevent "C" sorting.
 
+# Fix terminfo for tmux so that <C-h> doesn't mean backspace [23].
+if infocmp ${TERM} | grep --silent 'kbs=^[hH]'; then
+    term_kbs=$(mktemp)
+    infocmp ${TERM} | sed 's/kbs=^[hH]/kbs=\\177/' >! ${term_kbs}
+    tic ${term_kbs}
+    unset term_kbs
+fi
+
 # Allow system-specific config/overrides.
 [ -f ${HOME}/.zshrc.local ] && source ${HOME}/.zshrc.local
 
@@ -308,3 +316,4 @@ unset LC_COLLATE # Prevent "C" sorting.
 ## [20] https://github.com/Homebrew/homebrew/issues/25407
 ## [21] http://stackoverflow.com/a/1438523
 ## [22] https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Gems,-Eggs-and-Perl-Modules.md
+## [23] https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
