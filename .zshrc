@@ -190,20 +190,36 @@ if exists /sbin/getenforce; then
     alias lz='ls -alZ'
 fi
 
-# Vim alias(es).
+# Vim aliases.
 if [ "${EDITOR}" ]; then
-
-    ## CLI
+    alias nvim=${EDITOR}
     alias vi=${EDITOR}
     alias vim=${EDITOR}
     alias view="${EDITOR} -R"
+fi
 
-    ## GUI
-    alias gvim=${VISUAL}
-    alias mvim=${VISUAL}
-    alias gview="${VISUAL} -R"
-    alias mview="${VISUAL} -R"
+# Graphical Vim aliases (no Neovim GUIs for now).
+if exists mvim; then
 
+    graphical='mvim -p'
+
+    alias gvim=${graphical}
+    alias mvim=${graphical}
+    alias gview="${graphical} -R"
+    alias mview="${graphical} -R"
+
+    unset graphical
+
+elif exists gvim; then
+
+    graphical='gvim -p'
+
+    alias gvim="${graphical}"
+    alias mvim="${graphical}"
+    alias gview="${graphical} -R"
+    alias mview="${graphical} -R"
+
+    unset graphical
 fi
 
 # Copy/paste alias(es).
