@@ -18,23 +18,16 @@ fi
 
 # Standard exports.
 ## EDITOR
-if exists mvim; then
+if exists nvim; then
+    EDITOR='nvim -p'
+elif exists mvim; then
     EDITOR='mvim -vp'
 elif exists vim; then
     EDITOR='vim -p'
 fi
 export EDITOR
 ## VISUAL
-if exists mvim || [ "${DISPLAY}" ]; then
-    if exists mvim; then
-        VISUAL='mvim -fp'
-    elif exists gvim; then
-        VISUAL='gvim -fp'
-    fi
-else
-    VISUAL=${EDITOR}
-fi
-export VISUAL
+export VISUAL=${EDITOR}
 ## PAGER
 if exists less; then
     PAGER='less'
