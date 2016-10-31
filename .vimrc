@@ -243,7 +243,11 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 
 " Local Customizations
 "" See http://tech.groups.yahoo.com/group/vim/message/56224.
-let local_vimrc=expand("~/.vimrc-local")
+let local_vimrc=expand("~/.vimrc.local")
 if filereadable(local_vimrc)
   execute "source ".local_vimrc
+endif
+let local_dotvim=expand("~/.vim.local")
+if isdirectory(local_dotvim)
+  execute "set runtimepath^=".local_dotvim
 endif
