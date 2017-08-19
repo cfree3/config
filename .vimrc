@@ -9,6 +9,7 @@ set title             " set window/terminal title
 set ruler             " always display location info
 set showcmd           " show partial cmds in last line
 set cmdheight=1       " give only one command line
+set hidden            " allow modified buffers in the background
 set history=50        " remember 50 commands
 set virtualedit=block " allow virtual editing in visual block mode
 set pastetoggle=<F8>  " toggle paste (see http://bbs.archlinux.org/viewtopic.php?pid=425987#p425987)
@@ -93,15 +94,18 @@ vmap <C-k> <C-u>
 map  <C-j> <C-d>
 imap <C-j> <C-d>
 vmap <C-j> <C-d>
-"" tab movement
+"" buffer movement
 """ next
-map <C-l> :tabnext<CR>
-imap <C-l> <C-o>:tabnext<CR>
-vmap <C-l> :tabnext<CR>
+map <C-l> :bn<CR>
+imap <C-l> <C-o>:bn<CR>
+vmap <C-l> :bn<CR>
 """ previous
-map <C-h> :tabprevious<CR>
-imap <C-h> <C-o>:tabprevious<CR>
-vmap <C-h> :tabprevious<CR>
+map <C-h> :bp<CR>
+imap <C-h> <C-o>:bp<CR>
+vmap <C-h> :bp<CR>
+""" menu
+"""" see https://stackoverflow.com/a/16084326
+map ; :ls<CR>:b<Space>
 
 " Interface
 set mouse=a      " allow mouse use

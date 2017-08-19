@@ -19,11 +19,11 @@ fi
 # Standard exports.
 ## EDITOR
 if exists nvim; then
-    EDITOR='nvim -p'
+    EDITOR='nvim'
 elif exists mvim; then
-    EDITOR='mvim -vp'
+    EDITOR='mvim -v'
 elif exists vim; then
-    EDITOR='vim -p'
+    EDITOR='vim'
 fi
 export EDITOR
 ## VISUAL
