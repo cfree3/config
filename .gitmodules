@@ -1,27 +1,3 @@
-[submodule ".vim/bundle/gundo"]
-	path = .vim/bundle/gundo
-	url = git://github.com/sjl/gundo.vim.git
-[submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/fugitive"]
-	path = .vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/nerdtree-tabs"]
-	path = .vim/bundle/nerdtree-tabs
-	url = git://github.com/jistr/vim-nerdtree-tabs.git
-[submodule ".vim/bundle/pathogen"]
-	path = .vim/bundle/pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/rsi"]
-	path = .vim/bundle/rsi
-	url = git://github.com/tpope/vim-rsi.git
-[submodule ".vim/bundle/tbone"]
-	path = .vim/bundle/tbone
-	url = git://github.com/tpope/vim-tbone.git
-[submodule ".vim/bundle/mustang2"]
-	path = .vim/bundle/mustang2
-	url = https://github.com/vim-scripts/Mustang2.git
+[submodule ".vim/plug"]
+	path = .vim/plug
+	url = https://github.com/junegunn/vim-plug.git

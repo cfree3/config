@@ -116,12 +116,22 @@ if (version >= 704)
   set number relativenumber
 endif
 
-" Pathogen (https://github.com/tpope/vim-pathogen)
+" Plugins (via vim-plug; https://github.com/junegunn/vim-plug)
 "" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
-silent! call pathogen#infect()
+silent! call plug#begin()
+silent! Plug 'jistr/vim-nerdtree-tabs'
+silent! Plug 'scrooloose/nerdcommenter'
+silent! Plug 'scrooloose/nerdtree'
+silent! Plug 'sjl/gundo.vim'
+silent! Plug 'tpope/vim-fugitive'
+silent! Plug 'tpope/vim-pathogen'
+silent! Plug 'tpope/vim-rsi'
+silent! Plug 'tpope/vim-tbone'
+silent! Plug 'vim-scripts/Mustang2'
+silent! call plug#end()
 
 " Color Scheme
-"" In opposite order of preference so that the last successful call "wins."
+"" In opposite order of preference so that the last successful call wins.
 "" Ensure Pathogen infected first if any bundles provide these schemes.
 silent! colorscheme solarized
 silent! colorscheme Mustang
