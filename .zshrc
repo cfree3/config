@@ -1,4 +1,4 @@
-# ~/.zshrc | Curtis Free (http://curtisfree.com)
+# ~/.zshrc | Curtis Free (https://curtisfree.com)
 
 # Disable <C-s> terminal stop [1].
 stty stop ''

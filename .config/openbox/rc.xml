@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ~/.config/openbox/rc.xml | Curtis Free (http://curtisfree.com) -->
+<!-- ~/.config/openbox/rc.xml | Curtis Free (https://curtisfree.com) -->
 <openbox_config xmlns="http://openbox.org/3.4/rc">
 
   <!-- Window Stickiness -->

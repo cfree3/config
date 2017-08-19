@@ -1,5 +1,5 @@
 #!/bin/sh
-# ~/.xinitrc | Curtis Free (http://curtisfree.com)
+# ~/.xinitrc | Curtis Free (https://curtisfree.com)
 
 # See:
 #  Arch Linux Forums (http://bbs.archlinux.org), including (but not limited to):

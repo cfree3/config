@@ -1,4 +1,4 @@
-# ~/.zprofile | Curtis Free (http://curtisfree.com)
+# ~/.zprofile | Curtis Free (https://curtisfree.com)
 # This script is run when starting ZSH as a login shell.
 # See http://bbs.archlinux.org/viewtopic.php?id=57677.
 

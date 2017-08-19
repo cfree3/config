@@ -1,4 +1,4 @@
-" ~/.(g)vi(m)rc | vi: set ft=vim: | Curtis Free (http://curtisfree.com)
+" ~/.(g)vi(m)rc | vi: set ft=vim: | Curtis Free (https://curtisfree.com)
 
 " Miscellaneous
 set nocompatible
@@ -61,7 +61,7 @@ set nosmartindent " don't use "smart" indenting
 set spelllang=en_us
 
 " Abbreviations
-ab _cf Curtis Free (http://curtisfree.com)
+ab _cf Curtis Free (https://curtisfree.com)
 
 " Tags
 "" See http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks.
@@ -107,7 +107,7 @@ vmap <C-h> :tabprevious<CR>
 set mouse=a      " allow mouse use
 set wildmenu     " display menu that cycles through command-lne completions
 "" Status Line
-""" See http://curtisfree.com/blog/2012/04/22/adding_total_line_count_to_vim_statusline.
+""" See https://curtisfree.com/blog/2012/04/22/adding_total_line_count_to_vim_statusline.
 set laststatus=2                                    " always show the status bar
 set statusline=%<%f\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P " include total line count
 

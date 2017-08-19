@@ -1,4 +1,4 @@
--- ~/hammerspoon/init.lua | Curtis Free (http://curtisfree.com)
+-- ~/hammerspoon/init.lua | Curtis Free (https://curtisfree.com)
 -- Configuration for the Hammerspoon macOS automation utility.
 
 --

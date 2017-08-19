@@ -1,4 +1,4 @@
-# ~/.gtkrc-2.0 | Curtis Free (http://curtisfree.com)
+# ~/.gtkrc-2.0 | Curtis Free (https://curtisfree.com)
 
 # base theme
 include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"

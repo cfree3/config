@@ -1,5 +1,5 @@
 #!/bin/sh
-# update_submodules.sh | Curtis Free (http://curtisfree.com)
+# update_submodules.sh | Curtis Free (https://curtisfree.com)
 # Updates all submodules, such as Vim plugins.
 
 # assume all submodules are Vim plugins so that `foreach` is a handy shortcut
