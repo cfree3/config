@@ -120,9 +120,12 @@ if (version >= 704)
   set number relativenumber
 endif
 
+
 " Plugins (via vim-plug; https://github.com/junegunn/vim-plug)
 "" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
 silent! call plug#begin()
+
+""" always include these
 silent! Plug 'jistr/vim-nerdtree-tabs'
 silent! Plug 'scrooloose/nerdcommenter'
 silent! Plug 'scrooloose/nerdtree'
@@ -132,6 +135,29 @@ silent! Plug 'tpope/vim-pathogen'
 silent! Plug 'tpope/vim-rsi'
 silent! Plug 'tpope/vim-tbone'
 silent! Plug 'vim-scripts/Mustang2'
+
+""" include fzf only if we have it
+if executable('fzf')
+
+  """" handle symlinks created by executable managers like Homebrew
+  """" ('<binary>/../../' should be the install location)
+  let fzfdir=fnamemodify(resolve(exepath('fzf')), ':p:h:h')
+  let fzfplugin=fzfdir.'/plugin/fzf.vim'
+
+  if filereadable(fzfplugin)
+    silent! Plug fzfdir
+    silent! Plug 'junegunn/fzf.vim'
+
+    """" go ahead and include maps here
+    map <C-f> :FZF<CR>
+
+  endif
+
+  unlet fzfdir
+  unlet fzfplugin
+
+endif
+
 silent! call plug#end()
 
 " Color Scheme
@@ -261,7 +287,9 @@ let local_vimrc=expand("~/.vimrc.local")
 if filereadable(local_vimrc)
   execute "source ".local_vimrc
 endif
+unlet local_vimrc
 let local_dotvim=expand("~/.vim.local")
 if isdirectory(local_dotvim)
   execute "set runtimepath^=".local_dotvim
 endif
+unlet local_dotvim
