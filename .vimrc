@@ -120,7 +120,6 @@ if (version >= 704)
   set number relativenumber
 endif
 
-
 " Plugins (via vim-plug; https://github.com/junegunn/vim-plug)
 "" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
 silent! call plug#begin()
