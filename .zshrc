@@ -171,7 +171,6 @@ alias pftp='ftp -p'
 alias rm='rm -i'
 alias todo='${EDITOR} ~/.todo'
 alias web='${BROWSER}'
-alias which='which -m'
 
 # Suffix aliases.
 alias -s htm=${BROWSER}
