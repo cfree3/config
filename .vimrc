@@ -125,10 +125,8 @@ endif
 silent! call plug#begin()
 
 """ always include these
-silent! Plug 'jistr/vim-nerdtree-tabs'
 silent! Plug 'scrooloose/nerdcommenter'
 silent! Plug 'scrooloose/nerdtree'
-silent! Plug 'sjl/gundo.vim'
 silent! Plug 'tpope/vim-fugitive'
 silent! Plug 'tpope/vim-pathogen'
 silent! Plug 'tpope/vim-rsi'
