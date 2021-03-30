@@ -1,0 +1,29 @@
+# ~/.config/alacritty/alacritty.conf | Curtis Free (https://curtisfree.com)
+# Config for Alacritty.
+
+# No tabs, so just start tmux.
+shell:
+    program: /usr/local/bin/zsh
+    args:
+        - -l
+        - -c
+        - tmux
+
+# Match green tmux "tab bar".
+colors:
+    cursor:
+        text: "#000000"
+        cursor: "#b5bd68"
+
+# Nice monospace font. :-)
+font:
+    size: 15.0
+    normal:
+        family: 'JetBrains Mono'
+    bold:
+        family: 'JetBrains Mono'
+    italic:
+        family: 'JetBrains Mono'
+    bold_italic:
+        family: 'JetBrains Mono'
+    use_thin_strokes: false
