@@ -147,6 +147,19 @@ silent! Plug 'tpope/vim-rsi'
 silent! Plug 'tpope/vim-tbone'
 silent! Plug 'vim-scripts/Mustang2'
 
+""" VimWiki
+silent! Plug 'vimwiki/vimwiki'
+let g:vimwiki_global_ext = 0
+let g:vimwiki_list=[ { 'path': '~/Notes', 'syntax': 'markdown', 'ext': 'md', 'diary_rel_path': 'Today/' } ]
+
+"""" (make it easier to increase indent; to the right of <C-d>/decrease)
+imap <C-f> <C-t>
+
+"""" + TaskWiki (if Taskwarrior installed)
+if executable('task')
+  silent! Plug 'tools-life/taskwiki'
+endif
+
 """ include fzf only if we have it
 if executable('fzf')
 
