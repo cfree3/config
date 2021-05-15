@@ -1,0 +1,21 @@
+# ~/.taskrc | Curtis Free (https://curtisfree.com)
+
+# embed tasks within notes
+data.location=~/Notes/Tasks
+
+# don't bug me :-)
+nag=
+
+# adjust/clean up output
+verbose=0
+row.padding=1
+xterm.title=0
+displayweeknumber=0
+
+# I'd rather just see all the columns
+print.empty.columns=on
+
+# modify "next" report since that's the default
+report.next.columns=project,id,priority,due.relative,depends,description,urgency,tags
+report.next.labels=Project,ID,Pri,Due,Deps,Description,Urg,Tags
+report.next.sort=project+/,urgency-

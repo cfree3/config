@@ -246,6 +246,11 @@ if [ -z "$TMUX" ] && [[ $TERM =~ screen(.linux)? ]]; then
     alias s='screen'
 fi
 
+# Taskwarrior alias(es).
+if exists task; then
+    alias t='task'
+fi
+
 # Utility settings [4].
 ## grep
 export GREP_OPTIONS="--color=auto"
