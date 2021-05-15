@@ -35,6 +35,12 @@ elif exists more; then
     PAGER='more'
 fi
 export PAGER
+## MANPAGER [24]
+if exists nvim; then
+    export MANPAGER='nvim +Man!'
+elif exists vim; then
+    export MANPAGER='vim -M +MANPAGER -'
+fi
 ## BROWSER
 if exists open; then
     BROWSER='open'
@@ -325,3 +331,4 @@ fi
 ## [21] http://stackoverflow.com/a/1438523
 ## [22] https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Gems,-Eggs-and-Perl-Modules.md
 ## [23] https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
+## [24] https://www.reddit.com/r/vim/comments/morzue/vim_has_a_native_plugin_that_allows_you_to_turn/
