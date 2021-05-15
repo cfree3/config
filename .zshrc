@@ -20,8 +20,6 @@ fi
 ## EDITOR
 if exists nvim; then
     EDITOR='nvim'
-elif exists mvim; then
-    EDITOR='mvim -v'
 elif exists vim; then
     EDITOR='vim'
 fi
@@ -201,30 +199,6 @@ if [ "${EDITOR}" ]; then
     alias vi=${EDITOR}
     alias vim=${EDITOR}
     alias view="${EDITOR} -R"
-fi
-
-# Graphical Vim aliases (no Neovim GUIs for now).
-if exists mvim; then
-
-    graphical='mvim -p'
-
-    alias gvim=${graphical}
-    alias mvim=${graphical}
-    alias gview="${graphical} -R"
-    alias mview="${graphical} -R"
-
-    unset graphical
-
-elif exists gvim; then
-
-    graphical='gvim -p'
-
-    alias gvim="${graphical}"
-    alias mvim="${graphical}"
-    alias gview="${graphical} -R"
-    alias mview="${graphical} -R"
-
-    unset graphical
 fi
 
 # Copy/paste alias(es).
