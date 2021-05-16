@@ -138,19 +138,35 @@ endif
 "" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
 silent! call plug#begin()
 
-""" always include these
+""" BufTabLine
+silent! Plug 'ap/vim-buftabline'
+"""" only show the tab line when it makes sense
+let g:buftabline_show = 1
+"""" show when modified
+let g:buftabline_indicators = 1
+
+""" NERD Commenter
 silent! Plug 'scrooloose/nerdcommenter'
+
+""" NERD Tree
 silent! Plug 'scrooloose/nerdtree'
+
+""" Fugitive (Git)
 silent! Plug 'tpope/vim-fugitive'
-silent! Plug 'tpope/vim-pathogen'
+
+""" RSI (Readline-Style Insertions)
 silent! Plug 'tpope/vim-rsi'
+
+""" TBone (tmux integration)
 silent! Plug 'tpope/vim-tbone'
+
+""" Mustang2 (color scheme)
 silent! Plug 'vim-scripts/Mustang2'
 
 """ VimWiki
 silent! Plug 'vimwiki/vimwiki'
 let g:vimwiki_global_ext = 0
-let g:vimwiki_list=[ { 'path': '~/Notes', 'syntax': 'markdown', 'ext': 'md', 'diary_rel_path': 'Today/' } ]
+let g:vimwiki_list = [ { 'path': '~/Notes', 'syntax': 'markdown', 'ext': 'md', 'diary_rel_path': 'Today/' } ]
 
 """" (make it easier to increase indent; to the right of <C-d>/decrease)
 imap <C-f> <C-t>
@@ -187,7 +203,6 @@ silent! call plug#end()
 
 " Color Scheme {{{
 "" In opposite order of preference so that the last successful call wins.
-"" Ensure Pathogen infected first if any bundles provide these schemes.
 silent! colorscheme Mustang
 " }}}
 
