@@ -166,7 +166,12 @@ silent! Plug 'vim-scripts/Mustang2'
 """ VimWiki
 silent! Plug 'vimwiki/vimwiki'
 let g:vimwiki_global_ext = 0
-let g:vimwiki_list = [ { 'path': '~/Notes', 'syntax': 'markdown', 'ext': 'md', 'diary_rel_path': 'Today/' } ]
+let wiki = {}
+let wiki.path = '~/Notes'
+let wiki.syntax = 'markdown'
+let wiki.ext = 'md'
+let wiki.diary_rel_path = 'Today/'
+let g:vimwiki_list = [ wiki ]
 
 """" (make it easier to increase indent; to the right of <C-d>/decrease)
 imap <C-f> <C-t>
