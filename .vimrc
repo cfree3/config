@@ -167,10 +167,15 @@ silent! Plug 'vim-scripts/Mustang2'
 silent! Plug 'vimwiki/vimwiki'
 let g:vimwiki_global_ext = 0
 let wiki = {}
+let wiki.name = 'Notes'
 let wiki.path = '~/Notes'
 let wiki.syntax = 'markdown'
 let wiki.ext = 'md'
 let wiki.diary_rel_path = 'Today/'
+" (auto index does not work with a custom index file/path)
+"let wiki.diary_index = 'Timeline'
+let wiki.diary_header = 'Timeline'
+let wiki.auto_diary_index = 1
 let g:vimwiki_list = [ wiki ]
 
 """" (make it easier to increase indent; to the right of <C-d>/decrease)
