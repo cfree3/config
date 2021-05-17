@@ -77,7 +77,7 @@ RPROMPT='%F{yellow}[%D{%r}]${vcs_info_msg_0_}%f'
 # determine VCS information [12,13].
 # Inspired by default Ubuntu .bashrc and [10].
 case "$TERM" in
-    xterm*|rxvt*|screen*) # includes things like `screen-256color`
+    xterm*|rxvt*|screen*|tmux*) # includes `*-256color` variants
         precmd () {
             echo -ne "\033]0;$(print -P '%n@%m: %~')\007"
             vcs_info &>/dev/null # errors if going from VCS dir back to ~
