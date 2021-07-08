@@ -23,6 +23,13 @@ syntax enable         " use syntax highlighting
 highlight clear       " clear any special highlighting
 " }}}
 
+" Neovim Providers {{{
+"" disable providers I don't use
+let g:loaded_node_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+" }}}
+
 " Editing {{{
 set backspace=indent,eol,start " backspace over everything
 set list                       " show tabs and trailing spaces (in conjuction with `listchars`)
