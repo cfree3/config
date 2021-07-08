@@ -1,6 +1,11 @@
 # ~/.config/alacritty/alacritty.conf | Curtis Free (https://curtisfree.com)
 # Config for Alacritty.
 
+# Good width for text editing.
+dimensions:
+    columns: 100
+    lines: 30
+
 # No tabs, so just start tmux.
 shell:
     program: /usr/local/bin/zsh
