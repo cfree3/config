@@ -161,9 +161,6 @@ silent! Plug 'scrooloose/nerdtree'
 """ Fugitive (Git)
 silent! Plug 'tpope/vim-fugitive'
 
-""" RSI (Readline-Style Insertions)
-silent! Plug 'tpope/vim-rsi'
-
 """ TBone (tmux integration)
 silent! Plug 'tpope/vim-tbone'
 
