@@ -1,10 +1,8 @@
 " ~/.(g)vi(m)rc | vi: set ft=vim: | Curtis Free (https://curtisfree.com)
 
 " Miscellaneous {{{
-set nocompatible
 set noerrorbells      " no error bells (still bells for many things)
-set visualbell        " we'll at least avoid an audible bell
-set vb t_vb=          " despite those settings, we'll ensure no bells (ever)
+set visualbell t_vp=  " we'll at least avoid an audible bell
 set title             " set window/terminal title
 set ruler             " always display location info
 set showcmd           " show partial cmds in last line
@@ -83,46 +81,38 @@ ab _cf Curtis Free (https://curtisfree.com)
 " Tags {{{
 "" See http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks.
 set tags=./tags;${HOME}
-nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-imap <C-\> <C-o>:tab split<CR><C-o>:exec("tag ".expand("<cword>"))<CR>
-vmap <C-\> <Esc>:tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+inoremap <C-\> <C-o>:tab split<CR><C-o>:exec("tag ".expand("<cword>"))<CR>
+vnoremap <C-\> <Esc>:tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " }}}
 
 " Maps {{{
-"" overrides
-""" :q often mistyped as q:
-map  q: <C-g>
-vmap q: <C-g>
 "" graphical line movement when using arrow keys
 """ up
-map  <Up> g<Up>
-imap <Up> <C-o>g<Up>
-vmap <Up> g<Up>
+nnoremap <Up> g<Up>
+inoremap <Up> <C-o>g<Up>
+vnoremap <Up> g<Up>
 """ down
-map  <Down> g<Down>
-imap <Down> <C-o>g<Down>
-vmap <Down> g<Down>
+nnoremap <Down> g<Down>
+inoremap <Down> <C-o>g<Down>
+vnoremap <Down> g<Down>
 "" easy page up/down
 """ page up
-map  <C-k> <C-u>
-imap <C-k> <C-u>
-vmap <C-k> <C-u>
+noremap <C-k> <C-u>
 """ page down
-map  <C-j> <C-d>
-imap <C-j> <C-d>
-vmap <C-j> <C-d>
+noremap  <C-j> <C-d>
 "" buffer movement
 """ next
-map <C-l> :bn<CR>
-imap <C-l> <C-o>:bn<CR>
-vmap <C-l> :bn<CR>
+nnoremap <C-l> :bn<CR>
+inoremap <C-l> <C-o>:bn<CR>
+vnoremap <C-l> :bn<CR>
 """ previous
-map <C-h> :bp<CR>
-imap <C-h> <C-o>:bp<CR>
-vmap <C-h> :bp<CR>
+nnoremap <C-h> :bp<CR>
+inoremap <C-h> <C-o>:bp<CR>
+vnoremap <C-h> :bp<CR>
 """ menu
 """" see https://stackoverflow.com/a/16084326
-map ; :ls<CR>:b<Space>
+nnoremap ; :ls<CR>:b<Space>
 " }}}
 
 " Interface {{{
@@ -183,7 +173,7 @@ let wiki.auto_diary_index = 1
 let g:vimwiki_list = [ wiki ]
 
 """" (make it easier to increase indent; to the right of <C-d>/decrease)
-imap <C-f> <C-t>
+inoremap <C-f> <C-t>
 
 """" + TaskWiki (if Taskwarrior installed)
 if executable('task')
@@ -203,7 +193,7 @@ if executable('fzf')
     silent! Plug 'junegunn/fzf.vim'
 
     """" go ahead and include maps here
-    map <C-f> :FZF<CR>
+    noremap <C-p> :FZF<CR>
 
   endif
 
@@ -223,16 +213,14 @@ silent! colorscheme Mustang
 " GUI Specifics {{{
 if has("gui_running")
   " terminal-like pasting
-  map  <S-Insert> <MiddleMouse>
-  imap <S-Insert> <MiddleMouse>
-  vmap <S-Insert> <MiddleMouse>
+  noremap  <S-Insert> <MiddleMouse>
   " tab switching (as with other GTK+ apps)
-  map  <C-Tab>   :tabn<CR>
-  map  <S-C-Tab> :tabp<CR>
-  imap <C-Tab>   <C-o>:tabn<CR>
-  imap <S-C-Tab> <C-o>:tabp<CR>
-  vmap <C-Tab>   <Esc>:tabn<CR>
-  vmap <S-C-Tab> <Esc>:tabp<CR>
+  noremap  <C-Tab>   :tabn<CR>
+  noremap  <S-C-Tab> :tabp<CR>
+  inoremap <C-Tab>   <C-o>:tabn<CR>
+  inoremap <S-C-Tab> <C-o>:tabp<CR>
+  vnoremap <C-Tab>   <Esc>:tabn<CR>
+  vnoremap <S-C-Tab> <Esc>:tabp<CR>
   " font
   silent! set guifont=Monospace
   " GUI config (note: don't automatically put visual selection in clipboard)
@@ -273,7 +261,7 @@ set clipboard=unnamed,unnamedplus
 " Commands/Functions {{{
 "" StripTrailingSpaces
 "" See http://vim.wikia.com/wiki/Remove_unwanted_spaces.
-function! StripTrailingSpaces()
+function! StripTrailingSpaces() abort
   exec ':%s/\s\+$//e'
 endfunction
 "" SUw
@@ -317,10 +305,6 @@ if has("autocmd")
     autocmd FileType tex,plaintex   setlocal noexpandtab tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=101 textwidth=100 spell inde=
     autocmd FileType verilog        setlocal noexpandtab
     autocmd FileType vim            setlocal             tabstop=2 softtabstop=2 shiftwidth=2
-  augroup end
-  " custom types
-  augroup custom
-    autocmd BufRead,BufNewFile *.notes setlocal filetype=markdown tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=101 textwidth=100
   augroup end
 endif
 " }}}
