@@ -214,32 +214,6 @@ let base16colorspace=256
 silent! colorscheme base16-tomorrow-night
 " }}}
 
-" GUI Specifics {{{
-if has("gui_running")
-  " terminal-like pasting
-  noremap  <S-Insert> <MiddleMouse>
-  " tab switching (as with other GTK+ apps)
-  noremap  <C-Tab>   :tabn<CR>
-  noremap  <S-C-Tab> :tabp<CR>
-  inoremap <C-Tab>   <C-o>:tabn<CR>
-  inoremap <S-C-Tab> <C-o>:tabp<CR>
-  vnoremap <C-Tab>   <Esc>:tabn<CR>
-  vnoremap <S-C-Tab> <Esc>:tabp<CR>
-  " font
-  silent! set guifont=Monospace
-  " GUI config (note: don't automatically put visual selection in clipboard)
-  set guioptions=ceih
-  " hide the mouse when typing
-  set mousehide
-  " highlight current row (but no cursorcolumn)
-  set cursorline
-" Console Specifics
-else
-  " use 256 colors
-  set t_Co=256
-endif
-" }}}
-
 " Terminals {{{
 "" screen
 if &term =~ "screen"
