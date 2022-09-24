@@ -156,8 +156,8 @@ silent! Plug 'tpope/vim-fugitive'
 """ TBone (tmux integration)
 silent! Plug 'tpope/vim-tbone'
 
-""" Mustang2 (color scheme)
-silent! Plug 'vim-scripts/Mustang2'
+""" Base16 Color Themes
+silent! Plug 'chriskempson/base16-vim'
 
 """ VimWiki
 silent! Plug 'vimwiki/vimwiki'
@@ -208,8 +208,10 @@ silent! call plug#end()
 "" }}}
 
 " Color Scheme {{{
-"" In opposite order of preference so that the last successful call wins.
-silent! colorscheme Mustang
+"" ("silent!" means we won't error if the theme isn't installed)
+set termguicolors
+let base16colorspace=256
+silent! colorscheme base16-tomorrow-night
 " }}}
 
 " GUI Specifics {{{
