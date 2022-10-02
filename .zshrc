@@ -166,15 +166,11 @@ zstyle ':completion:*:kill:*' force-list always
 
 # Aliases.
 alias cp='cp -i'
-alias cups='${BROWSER} http://localhost:631 &'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -al'
 alias mv='mv -i'
-alias pftp='ftp -p'
 alias rm='rm -i'
-alias todo='${EDITOR} ~/.todo'
-alias web='${BROWSER}'
 
 # Suffix aliases.
 alias -s htm=${BROWSER}
@@ -214,12 +210,6 @@ elif exists pbcopy && exists pbpaste; then
     alias put='pbpaste'
 fi
 
-# Screen alias(es).
-## Be sure not to set this if actually using tmux.
-if [ -z "$TMUX" ] && [[ $TERM =~ screen(.linux)? ]]; then
-    alias s='screen'
-fi
-
 # Taskwarrior alias(es).
 if exists task; then
     alias t='task'
@@ -234,24 +224,12 @@ export CLICOLOR=
 silent ls --color=auto && alias "ls --color=auto"
 
 # Functions.
-## Simple file backup.
-bak   () { cp -ip ${1} ${1}.bak; } && alias bak='nocorrect bak'
-## System beep.
-beep  () { echo -ne '\a'; }
-## Directory contents count (accepts ls flags/args).
-cnt   () { ls ${@} | wc -l; }
-## Finds files by name based on the given search pattern.
-ff    () { find . -name "*${@}*" -exec ls -ldh {} +; }
-## List details on an item in the PATH.
-lw    () { ll `which ${1}`; }
 ## Make a new directory and change into it [7].
 mkcd  () { mkdir -p ${1} && cd ${1}; } && alias mkcd='nocorrect mkcd'
 ## Send a file to the "trash" without actually deleting it.
 trash () { [ -f ~/.Trash ] || mkdir ~/.Trash; mv ${@} ~/.Trash; }
 ## Open a simple SSH tunnel.
 tunnel() { ssh -ND 8080 ${1}; }
-## View a file in the PATH.
-vw    () { view `which ${1}`; }
 
 # Special functions.
 ## Resolve IPs [19].
@@ -262,14 +240,6 @@ exists dscacheutil && ip() { dscacheutil -q host -a name ${1}; }
 function title() {
     exists precmd && unfunction precmd
     echo -ne "\e]1;${@}\a"
-}
-
-# Command Prompt
-## Changes the prompt to include the output of a particular command [9].
-## Calling with no argument essentially resets.
-function cmdprompt() {
-    autoload -U colors && colors && setopt prompt_subst
-    PROMPT="%n@%m:%~%{\$fg[green]%}\$(${1})%{\$reset_color%}%# "
 }
 
 # Variable modifications.
