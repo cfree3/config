@@ -8,9 +8,14 @@ silent () { ${@} &>/dev/null; }
 # (Silent) command existence checking [3].
 exists () { silent type ${@}; }
 
-# Initial PATH setup (from Mac OS X's /zshenv) [20].
+# Initial PATH setup (from macOS /zshenv) [20].
 if [ -x /usr/libexec/path_helper ]; then
     eval $(/usr/libexec/path_helper -s)
+fi
+
+# Update PATH for Homebrew (/opt for Apple silicon).
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Additional PATH setup [17,18,23].
