@@ -272,3 +272,23 @@ end)
 hs.hotkey.bind(bind_onekey, "Escape", function()
     hs.caffeinate.startScreensaver()
 end)
+
+--
+-- ( 2 key ) + i
+--
+--   Draw a green border around the focused window.
+--
+hs.window.highlight.ui.overlay = true
+hs.window.highlight.ui.overlayColor = { 0, 0, 0, 0.001 }
+hs.window.highlight.ui.frameWidth = 2
+hs.window.highlight.ui.frameColor = { 0, 1, 0, 0.5 }
+highlight_running = false
+hs.hotkey.bind(bind_twokey, "i", function()
+    if not highlight_running then
+        hs.window.highlight.start()
+        highlight_running = true
+    else
+        hs.window.highlight.stop()
+        highlight_running = false
+    end
+end)
