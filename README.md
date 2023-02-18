@@ -1,23 +1,30 @@
-`config`
-========
+# `config`
+
 This repository contains my collection of configuration files for shells, editors, utilities, etc.
-Much of it is specific to a GNU/Linux-type environment; but where I've wanted to share files with
-Mac OS X, I have attempted to write the configs such that they will work well in both environments.
-(`.vimrc` and `.zshrc` are two examples of that.)
 
-Grab an individual file
------------------------
-If moving to a new system, perhaps temporarily, it can be useful to grab an individual config file.
+Most of these scripts should work on macOS or GNU/Linux, if the application in question runs on that
+platform.
 
-```shell
-wget https://raw.githubusercontent.com/cfree3/config/master/${path_to_config}
+## How to use
+
+This repository is structured for use with [GNU Stow][stow], as described by Brandon Invergo [on his
+website][using].
+
+To avoid having to specify a target, it's easiest to clone this repository into your home directory:
+
+```sh
+cd ~
+git clone https://github.com/cfree3/config.git Config
+cd Config
+```
+Then you can use Stow to put symlinks in place, app by app:
+
+```sh
+git stow zsh
+git stow tmux
+git stow nvim
+# etc.
 ```
 
-For example:
-
-```shell
-wget https://raw.githubusercontent.com/cfree3/config/master/.vimrc
-wget https://raw.githubusercontent.com/cfree3/config/master/.config/openbox/rc.xml
-```
-
-If you're a fan of `curl`, you can of course use that -- or any equivalent tool.
+[stow]:  https://www.gnu.org/software/stow/
+[using]: https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
