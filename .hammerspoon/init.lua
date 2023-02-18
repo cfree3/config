@@ -8,6 +8,13 @@
 hs.window.animationDuration = 0
 
 --
+--  Pad windows by this many pixels.
+--    (Just set to 0 for no extra padding.)
+--
+
+window_padding = 5
+
+--
 --  Most of this is simple and largely from Hammerspoon's "Getting Started"
 --  documentation (http://www.hammerspoon.org/go/).
 --
@@ -33,7 +40,7 @@ bind_threekey = { "ctrl", "alt", "cmd" }
 --    Interactive window resizing and placement.
 --
 hs.grid.setGrid({ w=6, h=4 })
-hs.grid.setMargins({ w=0, h=0 })
+hs.grid.setMargins({ w=window_padding, h=window_padding })
 hs.grid.ui.textSize = 40
 hs.grid.ui.showExtraKeys = false
 hs.hotkey.bind(bind_twokey, "'", function()
@@ -53,10 +60,10 @@ hs.hotkey.bind(bind_twokey, "h", function()
   local screen = window:screen()
   local screenFrame = screen:frame()
 
-  windowFrame.x = screenFrame.x
-  windowFrame.y = screenFrame.y
-  windowFrame.w = screenFrame.w / 2
-  windowFrame.h = screenFrame.h
+  windowFrame.x = screenFrame.x + window_padding
+  windowFrame.y = screenFrame.y + window_padding
+  windowFrame.w = screenFrame.w / 2 - ( 2 * window_padding )
+  windowFrame.h = screenFrame.h - ( 2 * window_padding )
 
   window:setFrame(windowFrame)
 
@@ -75,10 +82,10 @@ hs.hotkey.bind(bind_twokey, "j", function()
   local screen = window:screen()
   local screenFrame = screen:frame()
 
-  windowFrame.x = screenFrame.x
-  windowFrame.y = screenFrame.y + ( screenFrame.h / 2 )
-  windowFrame.w = screenFrame.w
-  windowFrame.h = screenFrame.h / 2
+  windowFrame.x = screenFrame.x + window_padding
+  windowFrame.y = screenFrame.y + ( screenFrame.h / 2 ) + window_padding
+  windowFrame.w = screenFrame.w - ( 2 * window_padding )
+  windowFrame.h = screenFrame.h / 2 - ( 2 * window_padding )
 
   window:setFrame(windowFrame)
 
@@ -97,10 +104,10 @@ hs.hotkey.bind(bind_twokey, "k", function()
   local screen = window:screen()
   local screenFrame = screen:frame()
 
-  windowFrame.x = screenFrame.x
-  windowFrame.y = screenFrame.y
-  windowFrame.w = screenFrame.w
-  windowFrame.h = screenFrame.h / 2
+  windowFrame.x = screenFrame.x + window_padding
+  windowFrame.y = screenFrame.y + window_padding
+  windowFrame.w = screenFrame.w - ( 2 * window_padding )
+  windowFrame.h = screenFrame.h / 2 - ( 2 * window_padding )
 
   window:setFrame(windowFrame)
 
@@ -119,10 +126,10 @@ hs.hotkey.bind(bind_twokey, "l", function()
   local screen = window:screen()
   local screenFrame = screen:frame()
 
-  windowFrame.x = screenFrame.x + ( screenFrame.w / 2 )
-  windowFrame.y = screenFrame.y
-  windowFrame.w = screenFrame.w / 2
-  windowFrame.h = screenFrame.h
+  windowFrame.x = screenFrame.x + ( screenFrame.w / 2 ) + window_padding
+  windowFrame.y = screenFrame.y + window_padding
+  windowFrame.w = screenFrame.w / 2 - ( 2 * window_padding )
+  windowFrame.h = screenFrame.h - ( 2 * window_padding )
 
   window:setFrame(windowFrame)
 
@@ -208,10 +215,10 @@ hs.hotkey.bind(bind_twokey, ";", function()
   local screen = window:screen()
   local screenFrame = screen:frame()
 
-  windowFrame.x = screenFrame.x
-  windowFrame.y = screenFrame.y
-  windowFrame.w = screenFrame.w
-  windowFrame.h = screenFrame.h
+  windowFrame.x = screenFrame.x + window_padding
+  windowFrame.y = screenFrame.y + window_padding
+  windowFrame.w = screenFrame.w - ( 2 * window_padding )
+  windowFrame.h = screenFrame.h - ( 2 * window_padding )
 
   window:setFrame(windowFrame)
 
