@@ -1,7 +1,9 @@
-" ~/.(g)vi(m)rc | vi: set ft=vim: | Curtis Free (https://curtisfree.com)
+" ~/.(g)vi(m)rc AKA ~/.config/nvim/init.vim | vi: set ft=vim: | Curtis Free (https://curtisfree.com)
+" Intended to work with both Vim and Neovim, though I generally use the latter.
 
 " Miscellaneous {{{
-set noerrorbells      " no error bells (still bells for many things)
+set nocompatible      " enable nice things!
+set noerrorbells      " no error bells (still bells for other reasons)
 set visualbell t_vp=  " we'll at least avoid an audible bell
 set title             " set window/terminal title
 set ruler             " always display location info
@@ -135,76 +137,122 @@ endif
 " Plugins {{{
 "" (via vim-plug; https://github.com/junegunn/vim-plug)
 "" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
-silent! call plug#begin()
 
-""" BufTabLine
-silent! Plug 'ap/vim-buftabline'
-"""" only show the tab line when it makes sense
-let g:buftabline_show = 1
-"""" show when modified
-let g:buftabline_indicators = 1
+"" assume we are going to have plugins... but we need to...
+let include_plugins = 1
+"" make sure vim-plug itself is installed {{{
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
 
-""" NERD Commenter
-silent! Plug 'scrooloose/nerdcommenter'
+  """ NOTE: It makes me uncomfortable to have the editor execute external
+  """       commands without the user's explicit knowledge/consent. So we
+  """       ask if the user wants to proceed. You can say no! :-)
 
-""" NERD Tree
-silent! Plug 'scrooloose/nerdtree'
+  if confirm('Do you want to install vim-plug?', "&Yes\n&No", 2) == 1
 
-""" Fugitive (Git)
-silent! Plug 'tpope/vim-fugitive'
+    """ See https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation.
+    """ (modified so that vim-plug can update itself)
+    let plug_dir = has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged'
+    execute '!mkdir -p '.data_dir.'/autoload '.plug_dir
+    execute '!git clone https://github.com/junegunn/vim-plug.git '.plug_dir.'/vim-plug'
+    execute '!ln -s '.plug_dir.'/vim-plug/plug.vim '.data_dir.'/autoload/'
+    """ adjust runtimepath in case the data_dir didn't yet exist at startup
+    execute "set runtimepath^=".data_dir
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC | quit
+    unlet plug_dir
 
-""" TBone (tmux integration)
-silent! Plug 'tpope/vim-tbone'
+  """ no plugins? make this as smooth as possible for the user (no errors)
+  else
+    echomsg 'Continuing without plugins...'
+    let include_plugins = 0
+  endif
 
-""" Base16 Color Themes
-silent! Plug 'chriskempson/base16-vim'
-
-""" VimWiki
-silent! Plug 'vimwiki/vimwiki'
-let g:vimwiki_global_ext = 0
-let wiki = {}
-let wiki.name = 'Notes'
-let wiki.path = '~/Notes'
-let wiki.syntax = 'markdown'
-let wiki.ext = 'md'
-let wiki.diary_rel_path = 'Today/'
-" (auto index does not work with a custom index file/path)
-"let wiki.diary_index = 'Timeline'
-let wiki.diary_header = 'Timeline'
-let wiki.auto_diary_index = 1
-let g:vimwiki_list = [ wiki ]
-
-"""" (make it easier to increase indent; to the right of <C-d>/decrease)
-inoremap <C-f> <C-t>
-
-"""" + TaskWiki (if Taskwarrior installed)
-if executable('task')
-  silent! Plug 'tools-life/taskwiki'
 endif
+unlet data_dir
+" }}}
 
-""" include fzf only if we have it
-if executable('fzf')
+if include_plugins
+  call plug#begin()
+  Plug 'junegunn/vim-plug'
 
-  """" handle symlinks created by executable managers like Homebrew
-  """" ('<binary>/../../' should be the install location)
-  let fzfdir=fnamemodify(resolve(exepath('fzf')), ':p:h:h')
-  let fzfplugin=fzfdir.'/plugin/fzf.vim'
+  """ BufTabLine {{{
+  Plug 'ap/vim-buftabline'
+  """" only show the tab line when it makes sense
+  let g:buftabline_show = 1
+  """" show when modified
+  let g:buftabline_indicators = 1
+  """ }}}
 
-  if filereadable(fzfplugin)
-    silent! Plug fzfdir
-    silent! Plug 'junegunn/fzf.vim'
+  """ NERD Commenter {{{
+  Plug 'preservim/nerdcommenter'
+  """ }}}
 
-    """" go ahead and include maps here
-    noremap <C-p> :FZF<CR>
+  """ NERD Tree {{{
+  Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+  """ }}}
+
+  """ Fugitive (Git) {{{
+  Plug 'tpope/vim-fugitive'
+  """ }}}
+
+  """ TBone (tmux integration) {{{
+  Plug 'tpope/vim-tbone'
+  """ }}}
+
+  """ Base16 Color Themes {{{
+  Plug 'chriskempson/base16-vim'
+  """ }}}
+
+  """ VimWiki (+ TaskWiki) {{{
+  Plug 'vimwiki/vimwiki'
+  let g:vimwiki_global_ext = 0
+  let wiki = {}
+  let wiki.name = 'Notes'
+  let wiki.path = '~/Notes'
+  let wiki.syntax = 'markdown'
+  let wiki.ext = 'md'
+  let wiki.diary_rel_path = 'Today/'
+  """" (auto index does not work with a custom index file/path)
+  "let wiki.diary_index = 'Timeline'
+  let wiki.diary_header = 'Timeline'
+  let wiki.auto_diary_index = 1
+  let g:vimwiki_list = [ wiki ]
+
+  """" (make it easier to increase indent; to the right of <C-d>/decrease)
+  inoremap <C-f> <C-t>
+
+  """" + TaskWiki (if Taskwarrior installed)
+  if executable('task')
+    Plug 'tools-life/taskwiki'
+  endif
+  """ }}}
+
+  """ FZF (if installed) {{{
+  if executable('fzf')
+
+    """" handle symlinks created by executable managers like Homebrew
+    """" ('<binary>/../../' should be the install location)
+    let fzfdir=fnamemodify(resolve(exepath('fzf')), ':p:h:h')
+    let fzfplugin=fzfdir.'/plugin/fzf.vim'
+
+    if filereadable(fzfplugin)
+      Plug fzfdir
+      Plug 'junegunn/fzf.vim'
+
+      """" go ahead and include maps here
+      noremap <C-p> :FZF<CR>
+
+    endif
+
+    unlet fzfdir
+    unlet fzfplugin
+    """ }}}
 
   endif
 
-  unlet fzfdir
-  unlet fzfplugin
-
+  call plug#end()
 endif
-
-silent! call plug#end()
+unlet include_plugins
 "" }}}
 
 " Color Scheme {{{
@@ -229,7 +277,7 @@ elseif &term =~ "xterm"
   set t_ts=]1;
   set t_fs=
 endif
-" {{{
+" }}}
 
 " Clipboard {{{
 "" copy everywhere (`*` and `+`)
