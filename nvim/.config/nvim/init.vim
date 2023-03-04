@@ -50,12 +50,10 @@ set directory=.,/tmp " prefer storing swap files along with actual files
 
 " Undo {{{
 " see http://amix.dk/blog/post/19548
-if (version >= 703)
-  set undolevels=1000 " remember 1000 undo levels
-  set noundofile      " don't persist undo information
-  set undoreload=100  " if we _do_ persist (manual set), only remember 100 undo levels
-  set undodir=.       " (only) store undo files along with actual files
-endif
+set undolevels=1000 " remember 1000 undo levels
+set noundofile      " don't persist undo information
+set undoreload=100  " if we _do_ persist (manual set), only remember 100 undo levels
+set undodir=.       " (only) store undo files along with actual files
 " }}}
 
 " Searching {{{
@@ -80,14 +78,6 @@ set spelllang=en_us
 
 " Abbreviations {{{
 ab _cf Curtis Free (https://curtisfree.com)
-" }}}
-
-" Tags {{{
-"" See http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks.
-set tags=./tags;${HOME}
-nnoremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-inoremap <C-\> <C-o>:tab split<CR><C-o>:exec("tag ".expand("<cword>"))<CR>
-vnoremap <C-\> <Esc>:tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " }}}
 
 " Maps {{{
@@ -122,16 +112,12 @@ nnoremap ; :ls<CR>:b<Space>
 " Interface {{{
 set mouse=a  " allow mouse use
 set wildmenu " display menu that cycles through command-lne completions
+"" Line Numbers
+set number relativenumber
 "" Status Line
 """ See https://curtisfree.com/blog/2012/04/22/adding_total_line_count_to_vim_statusline.
 set laststatus=2                                    " always show the status bar
 set statusline=%<%f\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P " include total line count
-" }}}
-
-" Line Numbering {{{
-if (version >= 704)
-  set number relativenumber
-endif
 " }}}
 
 " Plugins {{{
@@ -270,8 +256,8 @@ if &term =~ "screen"
   set t_fs=
   " needed for mouse
   set ttymouse=xterm2
-" xterm (or iTerm2, etc.)
-"" See http://stackoverflow.com/questions/2105880/how-can-i-get-the-file-i-have-open-in-vim-to-display-in-my-iterm-tab.
+"" xterm (or iTerm2, etc.)
+""" See http://stackoverflow.com/questions/2105880/how-can-i-get-the-file-i-have-open-in-vim-to-display-in-my-iterm-tab.
 elseif &term =~ "xterm"
   " terminal title adjustments
   set t_ts=]1;
@@ -290,12 +276,6 @@ set clipboard=unnamed,unnamedplus
 function! StripTrailingSpaces() abort
   exec ':%s/\s\+$//e'
 endfunction
-"" SUw
-"" Writes a file even if not running as superuser (via sudo).
-"" Odd command name ("SUw") to prevent accidents.
-"" Hit "L" at the prompt.
-"" See http://writequit.org/blog/?p=195.
-command! SUw %!sudo tee >/dev/null %
 "" CleanDOS
 "" Fix DOS line endings.
 command! CleanDOS %s//\r/g
@@ -321,10 +301,10 @@ if has("autocmd")
     autocmd FileType *              setlocal expandtab   tabstop=4 softtabstop=4 shiftwidth=4
     " filetypes
     autocmd FileType asm            setlocal noexpandtab tabstop=8 softtabstop=4 shiftwidth=8
-    autocmd FileType gitcommit      setlocal                                                                  spell
+    autocmd FileType gitcommit      setlocal                                                                                spell
     autocmd FileType html,xhtml,xml setlocal             tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType make           setlocal noexpandtab
-    autocmd FileType markdown       setlocal                                    colorcolumn=101 textwidth=100
+    autocmd FileType markdown       setlocal                                                  colorcolumn=101 textwidth=100
     autocmd FileType st             setlocal noexpandtab
     autocmd FileType sql,plsql      setlocal             tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType sudoers        setlocal noexpandtab
