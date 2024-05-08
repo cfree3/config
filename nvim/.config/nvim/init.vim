@@ -242,10 +242,25 @@ unlet include_plugins
 "" }}}
 
 " Color Scheme {{{
-"" ("silent!" means we won't error if the theme isn't installed)
 set termguicolors
 let base16colorspace=256
-silent! colorscheme base16-tomorrow-night
+let colorscheme_light='base16-tomorrow'
+let colorscheme_dark='base16-tomorrow-night'
+"" choose light or dark scheme based on macOS settings
+try
+  " https://stackoverflow.com/a/25214873
+  if has('mac') && trim(system('defaults read -g AppleInterfaceStyle')) == 'Dark'
+    execute 'colorscheme '..colorscheme_dark
+  else
+    execute 'colorscheme '..colorscheme_light
+  endif
+"" default to dark scheme, if we couldn't determine theme
+""   ... or not on macOS
+""   ... or the theme set above didn't actually exist (error encountered)
+catch
+  " ("silent!" means we won't error if the scheme isn't installed)
+  silent! execute 'colorscheme '..colorscheme_dark
+endtry
 " }}}
 
 " Terminals {{{
