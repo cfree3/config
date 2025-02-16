@@ -1,0 +1,26 @@
+# ~/.gitconfig | Curtis Free (https://curtisfree.com)
+
+[include]
+    path = ~/.gitconfig.local
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    pager = true
+    ui = auto
+    interactive = auto
+
+[log]
+    date = local
+    follow = true
+
+[format]
+    # http://stackoverflow.com/questions/5889878/color-in-git-log
+    pretty = format:%C(green)%h%Creset - %an %C(red)(%cr)%C(blue)%d%Creset%Creset%n%s%n
+
+[push]
+    default = simple
+
+[init]
+    defaultBranch = main
