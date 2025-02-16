@@ -2,4 +2,4 @@
 
 # Install gems to the Homebrew prefix.
 ## See https://github.com/Homebrew/homebrew/wiki/Gems,-Eggs-and-Perl-Modules.
-gem: -n/usr/local/bin
+gem: -n/opt/homebrew/bin
