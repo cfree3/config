@@ -1,0 +1,10 @@
+# ~/.config/ghostty/config | Curtis Free (https://curtisfree.com)
+# Configuration for the Ghostty terminal emulator.
+
+# Core Configuration
+theme = light:"Tomorrow",dark:"Tomorrow Night"
+
+# Mac-Specific Configuration
+macos-icon = xray
+macos-titlebar-style = native
+macos-titlebar-proxy-icon = hidden
