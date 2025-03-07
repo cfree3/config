@@ -66,7 +66,7 @@ autoload -Uz compinit && compinit
 
 # Set the standard prompt.
 # This is a ZSH (%) version of the default RHEL BASH prompt.
-PROMPT='%F{blue}[%n@%m %1~]%F{green}%#%f '
+PROMPT='%F{green}[ %F{blue}%n@%m %F{green}➤ %F{magenta}%~ %F{green}]%#%f '
 
 # Configure support for VCS info [12,13].
 autoload -Uz vcs_info
@@ -74,9 +74,8 @@ zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' formats '[%b]'
 zstyle ':vcs_info:*' disable-patterns "${HOME}"
 
-# The right-side prompt should show the time and VCS info; "black" text (still
-# visible on dark background) makes the prompt less obtrusive.
-RPROMPT='%F{yellow}[%D{%r}]${vcs_info_msg_0_}%f'
+# The right-side prompt should show the time and VCS info.
+RPROMPT='%F{red}${vcs_info_msg_0_}%F{yellow}[%D{%H:%M:%S}]%f'
 
 # If using xterm, rxvt, or screen/tmux, set the window title to user@directory;
 # determine VCS information [12,13].
@@ -84,7 +83,7 @@ RPROMPT='%F{yellow}[%D{%r}]${vcs_info_msg_0_}%f'
 case "$TERM" in
     xterm*|rxvt*|screen*|tmux*) # includes `*-256color` variants
         precmd () {
-            echo -ne "\033]0;$(print -P '%n@%m: %~')\007"
+            echo -ne "\033]0;$(print -P '%n@%m ➤ %~')\007"
             vcs_info &>/dev/null # errors if going from VCS dir back to ~
         }
         ;;
