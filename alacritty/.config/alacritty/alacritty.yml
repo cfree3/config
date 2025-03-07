@@ -8,7 +8,7 @@ dimensions:
 
 # No tabs, so just start tmux.
 shell:
-    program: /usr/local/bin/zsh
+    program: /opt/homebrew/bin/zsh
     args:
         - -l
         - -c
