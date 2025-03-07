@@ -2,9 +2,14 @@
 # Configuration for the Ghostty terminal emulator.
 
 # Core Configuration
+command = /opt/homebrew/bin/zsh
+term = xterm-256color
 theme = light:"Tomorrow",dark:"Tomorrow Night"
+clipboard-paste-protection = false
 
 # Mac-Specific Configuration
-macos-icon = xray
-macos-titlebar-style = native
+macos-icon = custom-style
+macos-icon-ghost-color = #b5bd68
+macos-icon-screen-color = #1d1f21
+macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
