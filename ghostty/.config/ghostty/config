@@ -6,6 +6,7 @@ command = /opt/homebrew/bin/zsh
 term = xterm-256color
 theme = light:"Tomorrow",dark:"Tomorrow Night"
 clipboard-paste-protection = false
+shell-integration = none
 
 # Mac-Specific Configuration
 macos-icon = custom-style
