@@ -20,9 +20,9 @@ cd Config
 Then you can use Stow to put symlinks in place, app by app:
 
 ```sh
-git stow zsh
-git stow tmux
-git stow nvim
+stow zsh
+stow tmux
+stow nvim
 # etc.
 ```
 
