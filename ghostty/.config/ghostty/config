@@ -5,6 +5,8 @@
 command = /opt/homebrew/bin/zsh
 term = xterm-256color
 theme = light:"Tomorrow",dark:"Tomorrow Night"
+window-height = 30
+window-width = 130
 clipboard-paste-protection = false
 shell-integration = none
 
