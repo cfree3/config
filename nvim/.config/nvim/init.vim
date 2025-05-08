@@ -231,9 +231,9 @@ if include_plugins
 
     unlet fzfdir
     unlet fzfplugin
-    """ }}}
 
   endif
+  """ }}}
 
   call plug#end()
 endif
