@@ -176,7 +176,7 @@ if include_plugins
   """ }}}
 
   """ Fugitive (Git) {{{
-  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive', { 'on': 'Git' }
   """ }}}
 
   """ TBone (tmux integration) {{{
