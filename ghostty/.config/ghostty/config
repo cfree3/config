@@ -20,6 +20,10 @@ macos-titlebar-proxy-icon = hidden
 ## "Fix" <C-Enter> [1]
 keybind = ctrl+enter=text:\r
 
+# Local (Machine-Specific) Changes
+## Place in ~/.local/config/ghostty/config
+config-file = ?../../.local/config/ghostty/config
+
 # References
 # ----------
 # [1] https://github.com/ghostty-org/ghostty/discussions/3151#discussioncomment-11678064
