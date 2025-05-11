@@ -15,3 +15,11 @@ window-inherit-font-size = false
 macos-icon = xray
 macos-titlebar-style = native
 macos-titlebar-proxy-icon = hidden
+
+# Keybindings
+## "Fix" <C-Enter> [1]
+keybind = ctrl+enter=text:\r
+
+# References
+# ----------
+# [1] https://github.com/ghostty-org/ghostty/discussions/3151#discussioncomment-11678064
