@@ -175,10 +175,6 @@ if include_plugins
   Plug 'preservim/nerdcommenter'
   """ }}}
 
-  """ NERD Tree {{{
-  Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-  """ }}}
-
   """ Fugitive (Git) {{{
   Plug 'tpope/vim-fugitive'
   """ }}}
