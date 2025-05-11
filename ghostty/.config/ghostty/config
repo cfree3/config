@@ -8,11 +8,10 @@ theme = light:"Tomorrow",dark:"Tomorrow Night"
 window-height = 30
 window-width = 130
 clipboard-paste-protection = false
-shell-integration = none
+shell-integration-features = no-title
+window-inherit-font-size = false
 
 # Mac-Specific Configuration
-macos-icon = custom-style
-macos-icon-ghost-color = #b5bd68
-macos-icon-screen-color = #1d1f21
-macos-titlebar-style = tabs
+macos-icon = xray
+macos-titlebar-style = native
 macos-titlebar-proxy-icon = hidden
