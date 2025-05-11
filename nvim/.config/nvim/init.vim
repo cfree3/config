@@ -111,14 +111,23 @@ nnoremap ; :ls<CR>:b<Space>
 " }}}
 
 " Interface {{{
-set mouse=a  " allow mouse use
-set wildmenu " display menu that cycles through command-lne completions
+set mouse=a    " allow mouse use
+set wildmenu   " display menu that cycles through command-lne completions
+set cursorline " highlight current line
+"" Window Title
+""" See `:h titlestring`: this is *mostly* the default, minus " - Nvim" at the end.
+set titlestring=%t%(\ \(%{expand(\"%:~:h\")}\)%)%a
 "" Line Numbers
 set number relativenumber
 "" Status Line
 """ See https://curtisfree.com/blog/2012/04/22/adding_total_line_count_to_vim_statusline.
 set laststatus=2                                    " always show the status bar
-set statusline=%<%f\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P " include total line count
+if has('nvim')
+  set winbar=%<\%#Directory#[%n\]\ %#ModeMsg#%t%#NonText#%(\ \(%{expand(\"%:~:h\")}\)%)%=%m%r%y
+  set statusline=%=%-14.(%l/%L,%c%V%)\ %P
+else
+  set statusline=%<\%#Directory#[%n\]\ %#ModeMsg#%t%#NonText#%(\ \(%{expand(\"%:~:h\")}\)%)%=%m%r%y%##\ %-14.(%l/%L,%c%V%)\ %P
+endif
 " }}}
 
 " Plugins {{{
@@ -161,14 +170,6 @@ unlet data_dir
 if include_plugins
   call plug#begin()
   Plug 'junegunn/vim-plug'
-
-  """ BufTabLine {{{
-  Plug 'ap/vim-buftabline'
-  """" only show the tab line when it makes sense
-  let g:buftabline_show = 1
-  """" show when modified
-  let g:buftabline_indicators = 1
-  """ }}}
 
   """ NERD Commenter {{{
   Plug 'preservim/nerdcommenter'
