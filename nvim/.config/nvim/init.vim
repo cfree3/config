@@ -111,9 +111,10 @@ nnoremap ; :ls<CR>:b<Space>
 " }}}
 
 " Interface {{{
-set mouse=a    " allow mouse use
-set wildmenu   " display menu that cycles through command-lne completions
-set cursorline " highlight current line
+set mouse=a               " allow mouse use
+set wildmenu              " display menu that cycles through command-lne completions
+set wildmode=list:longest " complete up to shared prefix (but do not auto-select first option)
+set cursorline            " highlight current line
 "" Window Title
 """ See `:h titlestring`: this is *mostly* the default, minus " - Nvim" at the end.
 set titlestring=%t%(\ \(%{expand(\"%:~:h\")}\)%)%a
