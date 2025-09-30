@@ -131,6 +131,15 @@ else
 endif
 " }}}
 
+" Netrw {{{
+"" See https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/.
+let g:netrw_winsize = 20
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_list_hide= '^\..*\.sw.$'
+nmap - :Lexplore<CR>:setlocal winbar=%{expand(\"%:~:h\")}<CR>
+" }}}
+
 " Plugins {{{
 "" (via vim-plug; https://github.com/junegunn/vim-plug)
 "" See http://stackoverflow.com/questions/5983906/vim-conditionally-use-fugitivestatusline-function-in-vimrc.
