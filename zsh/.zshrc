@@ -65,8 +65,8 @@ export HISTFILE=~/.zsh_history # Save history to ~/.zsh_history.
 autoload -Uz compinit && compinit
 
 # Set the standard prompt.
-# This is a ZSH (%) version of the default RHEL BASH prompt.
-PROMPT='%F{green}[ %F{blue}%n@%m%F{green}:%F{magenta}%~%F{green} ]%#%f '
+# This is modeled after the the default RHEL BASH prompt.
+PROMPT='%F{green}[ %F{blue}%n@%m%F{green}:%F{magenta}%3~%F{green} ]%#%f '
 
 # Configure support for VCS info [12,13].
 autoload -Uz vcs_info
