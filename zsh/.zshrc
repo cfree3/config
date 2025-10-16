@@ -73,21 +73,41 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' formats '[%b]'
 zstyle ':vcs_info:*' disable-patterns "${HOME}"
+precmd_functions+=(vcs_info)
 
 # The right-side prompt should show the time and VCS info.
 RPROMPT='%F{red}${vcs_info_msg_0_}%F{yellow}[%D{%H:%M:%S}]%f'
 
-# If using xterm, rxvt, or screen/tmux, set the window title to user@directory;
-# determine VCS information [12,13].
-# Inspired by default Ubuntu .bashrc and [10].
+# If using a "known-good" terminal (or a terminal claiming to be one)...
 case "$TERM" in
     xterm*|rxvt*|screen*|tmux*) # includes `*-256color` variants
-        precmd () {
-            echo -ne "\033]0;$(print -P '%n@%m:%~')\007"
-            vcs_info &>/dev/null # errors if going from VCS dir back to ~
+
+        # Set terminal title automatically.
+        # - Default format inspired by default Ubuntu .bashrc and [10].
+        # - See also [25].
+        _set_title() {
+            echo -ne "\033]0;${SHELL_TITLE:-$(print -P '%n@%m:%~')}\007"
         }
+        precmd_functions+=(_set_title)
+
+        # One can set SHELL_TITLE (or use this helper function) to override the
+        # default window title. (Unset or set to blank, or execute this
+        # function with no arguments, to restore default dynamic title
+        # behavior.)
+        title() {
+            SHELL_TITLE="${@}";
+        }
+
+        # Set cursor to a blinking vertical bar [26].
+        _set_cursor() {
+            echo -ne "\e[5 q"
+        }
+        precmd_functions+=(_set_cursor)
+
         ;;
     *)
+        # ZSH configuration may not behave as expected!
+        echo "WARNING! Unknown terminal (${TERM})!"
         ;;
 esac
 
@@ -239,13 +259,6 @@ tunnel() { ssh -ND 8080 ${1}; }
 ## Resolve IPs [19].
 exists dscacheutil && ip() { dscacheutil -q host -a name ${1}; }
 
-# Set terminal title.
-## http://superuser.com/questions/292652/change-iterm2-window-and-tab-titles-in-zsh
-function title() {
-    exists precmd && unfunction precmd
-    echo -ne "\e]1;${@}\a"
-}
-
 # Variable modifications.
 unset LC_COLLATE # Prevent "C" sorting.
 
@@ -285,3 +298,5 @@ fi
 ## [22] https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Gems,-Eggs-and-Perl-Modules.md
 ## [23] https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
 ## [24] https://www.reddit.com/r/vim/comments/morzue/vim_has_a_native_plugin_that_allows_you_to_turn/
+## [25] http://superuser.com/questions/292652/change-iterm2-window-and-tab-titles-in-zsh
+## [26] https://unix.stackexchange.com/a/496878
