@@ -65,18 +65,20 @@ export HISTFILE=~/.zsh_history # Save history to ~/.zsh_history.
 autoload -Uz compinit && compinit
 
 # Set the standard prompt.
-# This is modeled after the the default RHEL BASH prompt.
-PROMPT='%F{green}[ %F{blue}%n@%m%F{green}:%F{magenta}%3~%F{green} ]%#%f '
+## This is modeled after the the default RHEL BASH prompt.
+## Allow half of the term width for commands [28].
+PROMPT=$'%F{green}[ %F{blue}%n@%m%F{green}:%F{magenta}%-$((${COLUMNS}/2))<><%~%<<%F{green} ]%#%f '
 
 # Configure support for VCS info [12,13].
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' formats '%b'
 zstyle ':vcs_info:*' disable-patterns "${HOME}"
 precmd_functions+=(vcs_info)
 
-# The right-side prompt should show the time and VCS info.
-RPROMPT='%F{red}${vcs_info_msg_0_}%F{yellow}[%D{%H:%M:%S}]%f'
+# The right-side prompt should show VCS info and the time (no margin) [27].
+RPROMPT=$'%F{red}[${vcs_info_msg_0_}]%F{yellow}[%D{%H:%M:%S}]%f'
+ZLE_RPROMPT_INDENT=0
 
 # If using a "known-good" terminal (or a terminal claiming to be one)...
 case "$TERM" in
@@ -300,3 +302,5 @@ fi
 ## [24] https://www.reddit.com/r/vim/comments/morzue/vim_has_a_native_plugin_that_allows_you_to_turn/
 ## [25] http://superuser.com/questions/292652/change-iterm2-window-and-tab-titles-in-zsh
 ## [26] https://unix.stackexchange.com/a/496878
+## [27] https://superuser.com/a/726509
+## [28] https://www.reddit.com/r/zsh/comments/tvmmvp/comment/i3a7rw9/
