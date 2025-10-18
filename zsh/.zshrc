@@ -61,12 +61,12 @@ PROMPT=$'%F{green}[ %F{blue}%n@%m%F{green}:%F{magenta}%-$((${COLUMNS}/2))<><%~%<
 # Configure support for VCS info [12,13].
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:*' formats '[%b]'
 zstyle ':vcs_info:*' disable-patterns "${HOME}"
 precmd_functions+=(vcs_info)
 
 # The right-side prompt should show VCS info and the time (no margin) [27].
-RPROMPT=$'%F{red}[${vcs_info_msg_0_}]%F{yellow}[%D{%H:%M:%S}]%f'
+RPROMPT=$'%F{red}${vcs_info_msg_0_}%F{yellow}[%D{%H:%M:%S}]%f'
 ZLE_RPROMPT_INDENT=0
 
 # If using a "known-good" terminal (or a terminal claiming to be one)...
