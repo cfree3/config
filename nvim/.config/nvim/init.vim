@@ -108,6 +108,10 @@ vnoremap <C-h> :bp<CR>
 """ menu
 """" see https://stackoverflow.com/a/16084326
 nnoremap ; :ls<CR>:b<Space>
+"" terminal
+""" easy escape
+"""" see https://www.reddit.com/r/neovim/comments/yg2d9v/comment/iu7zeip/
+"tnoremap <Esc> <C-\><C-n>
 " }}}
 
 " Interface {{{
