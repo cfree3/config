@@ -194,7 +194,11 @@ if include_plugins
   """ }}}
 
   """ Base16 Color Themes {{{
-  Plug 'chriskempson/base16-vim'
+  if has('nvim')
+    Plug 'RRethy/base16-nvim'
+  else
+    Plug 'chriskempson/base16-vim'
+  endif
   """ }}}
 
   """ VimWiki (+ TaskWiki) {{{
