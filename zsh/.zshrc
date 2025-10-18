@@ -44,17 +44,6 @@ if exists nvim; then
 elif exists vim; then
     export MANPAGER='vim -M +MANPAGER -'
 fi
-## BROWSER
-if exists open; then
-    BROWSER='open'
-elif exists google-chrome; then
-    BROWSER='google-chrome'
-elif exists chromium; then
-    BROWSER='chromium'
-elif exists firefox; then
-    BROWSER='firefox'
-fi
-export BROWSER
 
 # History settings.
 export HISTSIZE=100            # Store 100 cmds from current session.
@@ -199,13 +188,10 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # Suffix aliases.
-alias -s htm=${BROWSER}
-alias -s html=${BROWSER}
 alias -s java=${EDITOR}
 alias -s sql=${EDITOR}
 alias -s tex=${EDITOR}
 alias -s txt=${EDITOR}
-alias -s xhtml=${BROWSER}
 
 # Enable aliases when using sudo (won't work if an alias uses `nocorrect`).
 alias sudo='sudo ' # Note the trailing space.
@@ -223,39 +209,19 @@ if [ "${EDITOR}" ]; then
     alias view="${EDITOR} -R"
 fi
 
-# Copy/paste alias(es).
-## To copy:
-##   echo ${SOURCE} | yank
-## To paste:
-##   put | ${SINK}
-if exists xclip; then
-    alias yank='xclip'
-    alias put='xclip'
-elif exists pbcopy && exists pbpaste; then
-    alias yank='pbcopy'
-    alias put='pbpaste'
-fi
-
-# Taskwarrior alias(es).
-if exists task; then
-    alias t='task'
-fi
-
 # Utility settings [4].
 ## grep
 export GREP_OPTIONS="--color=auto"
 ## ls
 export CLICOLOR=
 ### CLICOLOR works on the BSD version included with OS X; include alias for GNU version.
-silent ls --color=auto && alias "ls --color=auto"
+silent ls --color=auto && alias ls='ls --color=auto'
 
 # Functions.
 ## Make a new directory and change into it [7].
 mkcd  () { mkdir -p ${1} && cd ${1}; } && alias mkcd='nocorrect mkcd'
 ## Send a file to the "trash" without actually deleting it.
 trash () { [ -f ~/.Trash ] || mkdir ~/.Trash; mv ${@} ~/.Trash; }
-## Open a simple SSH tunnel.
-tunnel() { ssh -ND 8080 ${1}; }
 
 # Special functions.
 ## Resolve IPs [19].
