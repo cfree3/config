@@ -111,7 +111,7 @@ nnoremap ; :ls<CR>:b<Space>
 "" terminal
 """ easy escape
 """" see https://www.reddit.com/r/neovim/comments/yg2d9v/comment/iu7zeip/
-"tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 " }}}
 
 " Interface {{{
