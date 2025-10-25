@@ -205,7 +205,7 @@ if include_plugins
   endif
   """ }}}
 
-  """ VimWiki (+ TaskWiki) {{{
+  """ VimWiki {{{
   Plug 'vimwiki/vimwiki'
   let g:vimwiki_global_ext = 0
   let wiki = {}
@@ -219,14 +219,8 @@ if include_plugins
   let wiki.diary_header = 'Timeline'
   let wiki.auto_diary_index = 1
   let g:vimwiki_list = [ wiki ]
-
   """" (make it easier to increase indent; to the right of <C-d>/decrease)
   inoremap <C-f> <C-t>
-
-  """" + TaskWiki (if Taskwarrior installed)
-  if executable('task')
-    Plug 'tools-life/taskwiki'
-  endif
   """ }}}
 
   """ FZF (if installed) {{{
