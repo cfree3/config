@@ -131,8 +131,6 @@ vim.keymap.set("v", "<C-l>", ":bn<CR>")
 vim.keymap.set("n", "<C-h>", ":bp<CR>")
 vim.keymap.set("i", "<C-h>", "<C-o>:bp<CR>")
 vim.keymap.set("v", "<C-h>", ":bp<CR>")
---   ▶︎ Menu (https://stackoverflow.com/a/16084326)
-vim.keymap.set("n", ";", ":ls<CR>:b<Space>")
 
 -- ▶︎ Terminal
 --   ▶︎ Easy escape (https://www.reddit.com/r/neovim/comments/yg2d9v/comment/iu7zeip/)
