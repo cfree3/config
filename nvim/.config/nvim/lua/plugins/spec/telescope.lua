@@ -1,4 +1,4 @@
--- ~/.config/nvim/lua/plugins/spec/fzf.lua | Curtis Free (https://curtisfree.com)
+-- ~/.config/nvim/lua/plugins/spec/telescope.lua | Curtis Free (https://curtisfree.com)
 
 return {
   "nvim-telescope/telescope.nvim",
