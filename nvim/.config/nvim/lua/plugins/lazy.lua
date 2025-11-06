@@ -41,5 +41,16 @@ require("lazy").setup({
       import = "plugins.spec",
     },
   },
+  ui = {
+    backdrop = 100,
+    border = "rounded",
+    pills = false,
+    size = {
+      width = 0.40,
+      height = 0.50,
+    },
+    title = " Plugins ",
+    title_pos = "center",
+  },
 })
 -- }}}
