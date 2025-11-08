@@ -122,6 +122,10 @@ vim.keymap.set("", "<C-k>", "<C-u>")
 --   ▶︎ Down
 vim.keymap.set("", "<C-j>", "<C-d>")
 
+-- ▶︎ Indentation
+--   ▶︎ Simplify reversing a level of indentation
+vim.keymap.set("i", "<S-Tab>", "<C-d>")
+
 -- ▶︎ Buffer movement
 --   ▶︎ Next
 vim.keymap.set("n", "<C-l>", ":bn<CR>")
