@@ -127,11 +127,15 @@ vim.keymap.set("", "<C-j>", "<C-d>")
 vim.keymap.set("i", "<S-Tab>", "<C-d>")
 
 -- ▶︎ Buffer movement
---   ▶︎ Next
+--   ▶︎ Previous
+vim.keymap.set("n", "<C-;>", ":b#<CR>")
+vim.keymap.set("i", "<C-;>", "<C-o>:b#<CR>")
+vim.keymap.set("v", "<C-;>", ":b#<CR>")
+--   ▶︎ Forward
 vim.keymap.set("n", "<C-l>", ":bn<CR>")
 vim.keymap.set("i", "<C-l>", "<C-o>:bn<CR>")
 vim.keymap.set("v", "<C-l>", ":bn<CR>")
---   ▶︎ Previous
+--   ▶︎ Backward
 vim.keymap.set("n", "<C-h>", ":bp<CR>")
 vim.keymap.set("i", "<C-h>", "<C-o>:bp<CR>")
 vim.keymap.set("v", "<C-h>", ":bp<CR>")
