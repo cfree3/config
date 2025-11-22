@@ -49,9 +49,10 @@ vim.opt.wrap = false
 --   ▶︎ Mostly the default, but lose " - Nvim" at the end
 vim.opt.titlestring = [[%t%( (%{expand("%:~:h")})%)%a]]
 
--- ▶︎ Line numbers
+-- ▶︎ Gutter
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.signcolumn = "number"
 
 -- ▶︎ Status line
 --   ▶︎ See https://curtisfree.com/blog/2012/04/22/adding_total_line_count_to_vim_statusline
