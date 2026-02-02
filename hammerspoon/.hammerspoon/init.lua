@@ -12,7 +12,7 @@ hs.window.animationDuration = 0
 --    (Just set to 0 for no extra padding.)
 --
 
-window_padding = 5
+local window_padding = 5
 
 --
 --  Most of this is simple and largely from Hammerspoon's "Getting Started"
@@ -22,9 +22,9 @@ window_padding = 5
 -- Keyboard!
 --   | fn | ctrl | alt (opt) | cmd | space | ...
 
-bind_onekey = { "cmd" }
-bind_twokey = { "ctrl", "alt" }
-bind_threekey = { "ctrl", "alt", "cmd" }
+local bind_onekey = { "cmd" }
+local bind_twokey = { "ctrl", "alt" }
+local bind_threekey = { "ctrl", "alt", "cmd" }
 
 --
 --  Vi(m) keys:
@@ -266,7 +266,7 @@ hs.window.highlight.ui.overlay = true
 hs.window.highlight.ui.overlayColor = { 0, 0, 0, 0.001 }
 hs.window.highlight.ui.frameWidth = 2
 hs.window.highlight.ui.frameColor = { 0, 1, 0, 0.5 }
-highlight_running = false
+local highlight_running = false
 hs.hotkey.bind(bind_twokey, "i", function()
   if not highlight_running then
     hs.window.highlight.start()
