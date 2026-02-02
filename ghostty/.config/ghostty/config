@@ -13,7 +13,7 @@ window-inherit-font-size = false
 
 # Mac-Specific Configuration
 macos-icon = xray
-macos-titlebar-style = native
+macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
 
 # Keybindings
