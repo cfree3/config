@@ -155,10 +155,6 @@ vim.g.netrw_list_hide = "^..*.sw.$"
 vim.keymap.set("n", "-", ':Lexplore<CR>:setlocal winbar=%{expand("%:~:h")}<CR>')
 -- }}}}
 
--- Plugins {{{
-require("plugins.lazy")
--- }}}
-
 -- Clipboard {{{
 -- ▶︎ Copy everywhere (`*` and `+`)
 vim.opt.clipboard = "unnamed,unnamedplus"
