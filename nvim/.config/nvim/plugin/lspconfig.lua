@@ -22,6 +22,7 @@ do
       pattern = "*.lua",
     },
   }
+
   -- Enable those LSPs iff they are installed
   for _, lang in pairs(lsps) do
     if vim.fn.executable(lang.exe) then
@@ -36,6 +37,7 @@ do
       })
     end
   end
+
   -- Configure how Neovim should surface diagnostics
   vim.diagnostic.config({
     virtual_text = {
@@ -43,7 +45,5 @@ do
       virt_text_win_col = 82,
     },
   })
-  -- FIXME: Set the highlight for DiagnosticUnnecessary to "NONE"
-  -- per https://www.reddit.com/r/neovim/comments/17pkryg/comment/k8gfzwd/
 end
 -- }}}
