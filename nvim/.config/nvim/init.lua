@@ -161,7 +161,14 @@ vim.opt.clipboard = "unnamed,unnamedplus"
 -- }}}
 
 -- Commands/Functions {{{
--- ▶︎ StripTrailing (http://vim.wikia.com/wiki/Remove_unwanted_spaces)
+-- ▶︎ PackUpdate
+--   ▶︎ Check for (and optionally apply) package/plugin updates
+vim.api.nvim_create_user_command("PackUpdate", function()
+  vim.pack.update()
+end, {})
+-- ▶︎ StripTrailing
+--   ▶︎ Remove trailing whitespace throughout the file
+--   ▶︎ See http://vim.wikia.com/wiki/Remove_unwanted_spaces
 vim.api.nvim_create_user_command("StripTrailing", function()
   vim.cmd(":%s/\\s\\+$//e")
 end, {})
