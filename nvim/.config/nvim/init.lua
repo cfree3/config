@@ -45,6 +45,9 @@ vim.opt.wildmenu = true
 vim.opt.wildmode = "list:longest"
 vim.opt.wrap = false
 
+-- ▶︎ UI2
+require('vim._core.ui2').enable({})
+
 -- ▶︎ Window title
 --   ▶︎ Mostly the default, but lose " - Nvim" at the end
 vim.opt.titlestring = [[%t%( (%{expand("%:~:h")})%)%a]]
