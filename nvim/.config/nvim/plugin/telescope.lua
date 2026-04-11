@@ -62,10 +62,5 @@ do
       },
     },
   })
-
-  -- Extensions
-  -- ▶︎ Use native FZF to find files by name (more capable than builtin)
-  --   ▶︎ See https://www.reddit.com/r/neovim/comments/1fk4r04/comment/lnt77pj/
-  --require("telescope").load_extension("fzf")
 end
 -- }}}
