@@ -25,7 +25,7 @@ do
 
   -- Enable those LSPs iff they are installed
   for _, lang in pairs(lsps) do
-    if vim.fn.executable(lang.exe) then
+    if vim.fn.executable(lang.exe) == 1 then
       vim.lsp.enable(lang.exe)
       -- Show the sign column in files of this type
       -- (easier to read than signcolumn = "number")
