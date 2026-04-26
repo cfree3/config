@@ -21,6 +21,10 @@ do
       exe = "lua_ls",
       pattern = "*.lua",
     },
+    python = {
+      exe = "pylsp",
+      pattern = "*.py",
+    },
   }
 
   -- Enable those LSPs iff they are installed
