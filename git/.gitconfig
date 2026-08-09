@@ -23,3 +23,7 @@
 
 [init]
     defaultBranch = main
+
+# Got (https://github.com/cfree3/got)
+[got "log"]
+    graph = true
