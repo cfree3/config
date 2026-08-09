@@ -11,6 +11,9 @@
     ui = auto
     interactive = auto
 
+[diff]
+    tool = nvimdiff
+
 [log]
     follow = true
 
