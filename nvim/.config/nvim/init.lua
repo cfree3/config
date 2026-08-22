@@ -164,6 +164,11 @@ vim.opt.clipboard = "unnamed,unnamedplus"
 -- }}}
 
 -- Commands/Functions {{{
+-- ▶︎ Q
+--   ▶︎ Easy way to quit all
+vim.api.nvim_create_user_command("Q", function()
+  vim.cmd("quitall")
+end, {})
 -- ▶︎ PackUpdate
 --   ▶︎ Check for (and optionally apply) package/plugin updates
 vim.api.nvim_create_user_command("PackUpdate", function()
