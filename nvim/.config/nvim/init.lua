@@ -43,6 +43,7 @@ vim.opt.virtualedit = "block"
 vim.opt.visualbell = true
 vim.opt.wildmenu = true
 vim.opt.wildmode = "list:longest"
+vim.opt.winborder = "rounded"
 vim.opt.wrap = false
 
 -- ▶︎ UI2
