@@ -20,8 +20,13 @@ require("blink.cmp").setup({
   },
   completion = {
     documentation = {
-      auto_show = false,
-      auto_show_delay_ms = 500,
+      auto_show = true,
+      auto_show_delay_ms = 150,
+    },
+    list = {
+      selection = {
+        preselect = true,
+      },
     },
     menu = {
       auto_show = true,
@@ -33,7 +38,7 @@ require("blink.cmp").setup({
     },
     ghost_text = {
       enabled = true,
-      show_with_menu = false,
+      show_with_menu = true,
     },
   },
   fuzzy = {
@@ -41,11 +46,11 @@ require("blink.cmp").setup({
     implementation = "lua",
   },
   sources = {
-    -- no "buffer"
     default = {
       "lsp",
       "path",
       "snippets",
+      "buffer",
     },
   },
 })
