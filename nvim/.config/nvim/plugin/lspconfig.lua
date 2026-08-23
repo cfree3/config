@@ -44,13 +44,5 @@ do
       })
     end
   end
-
-  -- Configure how Neovim should surface diagnostics
-  vim.diagnostic.config({
-    virtual_text = {
-      virt_text_pos = "eol",
-      virt_text_win_col = 82,
-    },
-  })
 end
 -- }}}
