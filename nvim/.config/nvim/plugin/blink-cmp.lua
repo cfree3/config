@@ -25,7 +25,7 @@ require("blink.cmp").setup({
     },
     list = {
       selection = {
-        preselect = true,
+        preselect = false,
       },
     },
     menu = {
