@@ -115,8 +115,7 @@ unsetopt bg_nice              # Don't run bg jobs at lower priority.
 setopt   check_jobs           # Warn about running jobs before exit.
 unsetopt clobber              # Don't clobber files with > (use >!) [8].
 setopt   complete_in_word     # Complete in the middle of words.
-unsetopt correct_all          # Do NOT correct cmds and args.
-setopt   hash_list_all        # Hash command path before correcting commands.
+unsetopt correct_all          # Do NOT attempt command/argument correction.
 setopt   hist_ignore_dups     # Ignore duplicate cmds in history.
 setopt   hist_reduce_blanks   # Remove extra blanks from cmds in history.
 setopt   hist_verify          # Bring history expansions to the command line (don't execute).
@@ -193,7 +192,7 @@ alias -s sql=${EDITOR}
 alias -s tex=${EDITOR}
 alias -s txt=${EDITOR}
 
-# Enable aliases when using sudo (won't work if an alias uses `nocorrect`).
+# Enable aliases when using sudo.
 alias sudo='sudo ' # Note the trailing space.
 
 # SELinux helpers.
@@ -219,7 +218,7 @@ silent ls --color=auto && alias ls='ls --color=auto'
 
 # Functions.
 ## Make a new directory and change into it [7].
-mkcd  () { mkdir -p ${1} && cd ${1}; } && alias mkcd='nocorrect mkcd'
+mkcd  () { mkdir -p ${1} && cd ${1}; }
 ## Send a file to the "trash" without actually deleting it.
 trash () { [ -f ~/.Trash ] || mkdir ~/.Trash; mv ${@} ~/.Trash; }
 
