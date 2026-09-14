@@ -27,6 +27,9 @@
 [init]
     defaultBranch = main
 
+[alias]
+    ds = diff --staged
+
 # Got (https://github.com/cfree3/got)
 [got "log"]
     graph = true
