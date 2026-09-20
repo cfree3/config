@@ -42,7 +42,7 @@ vim.opt.winborder = "rounded"
 vim.opt.wrap = false
 
 -- ▶︎ UI2
-require('vim._core.ui2').enable({})
+require("vim._core.ui2").enable({})
 
 -- ▶︎ Window title
 --   ▶︎ Mostly the default, but lose " - Nvim" at the end
