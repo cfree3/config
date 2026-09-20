@@ -1,11 +1,6 @@
 -- ~/.config/nvim/init.lua | Curtis Free (https://curtisfree.com)
 -- General configuration for Neovim. (Plugins and filetype settings in separate Lua scripts!)
 
--- Startup {{{
--- ▶︎ Clear anything that was highlighted (due to search) previously
-vim.cmd("highlight clear")
--- }}}
-
 -- Neovim Providers {{{
 -- ▶︎ Disable providers I don't use
 vim.g.loaded_node_provider = 0
