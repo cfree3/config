@@ -107,13 +107,11 @@ vim.g.mapleader = ","
 
 -- ▶︎ Graphical line movement when using arrow keys
 --   ▶︎ Up
-vim.keymap.set("n", "<Up>", "g<Up>")
-vim.keymap.set("i", "<Up>", "<C-o>g<Up>")
-vim.keymap.set("v", "<Up>", "g<Up>")
+vim.keymap.set({ "n", "v" }, "<Up>", "g<Up>")
+vim.keymap.set({ "i" }, "<Up>", "<C-o>g<Up>")
 --   ▶︎ Down
-vim.keymap.set("n", "<Down>", "g<Down>")
-vim.keymap.set("i", "<Down>", "<C-o>g<Down>")
-vim.keymap.set("v", "<Down>", "g<Down>")
+vim.keymap.set({ "n", "v" }, "<Down>", "g<Down>")
+vim.keymap.set({ "i" }, "<Down>", "<C-o>g<Down>")
 
 -- ▶︎ Easy page up/down
 --   ▶︎ Up
@@ -131,13 +129,11 @@ vim.keymap.set("n", "<C-;>", ":b#<CR>")
 vim.keymap.set("i", "<C-;>", "<C-o>:b#<CR>")
 vim.keymap.set("v", "<C-;>", ":b#<CR>")
 --   ▶︎ Forward
-vim.keymap.set("n", "<C-l>", ":bn<CR>")
-vim.keymap.set("i", "<C-l>", "<C-o>:bn<CR>")
-vim.keymap.set("v", "<C-l>", ":bn<CR>")
+vim.keymap.set({ "n", "v" }, "<C-l>", ":bn<CR>")
+vim.keymap.set({ "i" }, "<C-l>", "<C-o>:bn<CR>")
 --   ▶︎ Backward
-vim.keymap.set("n", "<C-h>", ":bp<CR>")
-vim.keymap.set("i", "<C-h>", "<C-o>:bp<CR>")
-vim.keymap.set("v", "<C-h>", ":bp<CR>")
+vim.keymap.set({ "n", "v" }, "<C-h>", ":bp<CR>")
+vim.keymap.set({ "i" }, "<C-h>", "<C-o>:bp<CR>")
 
 -- ▶︎ Terminal
 --   ▶︎ Easy escape (https://www.reddit.com/r/neovim/comments/yg2d9v/comment/iu7zeip/)
