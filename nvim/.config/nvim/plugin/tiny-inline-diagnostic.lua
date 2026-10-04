@@ -11,22 +11,21 @@ vim.pack.add({
 
 -- Configure {{{
 do
-  -- Set background highlight style
   require("tiny-inline-diagnostic").setup({
-    preset = "powerline",
+    preset = "minimal",
   })
 
   -- Configure how Neovim should surface diagnostics
   vim.diagnostic.config({
     virtual_text = false,
-    -- Match tiny-inline-diagnostic signs
+    -- Use simple arrows (not too jarring alongside Git signs)
     -- ▶︎ See https://vi.stackexchange.com/a/46839
     signs = {
       text = {
-        [vim.diagnostic.severity.ERROR] = "●",
-        [vim.diagnostic.severity.WARN] = "●",
-        [vim.diagnostic.severity.HINT] = "●",
-        [vim.diagnostic.severity.INFO] = "●",
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN] = "",
+        [vim.diagnostic.severity.HINT] = "",
+        [vim.diagnostic.severity.INFO] = "",
       },
     },
   })

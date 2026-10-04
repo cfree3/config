@@ -34,14 +34,6 @@ do
   for _, lang in pairs(lsps) do
     if vim.fn.executable(lang.exe) == 1 then
       vim.lsp.enable(lang.name)
-      -- Show the sign column in files of this type
-      -- (easier to read than signcolumn = "number")
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = lang.pattern,
-        callback = function()
-          vim.opt_local.signcolumn = "yes"
-        end,
-      })
     end
   end
 end

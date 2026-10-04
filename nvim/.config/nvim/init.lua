@@ -31,6 +31,7 @@ vim.opt.mouse = "a"
 vim.opt.ruler = true
 vim.opt.scrolloff = 2
 vim.opt.showcmd = true
+vim.opt.signcolumn = "yes"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.title = true
