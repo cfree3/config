@@ -46,6 +46,13 @@ do
       enabled = true,
       replace_netrw = false,
     },
+    image = {
+      enabled = true,
+      doc = {
+        float = true,
+        inline = false,
+      },
+    },
     indent = {
       enabled = true,
       animate = {
