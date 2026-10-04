@@ -106,13 +106,14 @@ do
     },
   })
 
+  -- Keymaps
   vim.keymap.set("n", "<C-p>", Snacks.picker.smart)
   vim.keymap.set("n", "<C-f>", Snacks.picker.files)
   vim.keymap.set("n", ";", Snacks.picker.buffers)
   vim.keymap.set("n", "<C-A-p>", Snacks.picker.grep)
   vim.keymap.set("n", "-", Snacks.explorer.open)
 
-  -- colors
+  -- Colors
   vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = vim.g.terminal_color_4 })
   vim.api.nvim_set_hl(0, "SnacksDashboardFile", { fg = vim.g.terminal_color_5 })
   vim.api.nvim_set_hl(0, "SnacksDashboardFile", { fg = vim.g.terminal_color_6 })
