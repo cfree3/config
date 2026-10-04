@@ -29,6 +29,7 @@ vim.pack.add({
 -- Install Parsers {{{
 require("nvim-treesitter").install({
   "lua",
+  "regex",
   "zsh",
 })
 -- }}}
