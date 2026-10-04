@@ -46,7 +46,7 @@ require("vim._core.ui2").enable({})
 
 -- ▶︎ Window title
 --   ▶︎ Mostly the default, but lose " - Nvim" at the end
-vim.opt.titlestring = [[%t%( (%{expand("%:~:h")})%)%a]]
+vim.opt.titlestring = [[%t%( (%{expand("%:~:h")})%)]]
 
 -- ▶︎ Gutter
 vim.opt.number = true
