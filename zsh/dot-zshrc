@@ -201,12 +201,10 @@ if exists /sbin/getenforce; then
 fi
 
 # Vim aliases.
-if [ "${EDITOR}" ]; then
-    alias nvim=${EDITOR}
-    alias vi=${EDITOR}
-    alias vim=${EDITOR}
-    alias view="${EDITOR} -R"
-fi
+## Never use "compatible" vi.
+alias vi='vim'
+## Prefer Neovim, if available.
+exists nvim && alias vim='nvim'
 
 # Utility settings [4].
 ## grep
