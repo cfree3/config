@@ -52,6 +52,20 @@ vim.opt.titlestring = [[%t%( (%{expand("%:~:h")})%)]]
 -- ▶︎ Gutter
 vim.opt.number = true
 vim.opt.relativenumber = true
+--   ▶︎ Use absolute line numbers in insert mode (mimic VS Code)
+vim.api.nvim_create_augroup("LineNr", { clear = false })
+vim.api.nvim_create_autocmd("InsertEnter", {
+  group = "LineNr",
+  callback = function()
+    vim.opt.relativenumber = false
+  end,
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+  group = "LineNr",
+  callback = function()
+    vim.opt.relativenumber = true
+  end,
+})
 
 -- ▶︎ Status line
 --   ▶︎ See https://curtisfree.com/blog/2012/04/22/adding_total_line_count_to_vim_statusline
