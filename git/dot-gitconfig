@@ -28,6 +28,7 @@
     defaultBranch = main
 
 [alias]
+    add-all = add -A :/
     ds = diff --staged
 
 # Got (https://github.com/cfree3/got)
