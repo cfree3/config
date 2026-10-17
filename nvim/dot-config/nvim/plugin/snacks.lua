@@ -111,6 +111,7 @@ do
   vim.keymap.set("n", "<C-f>", Snacks.picker.files)
   vim.keymap.set("n", ";", Snacks.picker.buffers)
   vim.keymap.set("n", "<C-A-p>", Snacks.picker.grep)
+  vim.keymap.set("n", "<C-r>", Snacks.picker.resume)
   vim.keymap.set("n", "-", Snacks.explorer.open)
 
   -- Colors
